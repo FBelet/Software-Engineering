@@ -9,21 +9,9 @@ Berenice Flumenbaum & Fabienne Belet
 
 """
 
-<<<<<<< HEAD
 # import modules
 
 
-# include function
 
+# import functions
 
-
-=======
-
-# add modules
-
-
-# functions
-#add changes
-
-
->>>>>>> origin/master
