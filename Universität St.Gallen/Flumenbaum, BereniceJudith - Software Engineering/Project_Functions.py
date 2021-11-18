@@ -9,6 +9,7 @@ Berenice Flumenbaum & Fabienne Belet
 
 """
 
+<<<<<<< HEAD
 # import modules
 
 
@@ -16,3 +17,13 @@ Berenice Flumenbaum & Fabienne Belet
 
 
 
+=======
+
+# add modules
+
+
+# functions
+#add changes
+
+
+>>>>>>> origin/master

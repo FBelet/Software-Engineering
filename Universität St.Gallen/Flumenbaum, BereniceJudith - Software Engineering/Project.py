@@ -23,6 +23,11 @@ PATH = 'C:/Users/fabie/Universität St.Gallen/Flumenbaum, BereniceJudith - Softw
 sys.path.append(PATH)
 
 # load functions
+
 import Project_Functions as pc
 
 # start project
+
+import Project_Functions as pc
+
+#Adding a line
