@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Software Engineering}
+\author{Berenice Flumenbaum & Fabienne Belet}
+\date{November 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+$p_1$
+
+\end{document}
