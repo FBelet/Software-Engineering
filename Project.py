@@ -52,7 +52,7 @@ data_germany_pop = pd.read_excel(PATH + DATANAME2)
 
 
 xls13 = pd.ExcelFile(PATH + DATANAME3)
-data_empl_13 = pd.read_excel(xls13, sheet_name=[0,1], header=None) # including all sheets
+data_empl_13 = pd.read_excel(xls13, sheet_name=[0,1], header=None) # including first two sheets
 
 xls14 = pd.ExcelFile(PATH + DATANAME4)
 data_empl_14 = pd.read_excel(xls14, sheet_name=[0,1], header=None)
@@ -149,7 +149,7 @@ table_germany = pd.merge(table_germany_pop, table_germany_empl)
 
 # Switzerland #
 # define data names
-dataname1 = 'Erwerbstätige_Schweiz_1960-2020_Nationalität & Wirtschaftssektoren.xlsx' ##welcher davon (1,2,3) nutzen?
+dataname1 = 'Erwerbstätige_Schweiz_1960-2020_Infos.xlsx' ##welcher davon (1,2,3) nutzen?
 dataname2 = 'Erwerbstätige_Schweiz_1991-2020_Nationalität.xlsx'  ##welcher davon (1,2,3) nutzen?
 dataname3 = 'Erwerbstätige_Schweiz_1991-2020_Wirtschaftszweige.xlsx' ##welcher davon (1,2,3) nutzen?
 dataname4 = 'Bevölkerungsentwicklung_Schweiz_2000-2020.xlsx'
@@ -173,39 +173,52 @@ data_swiss_nat = pd.read_excel(PATH + dataname2) #nationality
 data_swiss_sec = pd.read_excel(PATH + dataname3) #economic secotrs
 
 XLS10 = pd.ExcelFile(PATH + dataname5)
-data_asyl_10 = pd.read_excel(XLS10, sheet_name=None) # including all sheets
+data_asyl_10 = pd.read_excel(XLS10, sheet_name=['CH-Nati'], header=None) # including first sheets
+data_asyl_10 = data_asyl_10['CH-Nati']
 
 XLS11 = pd.ExcelFile(PATH + dataname6)
-data_asyl_11 = pd.read_excel(XLS11, sheet_name=None)
+data_asyl_11 = pd.read_excel(XLS11, sheet_name=['CH-Nati'], header=None)
+data_asyl_11 = data_asyl_11['CH-Nati']
 
 XLS12 = pd.ExcelFile(PATH + dataname7)
-data_asyl_12 = pd.read_excel(XLS12, sheet_name=None)
+data_asyl_12 = pd.read_excel(XLS12, sheet_name=['CH-Nati'], header=None)
+data_asyl_12 = data_asyl_12['CH-Nati']
 
 XLS13 = pd.ExcelFile(PATH + dataname8)
-data_asyl_13 = pd.read_excel(XLS13, sheet_name=None)
+data_asyl_13 = pd.read_excel(XLS13, sheet_name=['CH-Nati'], header=None)
+data_asyl_13 = data_asyl_13['CH-Nati']
 
 XLS14 = pd.ExcelFile(PATH + dataname9)
-data_asyl_14 = pd.read_excel(XLS14, sheet_name=None)
+data_asyl_14 = pd.read_excel(XLS14, sheet_name=['CH-Nati'], header=None)
+data_asyl_14 = data_asyl_14['CH-Nati']
 
 XLS15 = pd.ExcelFile(PATH + dataname10)
-data_asyl_15 = pd.read_excel(XLS15, sheet_name=None)
+data_asyl_15 = pd.read_excel(XLS15, sheet_name=['CH-Nati'], header=None)
+data_asyl_15 = data_asyl_15['CH-Nati']
 
 XLS16 = pd.ExcelFile(PATH + dataname11)
-data_asyl_16 = pd.read_excel(XLS16, sheet_name=None)
+data_asyl_16 = pd.read_excel(XLS16, sheet_name=['CH-Nati'], header=None)
+data_asyl_16 = data_asyl_16['CH-Nati']
 
 XLS17 = pd.ExcelFile(PATH + dataname12)
-data_asyl_17 = pd.read_excel(XLS17, sheet_name=None)
+data_asyl_17 = pd.read_excel(XLS17, sheet_name=['CH-Nati'], header=None)
+data_asyl_17 = data_asyl_17['CH-Nati']
 
 XLS18 = pd.ExcelFile(PATH + dataname13)
-data_asyl_18 = pd.read_excel(XLS18, sheet_name=None)
+data_asyl_18 = pd.read_excel(XLS18, sheet_name=['CH-Nati'], header=None)
+data_asyl_18 = data_asyl_18['CH-Nati']
 
 XLS19 = pd.ExcelFile(PATH + dataname14)
-data_asyl_19 = pd.read_excel(XLS19, sheet_name=None)
+data_asyl_19 = pd.read_excel(XLS19, sheet_name=['CH-Nati'], header=None)
+data_asyl_19 = data_asyl_19['CH-Nati']
 
 XLS20 = pd.ExcelFile(PATH + dataname15)
-data_asyl_20 = pd.read_excel(XLS20, sheet_name=None)
+data_asyl_20 = pd.read_excel(XLS20, sheet_name=['CH-Nati'], header=None)
+data_asyl_20 = data_asyl_20['CH-Nati']
 
 # check for missing values and deal with them
+pc.my_summary_stats(data_swiss_pop) # no missing values and nan values found
+pc.my_summary_stats(data_swiss_nat_sec)
 
 
 # combine all the datafiles into one single file for Switzerland
