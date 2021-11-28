@@ -92,7 +92,7 @@ table_germany1 = pd.merge(data_germany_foreigners, data_germany_pop)
 
 # structure and organize employment information
 values13 = data_empl_13['aGB - Tabelle I']
-values13 = del values13['Unnamed:2', 'Unnamed:3']
+values13 = values13.drop(0, axis = 0)
 
 values13_1 = data_empl_13['aGB - Tabelle II']
 
