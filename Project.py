@@ -50,10 +50,10 @@ data_germany_foreigners = pd.read_excel(PATH + DATANAME1)
 data_germany_pop = pd.read_excel(PATH + DATANAME2)
 
 xls13 = pd.ExcelFile(PATH + DATANAME3)
-data_empl_13 = pd.read_excel(xls13, sheet_name=None) # including all sheets
+data_empl_13 = pd.read_excel(xls13, sheet_name=[0,1], header=None) # including all sheets
 
 xls14 = pd.ExcelFile(PATH + DATANAME4)
-data_empl_14 = pd.read_excel(xls14, sheet_name=None)
+data_empl_14 = pd.read_excel(xls14, sheet_name=[0,1], header=None)
 
 xls15 = pd.ExcelFile(PATH + DATANAME5)
 data_empl_15 = pd.read_excel(xls15, sheet_name=None)
@@ -87,17 +87,50 @@ data_germany_pop = data_germany_pop.dropna()
 data_germany_pop = data_germany_pop.drop(['weiblich', 'männlich'], axis = 1)
 data_germany_pop = data_germany_pop.rename(columns = {'Datum':'Year', 'Insgesamt':'Total Population'})
 
-# create a table with population and refugee information/ values
-table_germany1 = pd.merge(data_germany_foreigners, data_germany_pop)
+# create a table with population and refugee information/ values 
+table_germany_pop = pd.merge(data_germany_foreigners, data_germany_pop)
 
-# structure and organize employment information
-values13 = data_empl_13['aGB - Tabelle I']
-values13 = values13.drop(0, axis = 0)
+# structure and organize employment information for 2013
+values13 = data_empl_13[0]
+values13 = values13.head(2)
+values13 = values13.dropna(axis = 1)
+values13 = values13.drop(values13[[2,3,6,7,8,9]], axis=1)
+values13 = values13.drop(0)
+values13.columns = ['Year', 'Total Empl', 'German', 'Foreigners']
 
-values13_1 = data_empl_13['aGB - Tabelle II']
+values13_1 = data_empl_13[1]
+values13_1 = values13_1.head(2)
+values13_1 = values13_1.dropna(axis = 1)
+values13_1 = values13_1.drop(1, axis=1)
+values13_1 = values13_1.drop(0)
+values13_1.columns = ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 'with educ', 'with academic educ', 'educ unknown']
+
+table13 = pd.merge(values13, values13_1)
+
+# structure and organize employment information for 2014
+values14 = data_empl_14[0]
+values14 = values14.head(2)
+values14 = values14.dropna(axis = 1)
+values14 = values14.drop(values14[[2,3,6,7,8,9,10]], axis=1)
+values14 = values14.drop(0)
+values14.columns = ['Year', 'Total Empl', 'German', 'Foreigners']
+
+values14_1 = data_empl_14[1]
+values14_1 = values14_1.head(2)
+values14_1 = values14_1.dropna(axis = 1)
+values14_1 = values14_1.drop(1, axis=1)
+values14_1 = values14_1.drop(0)
+values14_1.columns = ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 'with educ', 'with academic educ', 'educ unknown']
+
+table14 = pd.merge(values14, values14_1)
 
 
-# combine all the datafiles into one single file for Switzerland
+#combining all the single dataframes with information on specific year to one big dataframe containing all the years
+table_germany_empl = pd.concat([table13, table14], axis=0)
+
+# merging population information and employment information to a final table with german information - Table Germany
+
+
 
 
 
