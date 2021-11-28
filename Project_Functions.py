@@ -14,6 +14,7 @@ Berenice Flumenbaum & Fabienne Belet
 import sys
 import pandas as pd
 import numpy as np
+import os
 
 
 # define an Output class for simultaneous console - file output
