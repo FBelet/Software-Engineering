@@ -45,7 +45,7 @@ DATANAME9 = 'Beschäftigte_Deutschland_201912.xlsx'
 DATANAME10 = 'Beschäftigte_Deutschland_202012.xlsx'
 DATANAME11 = 'Beschäftigte_Deutschland_202103.xlsx'
 
-# load in data using pandas
+# load in data using pandas (evtl. hier function erstellen, damit alles durch function importiert wird?)
 data_germany_foreigners = pd.read_excel(PATH + DATANAME1)
 data_germany_pop = pd.read_excel(PATH + DATANAME2)
 
@@ -77,6 +77,27 @@ xls21 = pd.ExcelFile(PATH + DATANAME11)
 data_empl_21 = pd.read_excel(xls21, sheet_name=None)
 
 # check for missing values and deal with them
+## link for data preparation: https://towardsdatascience.com/essential-commands-for-data-preparation-with-pandas-ed01579cf214
+data_germany_foreigners.isnull()
+data_germany_foreigners = data_germany_foreigners.dropna()
+data_germany_foreigners = data_germany_foreigners.drop(['weiblich', 'männlich'], axis = 1)
+data_germany_foreigners = data_germany_foreigners.rename(columns = {'Jahr':'Year', 'Insgesamt':'Total refugees'})
+data_germany_pop.isnull()
+data_germany_pop = data_germany_pop.dropna()
+data_germany_pop = data_germany_pop.drop(['weiblich', 'männlich'], axis = 1)
+data_germany_pop = data_germany_pop.rename(columns = {'Datum':'Year', 'Insgesamt':'Total Population'})
+
+# create a table with population and refugee information/ values
+table_germany1 = pd.merge(data_germany_foreigners, data_germany_pop)
+
+# structure and organize employment information
+values13 = data_empl_13['aGB - Tabelle I']
+values13 = del values13['Unnamed:2', 'Unnamed:3']
+
+values13_1 = data_empl_13['aGB - Tabelle II']
+
+
+# combine all the datafiles into one single file for Switzerland
 
 
 
@@ -137,3 +158,8 @@ data_asyl_19 = pd.read_excel(XLS19, sheet_name=None)
 
 XLS20 = pd.ExcelFile(PATH + dataname15)
 data_asyl_20 = pd.read_excel(XLS20, sheet_name=None)
+
+# check for missing values and deal with them
+
+
+# combine all the datafiles into one single file for Switzerland
