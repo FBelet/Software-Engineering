@@ -53,15 +53,29 @@ def my_summary_stats(data):
     print('Descriptive Statistics:', '-' * 80,
           round(my_descriptives, 2), '-' * 80, '\n\n', sep='\n')
     
-
+# define function to organize datasets
 def organize(data, value, drop_values, column_names):
-    test = data[value] # decide which key of dictionary to use
-    test = test.head(2) # only keep first two rows
-    test = test.dropna(axis = 1) # drop all columns with nan values
-    test = test.drop(test[drop_values], axis = 1) # drop unnecessary columns
-    test = test.drop(0) # drop row 0
-    test.columns = column_names # define column names
-    return test
+    """
+    Organize function: delete rows, drop nan values and drop row 0.
+    
+    Parameters
+    -----------------
+    data: TYPE: pd.dict
+        DESCRIPTION: contains dataframes with information
+    value: contains value 0 or 1 for the two relevant dataframes (keys of dictionaries)
+    drop_values: values to be dropped
+    column_names: names for columns to be selected
+    -----------------
+    
+    """
+    
+    variable = data[value] # decide which key of dictionary to use
+    variable = variable.head(2) # only keep first two rows
+    variable = variable.dropna(axis = 1) # drop all columns with nan values
+    variable = variable.drop(variable[drop_values], axis = 1) # drop unnecessary columns
+    variable = variable.drop(0) # drop row 0
+    variable.columns = column_names # define column names
+    return variable
  
 
 
