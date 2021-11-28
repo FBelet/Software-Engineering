@@ -13,11 +13,13 @@ Berenice Flumenbaum & Fabienne Belet
 import sys
 import pandas as pd
 import numpy as np
+import glob
 
 
 # set working directory
 PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
 sys.path.append(PATH)
+
 
 # load functions
 import Project_Functions as pc
@@ -45,9 +47,10 @@ DATANAME9 = 'Beschäftigte_Deutschland_201912.xlsx'
 DATANAME10 = 'Beschäftigte_Deutschland_202012.xlsx'
 DATANAME11 = 'Beschäftigte_Deutschland_202103.xlsx'
 
-# load in data using pandas (evtl. hier function erstellen, damit alles durch function importiert wird?)
+# load in data using pandas (evtl. hier function mit loop über alle files erstellen, damit alles durch function importiert wird?)
 data_germany_foreigners = pd.read_excel(PATH + DATANAME1)
 data_germany_pop = pd.read_excel(PATH + DATANAME2)
+
 
 xls13 = pd.ExcelFile(PATH + DATANAME3)
 data_empl_13 = pd.read_excel(xls13, sheet_name=[0,1], header=None) # including all sheets
@@ -90,6 +93,7 @@ data_germany_pop = data_germany_pop.rename(columns = {'Datum':'Year', 'Insgesamt
 # create a table with population and refugee information/ values 
 table_germany_pop = pd.merge(data_germany_foreigners, data_germany_pop)
 
+
 # structure and organize employment information for 2013
 values13 = data_empl_13[0]
 values13 = values13.head(2)
@@ -123,6 +127,9 @@ values14_1 = values14_1.drop(0)
 values14_1.columns = ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 'with educ', 'with academic educ', 'educ unknown']
 
 table14 = pd.merge(values14, values14_1)
+
+# structure and organize employment information for 2015
+
 
 
 #combining all the single dataframes with information on specific year to one big dataframe containing all the years
