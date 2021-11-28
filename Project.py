@@ -13,8 +13,7 @@ Berenice Flumenbaum & Fabienne Belet
 import sys
 import pandas as pd
 import numpy as np
-import glob
-
+import matplotlib.pyplot as plt
 
 # set working directory
 PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
@@ -59,33 +58,34 @@ xls14 = pd.ExcelFile(PATH + DATANAME4)
 data_empl_14 = pd.read_excel(xls14, sheet_name=[0,1], header=None)
 
 xls15 = pd.ExcelFile(PATH + DATANAME5)
-data_empl_15 = pd.read_excel(xls15, sheet_name=None)
+data_empl_15 = pd.read_excel(xls15, sheet_name=[0,1], header=None)
 
 xls16 = pd.ExcelFile(PATH + DATANAME6)
-data_empl_15 = pd.read_excel(xls16, sheet_name=None)
+data_empl_16 = pd.read_excel(xls16, sheet_name=[0,1], header=None)
 
 xls17 = pd.ExcelFile(PATH + DATANAME7)
-data_empl_17 = pd.read_excel(xls17, sheet_name=None)
+data_empl_17 = pd.read_excel(xls17, sheet_name=[0,1], header=None)
 
 xls18 = pd.ExcelFile(PATH + DATANAME8)
-data_empl_18 = pd.read_excel(xls18, sheet_name=None)
+data_empl_18 = pd.read_excel(xls18, sheet_name=[0,1], header=None)
 
 xls19 = pd.ExcelFile(PATH + DATANAME9)
-data_empl_19 = pd.read_excel(xls19, sheet_name=None)
+data_empl_19 = pd.read_excel(xls19, sheet_name=[0,1], header=None)
 
 xls20 = pd.ExcelFile(PATH + DATANAME10)
-data_empl_20 = pd.read_excel(xls20, sheet_name=None)
+data_empl_20 = pd.read_excel(xls20, sheet_name=[0,1], header=None)
 
 xls21 = pd.ExcelFile(PATH + DATANAME11)
-data_empl_21 = pd.read_excel(xls21, sheet_name=None)
+data_empl_21 = pd.read_excel(xls21, sheet_name=[0,1], header=None)
 
 # check for missing values and deal with them
 ## link for data preparation: https://towardsdatascience.com/essential-commands-for-data-preparation-with-pandas-ed01579cf214
-data_germany_foreigners.isnull()
+pc.my_summary_stats(data_germany_foreigners)
 data_germany_foreigners = data_germany_foreigners.dropna()
 data_germany_foreigners = data_germany_foreigners.drop(['weiblich', 'männlich'], axis = 1)
 data_germany_foreigners = data_germany_foreigners.rename(columns = {'Jahr':'Year', 'Insgesamt':'Total refugees'})
-data_germany_pop.isnull()
+
+pc.my_summary_stats(data_germany_pop)
 data_germany_pop = data_germany_pop.dropna()
 data_germany_pop = data_germany_pop.drop(['weiblich', 'männlich'], axis = 1)
 data_germany_pop = data_germany_pop.rename(columns = {'Datum':'Year', 'Insgesamt':'Total Population'})
@@ -93,52 +93,58 @@ data_germany_pop = data_germany_pop.rename(columns = {'Datum':'Year', 'Insgesamt
 # create a table with population and refugee information/ values 
 table_germany_pop = pd.merge(data_germany_foreigners, data_germany_pop)
 
-
 # structure and organize employment information for 2013
-values13 = data_empl_13[0]
-values13 = values13.head(2)
-values13 = values13.dropna(axis = 1)
-values13 = values13.drop(values13[[2,3,6,7,8,9]], axis=1)
-values13 = values13.drop(0)
-values13.columns = ['Year', 'Total Empl', 'German', 'Foreigners']
-
-values13_1 = data_empl_13[1]
-values13_1 = values13_1.head(2)
-values13_1 = values13_1.dropna(axis = 1)
-values13_1 = values13_1.drop(1, axis=1)
-values13_1 = values13_1.drop(0)
-values13_1.columns = ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 'with educ', 'with academic educ', 'educ unknown']
-
+drop_values_1 = [2,3,6,7,8,9]
+column_names_1 = ['Year', 'Total Empl', 'German', 'Foreigners']
+values13 = pc.organize(data_empl_13, 0, drop_values_1, column_names_1)
+drop_values_2 = [1]
+column_names_2= ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 'with educ', 'with academic educ', 'educ unknown']
+values13_1 = pc.organize(data_empl_13, 1, drop_values_2, column_names_2)
 table13 = pd.merge(values13, values13_1)
 
 # structure and organize employment information for 2014
-values14 = data_empl_14[0]
-values14 = values14.head(2)
-values14 = values14.dropna(axis = 1)
-values14 = values14.drop(values14[[2,3,6,7,8,9,10]], axis=1)
-values14 = values14.drop(0)
-values14.columns = ['Year', 'Total Empl', 'German', 'Foreigners']
-
-values14_1 = data_empl_14[1]
-values14_1 = values14_1.head(2)
-values14_1 = values14_1.dropna(axis = 1)
-values14_1 = values14_1.drop(1, axis=1)
-values14_1 = values14_1.drop(0)
-values14_1.columns = ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 'with educ', 'with academic educ', 'educ unknown']
-
+drop_values_3 = [2,3,6,7,8,9,10]
+values14 = pc.organize(data_empl_14, 0, drop_values_3, column_names_1)
+values14_1 = pc.organize(data_empl_14, 1, drop_values_2, column_names_2)
 table14 = pd.merge(values14, values14_1)
 
 # structure and organize employment information for 2015
+values15 = pc.organize(data_empl_15, 0, drop_values_3, column_names_1)
+values15_1 = pc.organize(data_empl_15, 1, drop_values_2, column_names_2)
+table15 = pd.merge(values15, values15_1)
 
+# structure and organize employment information for 2016
+values16 = pc.organize(data_empl_16, 0, drop_values_3, column_names_1)
+values16_1 = pc.organize(data_empl_16, 1, drop_values_2, column_names_2)
+table16 = pd.merge(values16, values16_1)
 
+# structure and organize employment information for 2017
+values17 = pc.organize(data_empl_17, 0, drop_values_3, column_names_1)
+values17_1 = pc.organize(data_empl_17, 1, drop_values_2, column_names_2)
+table17 = pd.merge(values17, values17_1)
+
+# structure and organize employment information for 2018
+values18 = pc.organize(data_empl_18, 0, drop_values_3, column_names_1)
+values18_1 = pc.organize(data_empl_18, 1, drop_values_2, column_names_2)
+table18 = pd.merge(values18, values18_1)
+
+# structure and organize employment information for 2019
+values19 = pc.organize(data_empl_19, 0, drop_values_3, column_names_1)
+values19_1 = pc.organize(data_empl_19, 1, drop_values_2, column_names_2)
+table19 = pd.merge(values19, values19_1)
+
+# structure and organize employment information for 2020
+values20 = pc.organize(data_empl_20, 0, drop_values_3, column_names_1)
+values20_1 = pc.organize(data_empl_20, 1, drop_values_2, column_names_2)
+table20 = pd.merge(values20, values20_1)
 
 #combining all the single dataframes with information on specific year to one big dataframe containing all the years
-table_germany_empl = pd.concat([table13, table14], axis=0)
+table_germany_empl = pd.concat([table13, table14, table15, table16, table17, table18, table19, table20], axis=0)
 
 # merging population information and employment information to a final table with german information - Table Germany
+table_germany = pd.merge(table_germany_pop, table_germany_empl)
 
-
-
+# save dataframe as a table to the working directory
 
 
 # Switzerland #
