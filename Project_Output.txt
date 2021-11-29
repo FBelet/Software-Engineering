@@ -1,32 +1,74 @@
 Descriptive Statistics:
 --------------------------------------------------------------------------------
            na  null  unique  obs
-Jahr        0     0      12   12
-männlich    1     1      12   12
-weiblich    1     1      12   12
-Insgesamt   1     1      12   12
---------------------------------------------------------------------------------
-
-
-
-Descriptive Statistics:
---------------------------------------------------------------------------------
-           na  null  unique  obs
-Datum       0     0      12   12
-männlich    1     1      12   12
-weiblich    1     1      12   12
-Insgesamt   1     1      12   12
---------------------------------------------------------------------------------
-
-
-
-Descriptive Statistics:
---------------------------------------------------------------------------------
-           na  null  unique  obs
 Jahr        0     0      11   11
 Total       0     0      11   11
 Schweizer   0     0      11   11
 Ausländer   0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                       na  null  unique  obs
+Unnamed: 0              0     0      20   20
+Erwerbstätige,Total     0     0      20   20
+Sektor 1                0     0      20   20
+Sektor 2                0     0      20   20
+Sektor 3                0     0      20   20
+Schweizer/innen         0     0      20   20
+Sektor 1.1              9     9      12   20
+Sektor 2.1              9     9      12   20
+Sektor 3.1              9     9      12   20
+Ausländer/innen         0     0      20   20
+Sektor 1.2              9     9      12   20
+Sektor 2.2              9     9      12   20
+Sektor 3.2              9     9      12   20
+Erwerbstätige, Männer   0     0      20   20
+Sektor 1.3              0     0      20   20
+Sektor 2.3              0     0      20   20
+Sektor 3.3              0     0      20   20
+Schweizer               0     0      20   20
+Sektor 1.4              9     9      12   20
+Sektor 2.4              9     9      12   20
+Sektor 3.4              9     9      12   20
+Ausländer               0     0      20   20
+Sektor 1.5              9     9      12   20
+Sektor 2.5              9     9      12   20
+Sektor 3.5              9     9      12   20
+Erwerbstätige, Frauen   0     0      20   20
+Sektor 1.6              0     0      20   20
+Sektor 2.6              0     0      20   20
+Sektor 3.6              0     0      20   20
+Schweizerinnen          0     0      20   20
+Sektor 1.7              9     9      12   20
+Sektor 2.7              9     9      12   20
+Sektor 3.7              9     9      12   20
+Ausländerinnen          0     0      20   20
+Sektor 1.8              9     9      12   20
+Sektor 2.8              9     9      12   20
+Sektor 3.8              9     9      12   20
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                      na  null  unique  obs
+Year                   0     0      11   11
+Total Empl             0     0      11   11
+Total Sec.1            0     0      11   11
+Total Sec.2            0     0      11   11
+Total Sec.3            0     0      11   11
+Total Swiss            0     0      11   11
+Total Swiss Sec.1      0     0      11   11
+Total Swiss Sec.2      0     0      11   11
+Total Swiss Sec.3      0     0      11   11
+Total Foreigners       0     0      11   11
+Total Foreign Sec. 1   0     0      11   11
+Total Foreign Sec.2    0     0      11   11
+Total Foreign Sec.3    0     0      11   11
 --------------------------------------------------------------------------------
 
 
@@ -62,13 +104,34 @@ Drittstaaten.1              0     0      12   20
 Descriptive Statistics:
 --------------------------------------------------------------------------------
                 na  null  unique  obs
-Year             0     0      10   10
-Empl settled     0     0      10   10
-Empl resident    0     0      10   10
-Empl saison      0     0       1   10
-Empl border      0     0      10   10
-Empl shortterm   0     0      10   10
-Empl other       0     0      10   10
+Year             0     0      11   11
+Empl settled     0     0      11   11
+Empl resident    0     0      11   11
+Empl saison      0     0       1   11
+Empl border      0     0      11   11
+Empl shortterm   0     0      11   11
+Empl other       0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+            20    20       1   20
+EU/EFTA/UK 1.1              0     0      12   20
+Drittstaaten.1              0     0      12   20
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                na  null  unique  obs
+Year             0     0      11   11
+Empl settled     0     0      11   11
+Empl resident    0     0      11   11
+Empl saison      0     0       1   11
+Empl border      0     0      11   11
+Empl shortterm   0     0      11   11
+Empl other       0     0      11   11
 --------------------------------------------------------------------------------
 
 
@@ -80,6 +143,50 @@ Jahr        0     0      11   11
 Total       0     0      11   11
 Schweizer   0     0      11   11
 Ausländer   0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                       na  null  unique  obs
+Unnamed: 0              0     0      20   20
+Erwerbstätige,Total     0     0      20   20
+Sektor 1                0     0      20   20
+Sektor 2                0     0      20   20
+Sektor 3                0     0      20   20
+Schweizer/innen         0     0      20   20
+Sektor 1.1              9     9      12   20
+Sektor 2.1              9     9      12   20
+Sektor 3.1              9     9      12   20
+Ausländer/innen         0     0      20   20
+Sektor 1.2              9     9      12   20
+Sektor 2.2              9     9      12   20
+Sektor 3.2              9     9      12   20
+Erwerbstätige, Männer   0     0      20   20
+Sektor 1.3              0     0      20   20
+Sektor 2.3              0     0      20   20
+Sektor 3.3              0     0      20   20
+Schweizer               0     0      20   20
+Sektor 1.4              9     9      12   20
+Sektor 2.4              9     9      12   20
+Sektor 3.4              9     9      12   20
+Ausländer               0     0      20   20
+Sektor 1.5              9     9      12   20
+Sektor 2.5              9     9      12   20
+Sektor 3.5              9     9      12   20
+Erwerbstätige, Frauen   0     0      20   20
+Sektor 1.6              0     0      20   20
+Sektor 2.6              0     0      20   20
+Sektor 3.6              0     0      20   20
+Schweizerinnen          0     0      20   20
+Sektor 1.7              9     9      12   20
+Sektor 2.7              9     9      12   20
+Sektor 3.7              9     9      12   20
+Ausländerinnen          0     0      20   20
+Sektor 1.8              9     9      12   20
+Sektor 2.8              9     9      12   20
+Sektor 3.8              9     9      12   20
 --------------------------------------------------------------------------------
 
 
@@ -106,6 +213,34 @@ Total Foreign Sec.3    0     0      11   11
 
 Descriptive Statistics:
 --------------------------------------------------------------------------------
+                           na  null  unique  obs
+Unnamed: 0                  0     0      20   20
+Erwerbstätige,Total         0     0      20   20
+Schweizer/innen             0     0      20   20
+Ausländer/innen             0     0      20   20
+Nationalität               20    20       1   20
+EU/EFTA/UK 1                0     0      12   20
+Drittstaaten                0     0      12   20
+Aufenthaltsstatus          20    20       1   20
+Niedergelassene             0     0      20   20
+Aufenthalter/innen          0     0      20   20
+Saisonniers                 0     0       4   20
+Grenzgänger/innen 2         0     0      20   20
+Kurzaufenthalter/innen      0     0      20   20
+Übrige Ausländer/innen 3    0     0      20   20
+Geschlecht                 20    20       1   20
+Erwerbstätige, Männer       0     0      20   20
+Schweizer                   0     0      20   20
+Ausländer                   0     0      20   20
+Nationalität.1             20    20       1   20
+EU/EFTA/UK 1.1              0     0      12   20
+Drittstaaten.1              0     0      12   20
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
                 na  null  unique  obs
 Year             0     0      11   11
 Empl settled     0     0      11   11
@@ -114,26 +249,6 @@ Empl saison      0     0       1   11
 Empl border      0     0      11   11
 Empl shortterm   0     0      11   11
 Empl other       0     0      11   11
---------------------------------------------------------------------------------
-
-
-
-Descriptive Statistics:
---------------------------------------------------------------------------------
-                     na  null  unique  obs
-Unnamed: 0            1     1      21   21
-Erwerbstätige,Total   1     1      21   21
-A                     0     0      21   21
-B-F                   0     0      21   21
-B-C                   0     0      21   21
-...                  ..   ...     ...  ...
-P .2                  0     0      21   21
-Q .2                  0     0      21   21
-R .2                  0     0      21   21
-S .2                  0     0      21   21
-T .2                  0     0      21   21
-
-[68 rows x 4 columns]
 --------------------------------------------------------------------------------
 
 

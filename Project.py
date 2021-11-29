@@ -45,10 +45,13 @@ DATANAME8 = 'Beschäftigte_Deutschland_201812.xlsx'
 DATANAME9 = 'Beschäftigte_Deutschland_201912.xlsx'
 DATANAME10 = 'Beschäftigte_Deutschland_202012.xlsx'
 DATANAME11 = 'Beschäftigte_Deutschland_202103.xlsx'
+DATANAME12 = 'Arbeitslose_Quote_Deutschland.xlsx'
 
 # load in data using pandas (evtl. hier function mit loop über alle files erstellen, damit alles durch function importiert wird?)
 data_germany_foreigners = pd.read_excel(PATH + DATANAME1)
 data_germany_pop = pd.read_excel(PATH + DATANAME2)
+data_germany_unempl = pd.ExcelFile(PATH + DATANAME12)
+data_germany_unempl = pd.read_excel(data_germany_unempl, sheet_name = [0,1], header=None)
 
 xls13 = pd.ExcelFile(PATH + DATANAME3)
 data_empl_13 = pd.read_excel(xls13, sheet_name=[0,1], header=None) # including first two sheets
@@ -89,8 +92,20 @@ data_germany_pop = data_germany_pop.dropna()
 data_germany_pop = data_germany_pop.drop(['weiblich', 'männlich'], axis = 1)
 data_germany_pop = data_germany_pop.rename(columns = {'Datum':'Year', 'Insgesamt':'Total Population'})
 
+germany_unempl = data_germany_unempl[0]
+germany_unempl.columns = ['Year', 'Unemployment']
+germany_unempl = germany_unempl.drop(0)
+germany_unempl_rate = data_germany_unempl[1]
+germany_unempl_rate.columns = ['Year', 'Unemployment Rate']
+germany_unempl_rate = germany_unempl_rate.drop(0)
+
+table_unempl = pd.merge(germany_unempl, germany_unempl_rate)
+table_unempl = table_unempl.drop([0,1,2])
+
 # create a table with population and refugee information/ values 
 table_germany_pop = pd.merge(data_germany_foreigners, data_germany_pop)
+table_germany_pop = table_germany_pop.drop([0,1,2])
+table_all = pd.merge(table_germany_pop, table_unempl)
 
 # structure and organize employment information for 2013
 drop_values_1 = [2,3,6,7,8,9]
@@ -141,12 +156,12 @@ table20 = pd.merge(values20, values20_1)
 table_germany_empl = pd.concat([table13, table14, table15, table16, table17, table18, table19, table20], axis=0)
 
 # merging population information and employment information to a final table with german information - Table Germany
-table_germany = pd.merge(table_germany_pop, table_germany_empl)
+table_germany = pd.merge(table_all, table_germany_empl)
 
 # save dataframe as a table to the working directory
 
 
-# Switzerland #
+# Switzerland #  ## data for Switzerland is in 1000##
 # define data names
 dataname1 = 'Erwerbstätige_Schweiz_1960-2020_Infos.xlsx'
 dataname2 = 'Erwerbstätige_Schweiz_1991-2020_Nationalität.xlsx'  
@@ -164,11 +179,20 @@ dataname12 = 'Asylstatistik_Schweiz_201712.xlsx'
 dataname13 = 'Asylstatistik_Schweiz_201812.xlsx'
 dataname14 = 'Asylstatistik_Schweiz_201912.xlsx'
 dataname15 = 'Asylstatistik_Schweiz_202012.xlsx'
+dataname16 = 'Arbeitslosenquote_Schweiz.xlsx'
+dataname17 = 'Arbeitslose_Schweiz.xlsx'
 
 # load in data using pandas
 data_swiss_pop = pd.read_excel(PATH + dataname4)
 data_swiss_nat_sec = pd.read_excel(PATH + dataname1) #nationality and economic sectors
 data_swiss_nat = pd.read_excel(PATH + dataname2) #nationality
+
+data_swiss_unempl = pd.ExcelFile(PATH + dataname17)
+data_swiss_unempl = pd.read_excel(data_swiss_unempl, sheet_name=['Overview'], header=None)
+data_swiss_unempl = data_swiss_unempl['Overview']
+data_swiss_unempl_quote = pd.ExcelFile(PATH + dataname16)
+data_swiss_unempl_quote = pd.read_excel(data_swiss_unempl_quote, sheet_name=['Overview'], header=None)
+data_swiss_unempl_quote = data_swiss_unempl_quote['Overview']
 
 XLS10 = pd.ExcelFile(PATH + dataname5)
 data_asyl_10 = pd.read_excel(XLS10, sheet_name=['CH-Nati'], header=None) # including first sheets
@@ -216,18 +240,21 @@ data_asyl_20 = data_asyl_20['CH-Nati']
 
 # check for missing values and deal with them
 pc.my_summary_stats(data_swiss_pop) # no missing values and nan values found
+data_swiss_pop.columns = ['Year', 'Population Total', 'Total Pop Swiss', 'Total Pop Foreigners']
 
 pc.my_summary_stats(data_swiss_nat_sec) # missing values and need to change rows to columns
 
 drop_values_CH = data_swiss_nat_sec.iloc[:, 13:57]
 drop_rows = [0,1,2,3,4,5,6,7,8]
 column_names_CH = ['Year', 'Total Empl', 'Total Sec.1', 'Total Sec.2', 
-                   'Total Sec.3', 'Total Swiss', 'Total Swiss Sec.1', 
-                   'Total Swiss Sec.2', 'Total Swiss Sec.3', 'Total Foreigners',
+                   'Total Sec.3', 'Total Empl Swiss', 'Total Swiss Sec.1', 
+                   'Total Swiss Sec.2', 'Total Swiss Sec.3', 'Total Emp Foreigners',
                    'Total Foreign Sec. 1', 'Total Foreign Sec.2', 'Total Foreign Sec.3']
 
 data_swiss_nat_sec = pc.organize_CH(data_swiss_nat_sec, drop_rows, drop_values_CH, column_names_CH)
 pc.my_summary_stats(data_swiss_nat_sec) # no missing values and nan values left
+
+table_swiss_nat = pd.merge(data_swiss_pop, data_swiss_nat_sec)
 
 pc.my_summary_stats(data_swiss_nat)
 data_swiss_nat = data_swiss_nat.drop(data_swiss_nat.iloc[:, 1:8], axis=1)
@@ -237,6 +264,16 @@ column_names_CH1 = ['Year', 'Empl settled', 'Empl resident', 'Empl saison',
 data_swiss_nat = pc.organize_CH(data_swiss_nat, drop_rows, drop_values_CH1, column_names_CH1)
 pc.my_summary_stats(data_swiss_nat)
 
+table_swiss_nat = pd.merge(table_swiss_nat, data_swiss_nat)
+
+data_swiss_unempl.columns = ['Year', 'Unemployment']
+data_swiss_unempl = data_swiss_unempl.drop(0)
+data_swiss_unempl_quote.columns = ['Year', 'Unemployment Rate']
+data_swiss_unempl_quote = data_swiss_unempl_quote.drop(0)
+table_swiss_unempl = pd.merge(data_swiss_unempl, data_swiss_unempl_quote)
+
+table_swiss_general = pd.merge(table_swiss_nat, table_swiss_unempl)
+
 # structure and organize information for 2010
 drop_values_CH2 = [2,3,5,6,8,9,11,12,14,15]
 column_names_CH2 = ['Year', 'Refugees Total', 'Residents Permit B Total', 
@@ -245,4 +282,42 @@ column_names_CH2 = ['Year', 'Refugees Total', 'Residents Permit B Total',
 
 data_asyl_10 = pc.organize_CH_2(data_asyl_10, drop_values_CH2, column_names_CH2)
 
+# structure and organize information for 2011
+data_asyl_11 = pc.organize_CH_2(data_asyl_11, drop_values_CH2, column_names_CH2)
+
+# structure and organize information for 2012
+data_asyl_12 = pc.organize_CH_2(data_asyl_12, drop_values_CH2, column_names_CH2)
+
+# structure and organize information for 2013
+data_asyl_13 = pc.organize_CH_2(data_asyl_13, drop_values_CH2, column_names_CH2)
+
+# struture and organize information for 2014
+data_asyl_14 = pc.organize_CH_2(data_asyl_14, drop_values_CH2, column_names_CH2)
+
+# structure and organize information for 2015
+data_asyl_15 = pc.organize_CH_2(data_asyl_15, drop_values_CH2, column_names_CH2)
+
+# structure and organize information for 2016
+data_asyl_16 = pc.organize_CH_2(data_asyl_16, drop_values_CH2, column_names_CH2)
+
+# structure and organize information for 2017
+data_asyl_17 = pc.organize_CH_2(data_asyl_17, drop_values_CH2, column_names_CH2)
+
+# structure and organize information for 2018
+data_asyl_18 = pc.organize_CH_2(data_asyl_18, drop_values_CH2, column_names_CH2)
+
+# structure and organize infromation for 2019
+data_asyl_19 = pc.organize_CH_2(data_asyl_19, drop_values_CH2, column_names_CH2)
+
+# structure and organize information for 2020
+data_asyl_20 = pc.organize_CH_2(data_asyl_20, drop_values_CH2, column_names_CH2) 
+
 # combine all the datafiles into one single file for Switzerland
+table_swiss_asyl = pd.concat([data_asyl_10, data_asyl_11, data_asyl_12,
+                              data_asyl_13, data_asyl_14, data_asyl_15,
+                              data_asyl_16, data_asyl_17, data_asyl_18, 
+                              data_asyl_19, data_asyl_20], axis=0)
+
+table_switzerland = pd.merge(table_swiss_general, table_swiss_asyl)
+
+# save dataframe as a table to the working directory
