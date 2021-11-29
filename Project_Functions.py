@@ -77,7 +77,28 @@ def organize(data, value, drop_values, column_names):
     variable.columns = column_names # define column names
     return variable
  
+# define function to organize datasets Swiss data
+def organize_CH(data, drop_rows, drop_values, column_names):
+    """
+    Organize function: delete rows, drop nan values and drop row 0.
+    
+    Parameters
+    -----------------
+    data: TYPE: pd.dict
+        DESCRIPTION: contains dataframes with information
+    value: contains value 0 or 1 for the two relevant dataframes (keys of dictionaries)
+    drop_values: values to be dropped
+    column_names: names for columns to be selected
+    -----------------
+    
+    """
 
+    data = data.drop(drop_rows) # drop unnecessary rows
+    #data = data.dropna(axis = 1) # drop all columns with nan values
+    data = data.drop(drop_values, axis=1) # drop unnecessary columns
+    data = data.iloc[1: , :] # drop row 0
+    data.columns = column_names # define column names
+    return data
 
 # define an Output class for simultaneous console - file output
 class Output():

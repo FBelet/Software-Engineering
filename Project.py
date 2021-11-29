@@ -50,7 +50,6 @@ DATANAME11 = 'Beschäftigte_Deutschland_202103.xlsx'
 data_germany_foreigners = pd.read_excel(PATH + DATANAME1)
 data_germany_pop = pd.read_excel(PATH + DATANAME2)
 
-
 xls13 = pd.ExcelFile(PATH + DATANAME3)
 data_empl_13 = pd.read_excel(xls13, sheet_name=[0,1], header=None) # including first two sheets
 
@@ -218,7 +217,24 @@ data_asyl_20 = data_asyl_20['CH-Nati']
 
 # check for missing values and deal with them
 pc.my_summary_stats(data_swiss_pop) # no missing values and nan values found
-pc.my_summary_stats(data_swiss_nat_sec)
 
+pc.my_summary_stats(data_swiss_nat_sec) # missing values and need to change rows to columns
+data_swiss_nat_sec = data_swiss_nat_sec.T
+drop_values_CH = data_swiss_nat_sec.iloc[:, 13:57]
+drop_rows = [0,1,2,3,4,5,6,7,8]
+column_names_CH = ['Year', 'Total Empl', 'Total Sec.1', 'Total Sec.2', 
+                   'Total Sec.3', 'Total Swiss', 'Total Swiss Sec.1', 
+                   'Total Swiss Sec.2', 'Total Swiss Sec.3', 'Total Foreigners',
+                   'Total Foreign Sec. 1', 'Total Foreign Sec.2', 'Total Foreign Sec.3']
 
+data_swiss_nat_sec = pc.organize_CH(data_swiss_nat_sec, drop_rows, drop_values_CH, column_names_CH)
+pc.my_summary_stats(data_swiss_nat_sec) # no missing values and nan values left
+
+pc.my_summary_stats(data_swiss_nat)
+#data_swiss_nat = data_swiss_nat.T
+data_swiss_nat = data_swiss_nat.drop(data_swiss_nat.iloc[:, 0:7], axis=1)
+drop_values_CH1 = data_swiss_nat.iloc[:, 7:39]
+column_names_CH1 = ['Year', 'Empl settled', 'Empl resident', 'Empl saison', 
+                    'Empl border', 'Empl shortterm', 'Empl other']
+data_swiss_nat = pc.organize_CH(data_swiss_nat, drop_rows, drop_values_CH1, column_names_CH1)
 # combine all the datafiles into one single file for Switzerland
