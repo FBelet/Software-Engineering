@@ -238,5 +238,11 @@ data_swiss_nat = pc.organize_CH(data_swiss_nat, drop_rows, drop_values_CH1, colu
 pc.my_summary_stats(data_swiss_nat)
 
 # structure and organize information for 2010
+drop_values_CH2 = [2,3,5,6,8,9,11,12,14,15]
+column_names_CH2 = ['Year', 'Refugees Total', 'Residents Permit B Total', 
+                    'Residents Permit B employed', 'Residents Permit B unempl', 
+                    'Settled Total']
+
+data_asyl_10 = pc.organize_CH_2(data_asyl_10, drop_values_CH2, column_names_CH2)
 
 # combine all the datafiles into one single file for Switzerland
