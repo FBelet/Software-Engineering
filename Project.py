@@ -148,9 +148,9 @@ table_germany = pd.merge(table_germany_pop, table_germany_empl)
 
 # Switzerland #
 # define data names
-dataname1 = 'Erwerbstätige_Schweiz_1960-2020_Infos.xlsx' ##welcher davon (1,2,3) nutzen?
-dataname2 = 'Erwerbstätige_Schweiz_1991-2020_Nationalität.xlsx'  ##welcher davon (1,2,3) nutzen?
-dataname3 = 'Erwerbstätige_Schweiz_1991-2020_Wirtschaftszweige.xlsx' ##welcher davon (1,2,3) nutzen?
+dataname1 = 'Erwerbstätige_Schweiz_1960-2020_Infos.xlsx'
+dataname2 = 'Erwerbstätige_Schweiz_1991-2020_Nationalität.xlsx'  
+dataname3 = 'Erwerbstätige_Schweiz_1991-2020_Wirtschaftszweige.xlsx' # not needed for the analysis
 dataname4 = 'Bevölkerungsentwicklung_Schweiz_2000-2020.xlsx'
 
 dataname5 = 'Asylstatistik_Schweiz_201012.xlsx'
@@ -169,7 +169,6 @@ dataname15 = 'Asylstatistik_Schweiz_202012.xlsx'
 data_swiss_pop = pd.read_excel(PATH + dataname4)
 data_swiss_nat_sec = pd.read_excel(PATH + dataname1) #nationality and economic sectors
 data_swiss_nat = pd.read_excel(PATH + dataname2) #nationality
-data_swiss_sec = pd.read_excel(PATH + dataname3) #economic secotrs
 
 XLS10 = pd.ExcelFile(PATH + dataname5)
 data_asyl_10 = pd.read_excel(XLS10, sheet_name=['CH-Nati'], header=None) # including first sheets
@@ -219,7 +218,7 @@ data_asyl_20 = data_asyl_20['CH-Nati']
 pc.my_summary_stats(data_swiss_pop) # no missing values and nan values found
 
 pc.my_summary_stats(data_swiss_nat_sec) # missing values and need to change rows to columns
-data_swiss_nat_sec = data_swiss_nat_sec.T
+
 drop_values_CH = data_swiss_nat_sec.iloc[:, 13:57]
 drop_rows = [0,1,2,3,4,5,6,7,8]
 column_names_CH = ['Year', 'Total Empl', 'Total Sec.1', 'Total Sec.2', 
@@ -231,10 +230,13 @@ data_swiss_nat_sec = pc.organize_CH(data_swiss_nat_sec, drop_rows, drop_values_C
 pc.my_summary_stats(data_swiss_nat_sec) # no missing values and nan values left
 
 pc.my_summary_stats(data_swiss_nat)
-#data_swiss_nat = data_swiss_nat.T
-data_swiss_nat = data_swiss_nat.drop(data_swiss_nat.iloc[:, 0:7], axis=1)
-drop_values_CH1 = data_swiss_nat.iloc[:, 7:39]
+data_swiss_nat = data_swiss_nat.drop(data_swiss_nat.iloc[:, 1:8], axis=1)
+drop_values_CH1 = data_swiss_nat.iloc[:, 7: ]
 column_names_CH1 = ['Year', 'Empl settled', 'Empl resident', 'Empl saison', 
                     'Empl border', 'Empl shortterm', 'Empl other']
 data_swiss_nat = pc.organize_CH(data_swiss_nat, drop_rows, drop_values_CH1, column_names_CH1)
+pc.my_summary_stats(data_swiss_nat)
+
+# structure and organize information for 2010
+
 # combine all the datafiles into one single file for Switzerland
