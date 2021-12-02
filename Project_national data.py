@@ -344,5 +344,6 @@ table_swiss_asyl = pd.concat([data_asyl_10, data_asyl_11, data_asyl_12,
                               data_asyl_19, data_asyl_20], axis=0)
 
 table_switzerland = pd.merge(table_swiss_general, table_swiss_asyl)
+table_switzerland = table_switzerland.drop('Empl saison', axis=1)
 
 # save dataframe as a table to the working directory
