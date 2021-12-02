@@ -94,9 +94,28 @@ def organize_CH(data, drop_rows, drop_values, column_names):
     """
 
     data = data.drop(drop_rows) # drop unnecessary rows
-    #data = data.dropna(axis = 1) # drop all columns with nan values
     data = data.drop(drop_values, axis=1) # drop unnecessary columns
-    #data = data.iloc[1: , :] # drop row 0
+    data.columns = column_names # define column names
+    return data
+
+def organize_CH_2(data, drop_values, column_names):
+    """
+    Organize function: delete rows, drop nan values and drop row 0.
+    
+    Parameters
+    -----------------
+    data: TYPE: pd.dict
+        DESCRIPTION: contains dataframes with information
+    value: contains value 0 or 1 for the two relevant dataframes (keys of dictionaries)
+    drop_values: values to be dropped
+    column_names: names for columns to be selected
+    -----------------
+    
+    """
+
+    data = data.head(4) # drop unnecessary rows
+    data = data.drop(drop_values, axis=1) # drop unnecessary columns
+    data = data.drop([0,1,2]) # drop the first 3 rows
     data.columns = column_names # define column names
     return data
 
