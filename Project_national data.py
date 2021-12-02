@@ -18,7 +18,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # set working directory
-PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
+PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 sys.path.append(PATH)
 
 
@@ -171,6 +171,8 @@ table_germany_empl = pd.concat([table13, table14, table15, table16, table17, tab
 table_germany = pd.merge(table_all, table_germany_empl)
 
 # save dataframe as a table to the working directory
+table_germany.to_csv('table_germany.csv')
+
 
 
 # Switzerland #  ## data for Switzerland is in 1000##
@@ -346,4 +348,7 @@ table_swiss_asyl = pd.concat([data_asyl_10, data_asyl_11, data_asyl_12,
 table_switzerland = pd.merge(table_swiss_general, table_swiss_asyl)
 table_switzerland = table_switzerland.drop('Empl saison', axis=1)
 
+
 # save dataframe as a table to the working directory
+table_switzerland.to_csv('table_switzerland.csv')
+
