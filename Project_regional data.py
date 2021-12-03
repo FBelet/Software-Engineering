@@ -32,3 +32,6 @@ OUTPUT_NAME = 'Project_Output2'
 orig_stdout = sys.stdout
 sys.stdout = pc.Output(path=PATH, name=OUTPUT_NAME)
 
+## DATA PREPARATION ##
+
+# Regional data for Germany #
