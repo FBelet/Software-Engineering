@@ -84,13 +84,23 @@ def organize_Bundesländer(name, data, drop_values, column_names):
         variable = data[key] # decide which key of dictionary to use
         variable = variable.head(2) # only keep first two rows
         variable = variable.dropna(axis = 1) # drop all columns with nan values
-        variable = variable.drop(variable[drop_values], axis = 1) # drop unnecessary columns
+        variable = variable.drop(variable.columns[drop_values], axis = 1) # drop unnecessary columns
         variable = variable.drop(0) # drop row 0
         variable.columns = column_names # define column names
         name[key] = pd.DataFrame(variable)
-        
-    
 
+def create_table(data):
+    variable = pd.concat([data[5], data[7], data[9], data[11], data[13], data[15], data[17], data[19]])
+    return variable
+        
+def create_table2(data2):
+    variable = pd.concat([data2[6], data2[8], data2[10], data2[12], data2[14], data2[16], data2[18], data2[20]])
+    return variable
+
+def extract_values(land, data, names):
+    variable = data[['Year', land]]
+    variable.columns = names
+    return variable
 
 # define function to organize datasets
 def organize_unempl(data, value, column_names):
@@ -131,6 +141,26 @@ def organize_CH(data, drop_rows, drop_values, column_names):
 
     data = data.drop(drop_rows) # drop unnecessary rows
     data = data.drop(drop_values, axis=1) # drop unnecessary columns
+    data.columns = column_names # define column names
+    return data
+
+def organize_CH_asyl(data, drop_rows, drop_values, column_names):
+    """
+    Organize function: delete rows, drop nan values and drop row 0.
+    
+    Parameters
+    -----------------
+    data: TYPE: pd.dict
+        DESCRIPTION: contains dataframes with information
+    drop_values: values to be dropped
+    column_names: names for columns to be selected
+    -----------------
+    
+    """
+
+    data = data.drop(drop_rows) # drop unnecessary rows
+    data = data.drop(drop_values, axis=1) # drop unnecessary columns
+    data = data.dropna(axis = 1) # drop all columns with nan values
     data.columns = column_names # define column names
     return data
 
