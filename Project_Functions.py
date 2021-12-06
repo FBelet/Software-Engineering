@@ -76,6 +76,43 @@ def organize(data, value, drop_values, column_names):
     variable = variable.drop(0) # drop row 0
     variable.columns = column_names # define column names
     return variable
+
+# loop over keys in dictionary to organize the data in the dataframes
+def organize_Bundesländer(name, data, drop_values, column_names):
+    
+    for key in data:
+        variable = data[key] # decide which key of dictionary to use
+        variable = variable.head(2) # only keep first two rows
+        variable = variable.dropna(axis = 1) # drop all columns with nan values
+        variable = variable.drop(variable[drop_values], axis = 1) # drop unnecessary columns
+        variable = variable.drop(0) # drop row 0
+        variable.columns = column_names # define column names
+        name[key] = pd.DataFrame(variable)
+        
+    
+
+
+# define function to organize datasets
+def organize_unempl(data, value, column_names):
+    """
+    Organize function: delete rows, drop nan values and drop row 0.
+    
+    Parameters
+    -----------------
+    data: TYPE: pd.dict
+        DESCRIPTION: contains dataframes with information
+    value: contains value 2 or 3 for the two relevant dataframes (keys of dictionaries)
+    drop_values: values to be dropped
+    column_names: names for columns to be selected
+    -----------------
+    
+    """
+    
+    variable = data[value] # decide which key of dictionary to use
+    variable = variable.drop(0) # drop row 0
+    variable = variable.dropna(axis = 1) # drop all columns with nan values
+    variable.columns = column_names # define column names
+    return variable
  
 # define function to organize datasets Swiss data
 def organize_CH(data, drop_rows, drop_values, column_names):
@@ -86,7 +123,6 @@ def organize_CH(data, drop_rows, drop_values, column_names):
     -----------------
     data: TYPE: pd.dict
         DESCRIPTION: contains dataframes with information
-    value: contains value 0 or 1 for the two relevant dataframes (keys of dictionaries)
     drop_values: values to be dropped
     column_names: names for columns to be selected
     -----------------
@@ -98,7 +134,45 @@ def organize_CH(data, drop_rows, drop_values, column_names):
     data.columns = column_names # define column names
     return data
 
+def organize_CH1(data, drop_rows, drop_values):
+    """
+    Organize function: delete rows, drop nan values and drop row 0.
+    
+    Parameters
+    -----------------
+    data: TYPE: pd.dict
+        DESCRIPTION: contains dataframes with information
+    drop_values: values to be dropped
+    column_names: names for columns to be selected
+    -----------------
+    
+    """
+
+    data = data.drop(drop_rows) # drop unnecessary rows
+    data = data.drop(drop_values, axis=1) # drop unnecessary columns
+    return data
+
 def organize_CH_2(data, drop_values, column_names):
+    """
+    Organize function: delete rows, drop nan values and drop row 0.
+    
+    Parameters
+    -----------------
+    data: TYPE: pd.dict
+        DESCRIPTION: contains dataframes with information
+    drop_values: values to be dropped
+    column_names: names for columns to be selected
+    -----------------
+    
+    """
+
+    data = data.head(4) # drop unnecessary rows
+    data = data.drop(drop_values, axis=1) # drop unnecessary columns
+    data = data.drop([0,1,2]) # drop the first 3 rows
+    data.columns = column_names # define column names
+    return data
+
+def organize_regional(data, drop_values, column_names):
     """
     Organize function: delete rows, drop nan values and drop row 0.
     
@@ -113,9 +187,8 @@ def organize_CH_2(data, drop_values, column_names):
     
     """
 
-    data = data.head(4) # drop unnecessary rows
-    data = data.drop(drop_values, axis=1) # drop unnecessary columns
-    data = data.drop([0,1,2]) # drop the first 3 rows
+    data = data.drop(data.columns[drop_values], axis=1) # drop unnecessary columns
+    data = data.drop(0) # drop the first row
     data.columns = column_names # define column names
     return data
 
