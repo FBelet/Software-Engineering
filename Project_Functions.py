@@ -15,6 +15,7 @@ import sys
 import pandas as pd
 import numpy as np
 import os
+import matplotlib.pyplot as plt
 
 # create function to get overview over datasets
 def my_summary_stats(data):
@@ -191,6 +192,40 @@ def organize_regional(data, drop_values, column_names):
     data = data.drop(0) # drop the first row
     data.columns = column_names # define column names
     return data
+
+
+
+def my_chart(data1, data2, varname, label1, label2, location):
+    """
+    Plot line chart.
+
+    Parameters
+    ----------
+    data : TYPE: pd.DataFrame
+        DESCRIPTION: dataframe containing variables of interest
+    varname : TYPE: string
+        DESCRIPTION: variable name for which line chart should be plotted
+    year: TYPE: string
+        DESCRIPTION: years for which the line chart should be plotted
+    label: TYPE: string
+        DESCRIPTION: Label for the legend
+    Returns
+    -------
+    None. Prints line chart.
+    """
+    plt.plot(data1['Year'], data1[varname], color='blue', label=label1)
+    plt.plot(data2['Year'], data2[varname], color='orange', label=label2)
+    # add legend
+    plt.legend(loc=location)
+    plt.show
+    # add title
+    plt.title(varname + ' in Germany and Switzerland over time')
+    # add labels
+    plt.xlabel(data1['Year'])
+    plt.ylabel(varname)
+    plt.show()
+    
+    
 
 # define an Output class for simultaneous console - file output
 class Output():
