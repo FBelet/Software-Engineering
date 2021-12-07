@@ -18,7 +18,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # set working directory
-PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
 sys.path.append(PATH)
 
 
@@ -56,31 +56,31 @@ data_germany_unempl = pd.ExcelFile(PATH + DATANAME12)
 data_germany_unempl = pd.read_excel(data_germany_unempl, sheet_name = [0,1], header=None)
 
 xls13 = pd.ExcelFile(PATH + DATANAME3)
-data_empl_13 = pd.read_excel(xls13, sheet_name=[0,1], header=None) # including first two sheets
+data_empl_13 = pd.read_excel(xls13, sheet_name=[0,1,2], header=None) # including first three sheets
 
 xls14 = pd.ExcelFile(PATH + DATANAME4)
-data_empl_14 = pd.read_excel(xls14, sheet_name=[0,1], header=None)
+data_empl_14 = pd.read_excel(xls14, sheet_name=[0,1,2], header=None)
 
 xls15 = pd.ExcelFile(PATH + DATANAME5)
-data_empl_15 = pd.read_excel(xls15, sheet_name=[0,1], header=None)
+data_empl_15 = pd.read_excel(xls15, sheet_name=[0,1,2], header=None)
 
 xls16 = pd.ExcelFile(PATH + DATANAME6)
-data_empl_16 = pd.read_excel(xls16, sheet_name=[0,1], header=None)
+data_empl_16 = pd.read_excel(xls16, sheet_name=[0,1,2], header=None)
 
 xls17 = pd.ExcelFile(PATH + DATANAME7)
-data_empl_17 = pd.read_excel(xls17, sheet_name=[0,1], header=None)
+data_empl_17 = pd.read_excel(xls17, sheet_name=[0,1,2], header=None)
 
 xls18 = pd.ExcelFile(PATH + DATANAME8)
-data_empl_18 = pd.read_excel(xls18, sheet_name=[0,1], header=None)
+data_empl_18 = pd.read_excel(xls18, sheet_name=[0,1,2], header=None)
 
 xls19 = pd.ExcelFile(PATH + DATANAME9)
-data_empl_19 = pd.read_excel(xls19, sheet_name=[0,1], header=None)
+data_empl_19 = pd.read_excel(xls19, sheet_name=[0,1,2], header=None)
 
 xls20 = pd.ExcelFile(PATH + DATANAME10)
-data_empl_20 = pd.read_excel(xls20, sheet_name=[0,1], header=None)
+data_empl_20 = pd.read_excel(xls20, sheet_name=[0,1,2], header=None)
 
 xls21 = pd.ExcelFile(PATH + DATANAME11)
-data_empl_21 = pd.read_excel(xls21, sheet_name=[0,1], header=None)
+data_empl_21 = pd.read_excel(xls21, sheet_name=[0,1,2], header=None)
 
 # check for missing values and deal with them
 ## link for data preparation: https://towardsdatascience.com/essential-commands-for-data-preparation-with-pandas-ed01579cf214
@@ -113,7 +113,7 @@ table_all = pd.merge(table_germany_pop, table_unempl)
 
 # structure and organize employment information for 2013
 drop_values_1 = [2,3,6,7,8,9]
-column_names_1 = ['Year', 'Total Empl', 'German', 'Foreigners']
+column_names_1 = ['Year', 'Total Empl (geringfügig)', 'Total Empl German (geringfügig)', 'Total Empl Foreigners (geringfügig)']
 values13 = pc.organize(data_empl_13, 0, drop_values_1, column_names_1)
 drop_values_2 = [1]
 column_names_2= ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 'with educ', 'with academic educ', 'educ unknown']
@@ -164,16 +164,23 @@ values20_1 = pc.organize(data_empl_20, 1, drop_values_2, column_names_2)
 table20 = pd.merge(values20, values20_1)
 pc.my_summary_stats(table20) # no missing values
 
+# combine information for total employment from 2013-2020
+table_empl_total = pd.concat([data_empl_13[2], data_empl_14[2], data_empl_15[2],
+                              data_empl_16[2], data_empl_17[2], data_empl_18[2],
+                              data_empl_19[2], data_empl_20[2]])
+table_empl_total = table_empl_total.drop(0)
+table_empl_total.columns = ['Year', 'Total Empl', 'Total Empl German', 'Total Empl Foreign']
+
 #combining all the single dataframes with information on specific year to one big dataframe containing all the years
 table_germany_empl = pd.concat([table13, table14, table15, table16, table17, table18, table19, table20], axis=0)
 
 # merging population information and employment information to a final table with german information - Table Germany
-table_germany = pd.merge(table_all, table_germany_empl)
+table_germany = pd.merge(pd.merge(table_all, table_germany_empl, on='Year'), table_empl_total, on='Year')
 
 # save dataframe as a table to the working directory
 table_germany.to_csv('table_germany.csv')
 
-
+################################################################################
 
 # Switzerland #  ## data for Switzerland is in 1000##
 # define data names
@@ -262,7 +269,7 @@ drop_values_CH = data_swiss_nat_sec.iloc[:, 13:57]
 drop_rows = [0,1,2,3,4,5,6,7,8]
 column_names_CH = ['Year', 'Total Empl', 'Total Sec.1', 'Total Sec.2', 
                    'Total Sec.3', 'Total Empl Swiss', 'Total Swiss Sec.1', 
-                   'Total Swiss Sec.2', 'Total Swiss Sec.3', 'Total Emp Foreigners',
+                   'Total Swiss Sec.2', 'Total Swiss Sec.3', 'Total Empl Foreigners',
                    'Total Foreign Sec. 1', 'Total Foreign Sec.2', 'Total Foreign Sec.3']
 
 data_swiss_nat_sec = pc.organize_CH(data_swiss_nat_sec, drop_rows, drop_values_CH, column_names_CH)
@@ -352,3 +359,5 @@ table_switzerland = table_switzerland.drop('Empl saison', axis=1)
 # save dataframe as a table to the working directory
 table_switzerland.to_csv('table_switzerland.csv')
 
+
+######## End of national data preparation ########
