@@ -254,7 +254,28 @@ def my_chart(data1, data2, varname, label1, label2, location):
     plt.xlabel(data1['Year'])
     plt.ylabel(varname)
     plt.show()
-    
+
+def import_data(Path):
+    """
+    Import multiple csv files.
+
+    Parameters
+    ----------
+    Path : TYPE: string
+        DESCRIPTION: path from where to import the files
+    Returns
+    -------
+    None. 
+    """
+    folderpath = Path
+    filepaths  = [os.path.join(folderpath, name) for name in os.listdir(folderpath)]
+    all_files = []
+
+    for path in filepaths:
+        with open(path, 'r') as f:
+            file = f.readlines()
+            all_files.append(file)
+    return file
     
 
 # define an Output class for simultaneous console - file output
