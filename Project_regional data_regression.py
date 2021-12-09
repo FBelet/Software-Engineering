@@ -122,4 +122,7 @@ outcome_diff15 = outcome_diff15.sort_values(by=['Refugees/Pop']).reset_index(dro
 outcome_diff15.to_excel(PATH + 'Refugees_Diff15_Bundesländer.xlsx')
 
 
+# next: choose a control and treatment bundesland and get the atet, do the same for cantons
+# next: also look at geringfügige beschäftigung
+
 
