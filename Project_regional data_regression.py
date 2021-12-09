@@ -93,19 +93,33 @@ for i, land in zip(groupDF, bundesländer):
     plt.title(land)
     plt.show()
 # create a table for the change in Refugees/Pop between 2014 and 2016
-li = []
+li16 = []
 for i in groupDF:
     outcome_16 = pd.DataFrame(i.loc[(i['Year'] == 2016),'Refugees/Pop']).reset_index(drop=True)
     outcome_14 = pd.DataFrame(i.loc[(i['Year'] == 2014),'Refugees/Pop']).reset_index(drop=True)  
     outcome_diff = outcome_16 - outcome_14
-    li.append(outcome_diff)
+    li16.append(outcome_diff)
 
-outcome_diff = pd.concat(li, ignore_index=True)
-outcome_diff = outcome_diff.drop(outcome_diff.index[15], axis=0).reset_index(drop=True)
-outcome_diff['Bundesland'] = bundesländer
-outcome_diff = outcome_diff.sort_values(by=['Refugees/Pop']).reset_index(drop=True)
+outcome_diff16 = pd.concat(li16, ignore_index=True)
+outcome_diff16 = outcome_diff16.drop(outcome_diff16.index[[15]], axis=0).reset_index(drop=True)
+outcome_diff16['Bundesland'] = bundesländer
+outcome_diff16 = outcome_diff16.sort_values(by=['Refugees/Pop']).reset_index(drop=True)
 # save as excel
-outcome_diff.to_excel(PATH + 'Refugees_Diff_Bundesländer.xlsx')
+outcome_diff16.to_excel(PATH + 'Refugees_Diff16_Bundesländer.xlsx')
+
+# do the same for the years 2014 and 2015
+li15 = []
+for i in groupDF:
+    outcome_15 = pd.DataFrame(i.loc[(i['Year'] == 2015),'Refugees/Pop']).reset_index(drop=True)
+    outcome_14 = pd.DataFrame(i.loc[(i['Year'] == 2014),'Refugees/Pop']).reset_index(drop=True)  
+    outcome_diff = outcome_15 - outcome_14
+    li15.append(outcome_diff)
+
+outcome_diff15 = pd.concat(li15, ignore_index=True)
+outcome_diff15['Bundesland'] = bundesländer
+outcome_diff15 = outcome_diff15.sort_values(by=['Refugees/Pop']).reset_index(drop=True)
+# save as excel
+outcome_diff15.to_excel(PATH + 'Refugees_Diff15_Bundesländer.xlsx')
 
 
 
