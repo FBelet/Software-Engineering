@@ -18,7 +18,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # set working directory
-PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
+PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 sys.path.append(PATH)
 
 
@@ -178,7 +178,8 @@ table_germany_empl = pd.concat([table13, table14, table15, table16, table17, tab
 table_germany = pd.merge(pd.merge(table_all, table_germany_empl, on='Year'), table_empl_total, on='Year')
 
 # save dataframe as a table to the working directory
-table_germany.to_csv('table_germany.csv')
+PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+table_germany.to_csv(PATH2 + 'table_germany.csv')
 
 ################################################################################
 
@@ -357,7 +358,7 @@ table_switzerland = table_switzerland.drop('Empl saison', axis=1)
 
 
 # save dataframe as a table to the working directory
-table_switzerland.to_csv('table_switzerland.csv')
+table_switzerland.to_csv(PATH2 + 'table_switzerland.csv')
 
 
 ######## End of national data preparation ########
