@@ -1,16 +1,125 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{
+  left=3cm,
+  right=3cm,
+  top=3cm,
+  bottom=4cm,
+  bindingoffset=5mm
+}
+\usepackage{blindtext}
+\usepackage{tabularx}
+%Path in Windows format:
+\usepackage{graphicx}
+\graphicspath{\images}
+\usepackage{amssymb}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[sc]{mathpazo} 
+\linespread{1.25}
+\usepackage{microtype}
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage{lettrine}
+\usepackage{graphicx}
+\graphicspath{ {./GC/} } 
+%R script to LaTex
+\usepackage{listings}
+\usepackage{multicol} 
+\usepackage{booktabs}
+\usepackage{float} 
+\usepackage{subfigure}
+\usepackage{paralist} 
+\usepackage{hyperref} 
+\usepackage{abstract}
+\usepackage{float}
+\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape}
+\usepackage{titlesec}
+\renewcommand\thesection{\Roman{section}} 
+\renewcommand\thesubsection{\alph{subsection}} 
+\titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{} 
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}
+\usepackage{fancyhdr} 
+\pagestyle{fancy} 
+\fancyhead{} 
+\fancyfoot{}  
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
-\title{Software Engineering}
-\author{Berenice Flumenbaum & Fabienne Belet}
-\date{November 2021}
+%Kopfzeile
+\fancyhead[C]{Software Engineering - Documentation}
+\fancyfoot[R]{\thepage} 
+
+%Title
+
+\title{\vspace{-10mm}\fontsize{25pt}{20pt}\selectfont\textbf{{Software Engineering}}
+\\[1cm]{\huge
+ To what extent did the refugee crisis in 2015 impact employment outcomes in Switzerland and Germany?}
+ \\[1cm]{\large
+ Analysis of Swiss and German data using a difference-in-difference approach in Python}
+\\[1cm]{\large
+ University of St. Gallen}} 
+
+\vspace{2 cm}
+
+% Authors
+
+\author{
+\large
+\textsc{Authors}\\[0.5mm]
+\\\large Berenice Flumenbaum
+\\\small ???
+\\\large Fabienne Belet
+\\\small 16-604-928
+\\[0.5cm]{\large Professor: Philipp Zahn}
+\vspace{0.5cm}
+\date{December 2021}
+}
 
 \begin{document}
-
 \maketitle
+\thispagestyle{empty}
+
+ 
+ 
+%___________________________________
+
+\vspace{1.5 cm}
+
+
+\begin{tabular}{p{4cm}p{.5cm}l}
+
+
+\end{tabular}% 
+\hfill 
+
+\newpage
 
 \section{Introduction}
+\setcounter{page}{1}
 
-$p_1$
 
+
+
+\newpage
+\section{Empirical Method}
+
+
+
+\newpage
+\section{Process of Project}
+\subsection{Data Preparation}
+\noindent mention that no data for regional employment etc. in Switzerland
+\subsection{Data Selection}
+\noindent add the graphs for common trends
+\subsection{Difference-in-Difference Approach}
+\noindent explain the actual approach implemented in python (theory of diff-in-diff explained before)
+
+
+\newpage
+\section{Results}
+\noindent include table with results and describe them
 \end{document}
