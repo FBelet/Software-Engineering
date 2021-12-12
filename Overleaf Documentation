@@ -1,3 +1,5 @@
+Link to work on Latex file: https://de.overleaf.com/6326667166dbkpmrwpsmnm
+
 \documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage{geometry}
@@ -25,6 +27,15 @@
 \usepackage{lettrine}
 \usepackage{graphicx}
 \graphicspath{ {./GC/} } 
+\addto\captionsenglish{%
+\renewcommand{\contentsname}{Table of Contents}}
+\usepackage{endnotes}
+\usepackage[utf8x]{inputenc}
+\usepackage[sc]{mathpazo} 
+\linespread{1.15}
+\usepackage{microtype}
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption}
+\graphicspath{ {./GC/} } 
 %R script to LaTex
 \usepackage{listings}
 \usepackage{multicol} 
@@ -38,8 +49,7 @@
 \renewcommand{\abstractnamefont}{\normalfont\bfseries}
 \renewcommand{\abstracttextfont}{\normalfont\small\itshape}
 \usepackage{titlesec}
-\renewcommand\thesection{\Roman{section}} 
-\renewcommand\thesubsection{\alph{subsection}} 
+\renewcommand\thesection{\arabic{section}} 
 \titleformat{\section}[block]{\large\scshape}{\thesection.}{1em}{} 
 \titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}
 \usepackage{fancyhdr} 
@@ -48,7 +58,7 @@
 \fancyfoot{}  
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
-
+\usepackage{tocloft}
 %Kopfzeile
 \fancyhead[C]{Software Engineering - Documentation}
 \fancyfoot[R]{\thepage} 
@@ -69,10 +79,10 @@
 
 \author{
 \large
-\textsc{Authors}\\[0.5mm]
-\\\large Berenice Flumenbaum
-\\\small ???
-\\\large Fabienne Belet
+\textsc{Authors}\\[0.2mm]
+\\\large \textbf{Berenice Flumenbaum}
+\\\small 20-600-896
+\\\large \textbf{Fabienne Belet}
 \\\small 16-604-928
 \\[0.5cm]{\large Professor: Philipp Zahn}
 \vspace{0.5cm}
@@ -97,26 +107,94 @@
 \hfill 
 
 \newpage
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+\newpage
 
 \section{Introduction}
 \setcounter{page}{1}
+\noindent The year 2015 marks the start of what later is famously called the "European refugee crisis". In 2015 more than a million people crossed into Europe as migrants and refugees. The crisis led to countries struggling with the influx and it created a division within the EU. Most of these people arrived by sea but some of them made their way as well over land. Most of the people came from Syria, Afghanistan and Iraq. According to statistics, Germany received the highest number of new asylum applications in the year 2015, registering more than 486'000 applications. \footnote{BBC News (2016). Migrant crisis: Migration to Europe explained in seven charts.}\vspace{0.1cm}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=7cm]{Asylum_Applications_2015.PNG}
+    \caption{Asylum Applications 2015$^{1}$}
+    \label{fig: Asylum Applications}
+\end{figure}
+\noindent Considering Figure 1 it is visible that especially Hungary and Sweden had the most applications per 100'000 local population. Additionally, the figure shows that Germany had more applications than Switzerland. The refugee crisis is still a widely discussed topic and even in recent years there is still a large intake of refugees and migrants in European countries.\footnote{Bundesamt für Migration und Flüchtlinge $(2021)$. Das Bundesamt in Zahlen 2020.}\vspace{0.1cm}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=9cm]{Asylzahlen_Europa.PNG}
+    \caption{Asylum Numbers Europe 2020$^{2}$}
+    \label{fig: Asylum Europe}
+\end{figure}
 
 
+\noindent In the following analysis a special focus is set on Germany and Switzerland. The goal is to analyze the impact of the European refugee crisis on employment outcomes including as well unemployment numbers. The research question is: \textit{To what extent did the refugee crisis in 2015 impact employment outcomes in Switzerland and Germany?} To answer this question we use a difference-in-difference approach. We divide the analysis in two parts, where we first focus on national data and compare Germany with Switzerland as whole countries. For this analysis we assume that Germany is a country that had to deal with a large amount of refugees, whereas Switzerland had a lower amount of refugees. Secondly, we perform an analysis on regional data, where we compare "Bundesländer" within Germany, and cantons within Switzerland to find regional differences. In Germany we set a special focus on "geringfügige Beschäftigungsverhältnisse" which describe employment relationship on a maximum 450 Euro basis per month or a work assignment of maximum 70 days per year.\\
+
+\noindent Looking at the data for asylum applications for Switzerland there is a clear peak in the year 2015.\footnote{Statista $(2021)$. Anzahl der neuen Asylgesuche in der Schweiz von 2011 bis 2021.} The refugees in Switzerland arrived especially from Eritrea, Syria, Afghanistan and Turkey. The reason that there are less refugees in Switzerland than in Germany is that Switzerland is quite unattractive as a destination country, due to the restrictive asylum policy.\footnote{Amnesty International $(2020)$. Zahlen und Fakten zu Asyl in der Schweiz.} In Switzerland refugees with a B permit or F permit, meaning recognized refugees, provisionally admitted refugees as well as stateless people, are allowed to seek employment if the register it at the responsible office. Asylum seekers with a N permit and refugees of all permit types still living in a asylum center are not allowed to engage in employment. They would need a special approval to work.\footnote{Staatssekretariat für Migration $(2021)$. Erwerbstätige aus dem Asylbereich.}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Asyl_Schweiz.PNG}
+    \caption{Asylum Applications Switzerland$^{3}$}
+    \label{fig: Asylum Switzerland}
+\end{figure}
+
+\noindent Looking at the German data for asylum applications there is as well a peak in the year 2015. Overall the number of applications is higher than in Switzerland, but it is important to take into considerations that the population in Germany is ten times higher than in Switzerland. \footnote{Bundesamt für Migration und Flüchtlinge $(2021)$. Das Bundesamt in Zahlen 2020.} Most of the asylum applications were from people that arrived from Syria, Serbia, Kosovo, Albania, Irak and Eritrea.Germany is especially attractive due to EU-regulations as well as since Germany is considered as a country of hope and opportunities. \footnote{Bundesministerium des Innern und für Heimat (2016). 2015: Mehr Asylanträge in Deutschland als jemals zuvor.} In Germany asylum seekers are allowed to work after three months and if they are not obligated to live in a host facility or after six months if they have children. They are allowed to seek employment after nine months even if they still live in a host facility. Only tolerated people are allowed to work after six months, if they are obliged to live in a host facility otherwise after three months. \footnote{Landeszentrale für politische Bildung (2021). Flüchtlinge und Schutzsuchende in Deutschland.}\\
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Asylantragszahlen_Deutschland.png}
+    \caption{Asylum Applications Germany$^{6}$}
+    \label{fig: Asylum Switzerland}
+\end{figure}
 
 
 \newpage
 \section{Empirical Method}
+\noindent To analyze the impact of the refugee crisis on employment in Switzerland and Germany a \textbf{difference-in-difference approach} was conducted. In the following this empirical method will be explained with a special focus on the relevant assumptions.\\
 
+\noindent The difference-in-difference method can be defined as a quasi-experimental approach that compares the changes in outcomes over time between a treatment group and a control group. The treatment group receives the treatment the researcher is interested, in this analysis the treatment is the acceptance of a large amount of refugees. The control group receives either no treatment or a standard treatment whose effect is already known, which would be none or a lower amount of refugees in this analysis. To implement this method we need data on outcomes in treatment group and the control group for the period before and after the treatment. In this case we need data for control and treatment group before 2015 and after 2015, that is defined as the peak or start of the refugee crisis. Therefore, difference-in-difference is an analytical approach that facilitates causal inference even when randomization is not possible. By comparing the before and after changes in outcomes for the two groups the method estimates the overall impact of the treatment.\footnote{The World Bank (2021). Difference-in-Difference. Quasi-Experimental Methods.} \\
 
+\noindent The following assumptions need to be fulfilled for the difference-in-difference method to work\footnote{Lechner, M. (2021). Lecture on Differences-in-Differences as part of Data Analytics II: Causal Econometrics. Personal Collection of M. Lechner, University of St. Gallen, St. Gallen.}:
+\begin{itemize}
+    \item \emph{Common Trend:} The common trend assumption states that in the absence of the treatment the difference between the control and the treatment group should be constant or "fixed" over time. The assumption can be stated as following: 
+    \begin{equation}
+    \begin{gathered}
+    E[Y^0|X=x, T=1, D=1] - E[Y^0|X=x, T=0, D=1]\\
+    = E[Y^0|X=x, T=1, D=0] - E[Y^0| X=x, T=0, D=0]\\
+    = E[Y^0|X=x, T=1] - E[Y^0| X=x, T=0],  \forall x\in\chi\vspace{-0.3em}
+    \end{gathered}
+    \end{equation}\vspace{-0.3em}
+    \item \emph{Common support:} This assumption can be tested and states that for any value of the confounding variables a unit can potentially be observed with D=1 or D=0; $0 < P(D=1 \mid X=x) < 1$ for all x in the support of X. This means that for identical individuals based on x, being D=1 or D=0 is random. Hence the conditional treatment probability (propensity score) is bounded away from zero and one.\vspace{-0.3em}
+    \item \emph{Exogeneity of confounders:} The covariates are not affected by the treatment in a way that is related to the outcome variables. This means that the confounders are not influenced by the treatment itself. A sufficient condition for exogeneity would be: $X^d = X^1^-^d$. If we do not have exogeneity, we have the problem of conditioning already on part of the treatment effect, which will lead to a bias in the treatment effect (converges towards 0).\vspace{-0.3em}
+    \item \emph{SUTVA:} This assumption excludes spillover effects. It means that the observed outcomes in one treatment state correspond to the potential outcome of this state for the specific individuals/ observations of this state: $Y = DY^1 + (1-D)Y^0$. Hence everybody needs to be specifically assigned to either treatment group and there cannot be any relevant interactions between the treatments. Receiving treatment for individual A does not influence the potential outcome for individual B.
+\end{itemize}\\
+
+\noindent The parameter of interest for this analysis is the average treatment effect (ATE), which is the overall assessment of the treatment. The ATE is a measure for average population effects and defined as: $ATE = E(Y^1 - Y^0) = E(Y^1) - E(Y^0)$. Where $Y^1$ is the potential outcome for the treated and $Y^0$ is the potential outcome for the untreated or for the controls. The ATE is a measure of the difference in the mean of the potential outcome of the treated and the mean of the potential outcome of the untreated. It is important to allow for effect heterogeneity. It is possible to use the ATE and represent the average treatment effect of the treated (ATET) as well:\
+\begin{equation}
+    \begin{gathered}
+    ATE = E(Y^1) - E(Y^0)\\
+    = \Bigl\lbrack\underbrace{E(Y|D=1)}_{identified} - \underbrace{E(Y^0|D=1)}_{counterfactual}\Bigr\rbrack \underbrace{P(D=1)}_{identified} + \Bigl\lbrack\underbrace{E(Y^1|D=0)}_{counterfactual} - \underbrace{E(Y|D=0)}_{identified}\Bigr\rbrack \underbrace{P(D=0)}_{identified}
+   \end{gathered}
+\end{equation}\
+
+\noindent Where $\bigl\lbrack E(Y^1|D=1) - E(Y^0|D=1)\bigr\rbrack$ is the average treatment effect on the treated, $P(D=1)$ and $P(D=0)$ are the population effects and $\bigl\lbrack E(Y^1|D=0) - E(Y^0|D=0)\bigr\rbrack$ is the average treatment effect on the non-treated. Furthermore, the potential outcomes $Y^1$ and $Y^0$ cannot be observed simultaneously for each participant. We can only observe $Y = DY^1 + (1-D)Y^0$ of the specific participant.\\
 
 \newpage
 \section{Process of Project}
 \subsection{Data Preparation}
+\noindent divide into part for regional and national data
 \noindent mention that no data for regional employment etc. in Switzerland
 \subsection{Data Selection}
-\noindent add the graphs for common trends
+\noindent divide into part for regional and national data
+\noindent add the graphs for common trends, why choose which Bundesländer/Kantone to compare // why possible to compare Germany Switzerland
 \subsection{Difference-in-Difference Approach}
-\noindent explain the actual approach implemented in python (theory of diff-in-diff explained before)
+\noindent divide into part of regional and national data
+\noindent explain the actual approach implemented in python (theory of diff-in-diff explained before) and go through assumptions (short)
+\noindent quasi-natural assignment since it is not completely random how refugees are assigned to countries/Bundesländer/Kantone or as well not random how refugees choose to which country to go
 
 
 \newpage
