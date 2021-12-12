@@ -14,8 +14,8 @@ Berenice Flumenbaum & Fabienne Belet
 import sys
 import pandas as pd
 import numpy as np
-import os
 import matplotlib.pyplot as plt
+
 
 # create function to get overview over datasets
 def my_summary_stats(data):
@@ -254,8 +254,39 @@ def my_chart(data1, data2, varname, label1, label2, location):
     plt.xlabel(data1['Year'])
     plt.ylabel(varname)
     plt.show()
+
+def my_atet(data, outcome, treat, time):
+    """
+    Calculate the ATET.
+
+    Parameters
+    ----------
+    data : TYPE: pd.DataFrame
+        DESCRIPTION: dataframe containing variables of interest
+    outcome : TYPE: string
+        DESCRIPTION: outcome variable of interest
+    treat: TYPE: string
+        DESCRIPTION: treatment variable
+    time: TYPE: string
+        DESCRIPTION: time dimension before or after the treatment
+    Returns
+    -------
+    None. Prints line chart.
+    """
+    # ATET = E[Y|X=x, T=1, D=1] - E[Y|X=x, T=0, D=1]
+    #         - (E[Y|X=x, T=1, D=0] - E[Y|X=x, T=0, D=0])
+
+    y1_1 = data.loc[(data[time] == 2016) & (data[treat] == 1), outcome]
+    y1_0 = data.loc[(data[time] == 2014) & (data[treat] == 1), outcome]
+
+    y0_1 = data.loc[(data[time] == 2016) & (data[treat] == 0), outcome]
+    y0_0 = data.loc[(data[time] == 2014) & (data[treat] == 0), outcome]
+
+    atet = round((y1_1.mean() - y1_0.mean()) - (y0_1.mean() - y0_0.mean()),0)
+    atet = str(atet)
+    print('The ATET is ' + atet)
     
-    
+
 
 # define an Output class for simultaneous console - file output
 class Output():
