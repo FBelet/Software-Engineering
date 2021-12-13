@@ -16,7 +16,7 @@ import sys
 import pandas as pd
 
 # set working directory
-PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
 sys.path.append(PATH)
 
 
@@ -181,9 +181,11 @@ Thüringen_unempl = pd.merge(Thüringen_4, Thüringen_5, on='Year')
 
 Table_Thüringen = pd.merge(pd.merge(Thüringen_3, Thüringen_2, on='Year'), Thüringen, on='Year')
 Table_Thüringen = pd.merge(pd.merge(Table_Thüringen, Thüringen_1), Thüringen_unempl, on='Year' )
-# saving the final dataset
+
+# saving the final dataset for further analysis
 PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
 Table_Thüringen.to_csv(PATH2 + 'table_thüringen.csv')
+
 
 # Schleswig-Holstein #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -207,7 +209,8 @@ Schleswig_Holstein_unempl = pd.merge(Schleswig_Holstein_4, Schleswig_Holstein_5)
 
 Table_Schleswig_Holstein = pd.merge(pd.merge(Schleswig_Holstein_3, Schleswig_Holstein_2, on='Year'), Schleswig_Holstein, on='Year')
 Table_Schleswig_Holstein = pd.merge(pd.merge(Table_Schleswig_Holstein, Schleswig_Holstein_1, on='Year'), Schleswig_Holstein_unempl, on='Year')
-# saving the final dataset
+
+# saving the final dataset for further analysis
 Table_Schleswig_Holstein.to_csv(PATH2 + 'table_schleswig_holstein.csv')
 
 # Sachsen-Anhalt #
@@ -231,9 +234,9 @@ Sachsen_Anhalt_unempl = pd.merge(Sachsen_Anhalt_4, Sachsen_Anhalt_5)
 
 Table_Sachsen_Anhalt = pd.merge(pd.merge(Sachsen_Anhalt_3, Sachsen_Anhalt_2, on='Year'), Sachsen_Anhalt, on='Year')
 Table_Sachsen_Anhalt = pd.merge(pd.merge(Table_Sachsen_Anhalt, Sachsen_Anhalt_1, on='Year'), Sachsen_Anhalt_unempl, on='Year')
-# saving the final dataset
-Table_Sachsen_Anhalt.to_csv(PATH2 + 'table_sachsen_anhalt.csv')
 
+# saving the final dataset for further analysis
+Table_Sachsen_Anhalt.to_csv(PATH2 + 'table_sachsen_anhalt.csv')
 
 # Sachsen #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -256,9 +259,9 @@ Sachsen_unempl = pd.merge(Sachsen_4, Sachsen_5)
 
 Table_Sachsen = pd.merge(pd.merge(Sachsen_3, Sachsen_2, on='Year'), Sachsen, on='Year')
 Table_Sachsen = pd.merge(pd.merge(Table_Sachsen, Sachsen_1, on='Year'), Sachsen_unempl, on='Year')
-# saving the final dataset
-Table_Sachsen.to_csv(PATH2 + 'table_sachsen.csv')
 
+# saving the final dataset for further analysis
+Table_Sachsen.to_csv(PATH2 + 'table_sachsen.csv')
 
 # Saarland #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -281,9 +284,9 @@ Saarland_unempl = pd.merge(Saarland_4, Saarland_5)
 
 Table_Saarland = pd.merge(pd.merge(Saarland_3, Saarland_2, on='Year'), Saarland, on='Year')
 Table_Saarland = pd.merge(pd.merge(Table_Saarland, Saarland_1, on='Year'), Saarland_unempl, on='Year')
-# saving the final dataset
-Table_Saarland.to_csv(PATH2 + 'table_saarland.csv')
 
+# saving the final dataset for further analysis
+Table_Saarland.to_csv(PATH2 + 'table_saarland.csv')
 
 # Rheinland-Pfalz #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -307,9 +310,9 @@ Rheinland_Pfalz_unempl = pd.merge(Rheinland_Pfalz_4, Rheinland_Pfalz_5)
 
 Table_Rheinland_Pfalz = pd.merge(pd.merge(Rheinland_Pfalz_3, Rheinland_Pfalz_2, on='Year'), Rheinland_Pfalz, on='Year')
 Table_Rheinland_Pfalz = pd.merge(pd.merge(Table_Rheinland_Pfalz, Rheinland_Pfalz_1, on='Year'), Rheinland_Pfalz_unempl, on='Year')
-# saving the final dataset
-Table_Rheinland_Pfalz.to_csv(PATH2 + 'table_rheinland_pfalz.csv')
 
+# saving the final dataset for further analysis
+Table_Rheinland_Pfalz.to_csv(PATH2 + 'table_rheinland_pfalz.csv')
 
 # Nordrhein-Westfalen #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -333,9 +336,9 @@ Nordrhein_Westfalen_unempl = pd.merge(Nordrhein_Westfalen_4, Nordrhein_Westfalen
 
 Table_Nordrhein_Westfalen = pd.merge(pd.merge(Nordrhein_Westfalen_3, Nordrhein_Westfalen_2, on='Year'), Nordrhein_Westfalen, on='Year')
 Table_Nordrhein_Westfalen = pd.merge(pd.merge(Table_Nordrhein_Westfalen, Nordrhein_Westfalen_1, on='Year'), Nordrhein_Westfalen_unempl, on='Year')
-# saving the final dataset
-Table_Nordrhein_Westfalen.to_csv(PATH2 + 'table_NRW.csv')
 
+# saving the final dataset for further analysis
+Table_Nordrhein_Westfalen.to_csv(PATH2 + 'table_NRW.csv')
 
 # Niedersachsen #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -359,9 +362,9 @@ Niedersachsen_unempl = pd.merge(Niedersachsen_4, Niedersachsen_5)
 
 Table_Niedersachsen = pd.merge(pd.merge(Niedersachsen_3, Niedersachsen_2, on='Year'), Niedersachsen, on='Year')
 Table_Niedersachsen = pd.merge(pd.merge(Table_Niedersachsen, Niedersachsen_1, on='Year'), Niedersachsen_unempl, on='Year')
-# saving the final dataset
-Table_Niedersachsen.to_csv(PATH2 + 'table_niedersachsen.csv')
 
+# saving the final dataset for further analysis
+Table_Niedersachsen.to_csv(PATH2 + 'table_niedersachsen.csv')
 
 # Mecklenburg-Vorpommern #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -384,9 +387,9 @@ Mecklenburg_Vorpommern_unempl = pd.merge(Mecklenburg_Vorpommern_4, Mecklenburg_V
 
 Table_Mecklenburg_Vorpommern = pd.merge(pd.merge(Mecklenburg_Vorpommern_3, Mecklenburg_Vorpommern_2, on='Year'), Mecklenburg_Vorpommern, on='Year')
 Table_Mecklenburg_Vorpommern = pd.merge(pd.merge(Table_Mecklenburg_Vorpommern, Mecklenburg_Vorpommern_1, on='Year'), Mecklenburg_Vorpommern_unempl, on='Year')
-# saving the final dataset
-Table_Mecklenburg_Vorpommern.to_csv(PATH2 + 'table_mecklenburg_vorpommern.csv')
 
+# saving the final dataset for further analysis
+Table_Mecklenburg_Vorpommern.to_csv(PATH2 + 'table_mecklenburg_vorpommern.csv')
 
 # Hessen #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -409,9 +412,9 @@ Hessen_unempl = pd.merge(Hessen_4, Hessen_5)
 
 Table_Hessen = pd.merge(pd.merge(Hessen_3, Hessen_2, on='Year'), Hessen, on='Year')
 Table_Hessen = pd.merge(pd.merge(Table_Hessen, Hessen_1, on='Year'), Hessen_unempl, on='Year')
-# saving the final dataset
-Table_Hessen.to_csv(PATH2 + 'table_hessen.csv')
 
+# saving the final dataset for further analysis
+Table_Hessen.to_csv(PATH2 + 'table_hessen.csv')
 
 # Hamburg #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -434,9 +437,9 @@ Hamburg_unempl = pd.merge(Hamburg_4, Hamburg_5)
 
 Table_Hamburg = pd.merge(pd.merge(Hamburg_3, Hamburg_2, on='Year'), Hamburg, on='Year')
 Table_Hamburg = pd.merge(pd.merge(Table_Hamburg, Hamburg_1, on='Year'), Hamburg_unempl, on='Year')
-# saving the final dataset
-Table_Hamburg.to_csv(PATH2 + 'table_HH.csv')
 
+# saving the final dataset for further analysis
+Table_Hamburg.to_csv(PATH2 + 'table_HH.csv')
 
 # Bremen #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -459,9 +462,9 @@ Bremen_unempl = pd.merge(Bremen_4, Bremen_5)
 
 Table_Bremen= pd.merge(pd.merge(Bremen_3, Bremen_2, on='Year'), Bremen, on='Year')
 Table_Bremen = pd.merge(pd.merge(Table_Bremen, Bremen_1, on='Year'), Bremen_unempl, on='Year')
-# saving the final dataset
-Table_Bremen.to_csv(PATH2 + 'table_bremen.csv')
 
+# saving the final dataset for further analysis
+Table_Bremen.to_csv(PATH2 + 'table_bremen.csv')
 
 # Brandenburg #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -484,9 +487,9 @@ Brandenburg_unempl = pd.merge(Brandenburg_4, Brandenburg_5)
 
 Table_Brandenburg = pd.merge(pd.merge(Brandenburg_3, Brandenburg_2, on='Year'), Brandenburg, on='Year')
 Table_Brandenburg = pd.merge(pd.merge(Table_Brandenburg, Brandenburg_1, on='Year'), Brandenburg_unempl, on='Year')
-# saving the final dataset
-Table_Brandenburg.to_csv(PATH2 + 'table_brandenburg.csv')
 
+# saving the final dataset for further analysis
+Table_Brandenburg.to_csv(PATH2 + 'table_brandenburg.csv')
 
 # Berlin #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -509,9 +512,9 @@ Berlin_unempl = pd.merge(Berlin_4, Berlin_5)
 
 Table_Berlin = pd.merge(pd.merge(Berlin_3, Berlin_2, on='Year'), Berlin, on='Year')
 Table_Berlin = pd.merge(pd.merge(Table_Berlin, Berlin_1, on='Year'), Berlin_unempl, on='Year')
-# saving the final dataset
-Table_Berlin.to_csv(PATH2 + 'table_berlin.csv')
 
+# saving the final dataset for further analysis
+Table_Berlin.to_csv(PATH2 + 'table_berlin.csv')
 
 # Bayern #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -534,9 +537,9 @@ Bayern_unempl = pd.merge(Bayern_4, Bayern_5)
 
 Table_Bayern = pd.merge(pd.merge(Bayern_3, Bayern_2, on='Year'), Bayern, on='Year')
 Table_Bayern = pd.merge(pd.merge(Table_Bayern, Bayern_1, on='Year'), Bayern_unempl, on='Year')
-# saving the final dataset
-Table_Bayern.to_csv(PATH2 + 'table_bayern.csv')
 
+# saving the final dataset for further analysis
+Table_Bayern.to_csv(PATH2 + 'table_bayern.csv')
 
 # Baden-Württemberg #
 # organizing employment data by looping through dictionary and deleting unnecessary columns/rows
@@ -559,9 +562,9 @@ Baden_Württemberg_unempl = pd.merge(Baden_Württemberg_4, Baden_Württemberg_5)
 
 Table_Baden_Württemberg = pd.merge(pd.merge(Baden_Württemberg_3, Baden_Württemberg_2, on='Year'), Baden_Württemberg, on='Year')
 Table_Baden_Württemberg = pd.merge(pd.merge(Table_Baden_Württemberg, Baden_Württemberg_1, on='Year'), Baden_Württemberg_unempl, on='Year')
-# saving the final dataset
-Table_Baden_Württemberg.to_csv(PATH2 + 'table_BaWü.csv')
 
+# saving the final dataset for further analysis
+Table_Baden_Württemberg.to_csv(PATH2 + 'table_BaWü.csv')
 
 ##############################################################################
 
