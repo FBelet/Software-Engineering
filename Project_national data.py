@@ -18,7 +18,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # set working directory
-PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
 sys.path.append(PATH)
 
 
@@ -49,7 +49,7 @@ DATANAME10 = 'Beschäftigte_Deutschland_202012.xlsx'
 DATANAME11 = 'Beschäftigte_Deutschland_202103.xlsx'
 DATANAME12 = 'Arbeitslose_Quote_Deutschland.xlsx'
 
-# load in data using pandas (evtl. hier function mit loop über alle files erstellen, damit alles durch function importiert wird?)
+# load in data using pandas
 data_germany_foreigners = pd.read_excel(PATH + DATANAME1)
 data_germany_pop = pd.read_excel(PATH + DATANAME2)
 data_germany_unempl = pd.ExcelFile(PATH + DATANAME12)
@@ -83,7 +83,6 @@ xls21 = pd.ExcelFile(PATH + DATANAME11)
 data_empl_21 = pd.read_excel(xls21, sheet_name=[0,1,2], header=None)
 
 # check for missing values and deal with them
-## link for data preparation: https://towardsdatascience.com/essential-commands-for-data-preparation-with-pandas-ed01579cf214
 pc.my_summary_stats(data_germany_foreigners)
 data_germany_foreigners = data_germany_foreigners.dropna()
 data_germany_foreigners = data_germany_foreigners.drop(['weiblich', 'männlich'], axis = 1)
@@ -183,7 +182,7 @@ table_germany.to_csv(PATH2 + 'table_germany.csv')
 
 ################################################################################
 
-# Switzerland #  ## data for Switzerland is in 1000##
+# Switzerland #
 # define data names
 dataname1 = 'Erwerbstätige_Schweiz_1960-2020_Infos.xlsx'
 dataname2 = 'Erwerbstätige_Schweiz_1991-2020_Nationalität.xlsx'  
@@ -356,9 +355,7 @@ table_swiss_asyl = pd.concat([data_asyl_10, data_asyl_11, data_asyl_12,
 table_switzerland = pd.merge(table_swiss_general, table_swiss_asyl)
 table_switzerland = table_switzerland.drop('Empl saison', axis=1)
 
-
 # save dataframe as a table to the working directory
 table_switzerland.to_csv(PATH2 + 'table_switzerland.csv')
-
 
 ######## End of national data preparation ########

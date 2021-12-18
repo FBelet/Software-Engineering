@@ -2,7 +2,7 @@ Descriptive Statistics:
 --------------------------------------------------------------------------------
                         na  null  unique  obs
 Year                     0     0      12   12
-Baden-WÃ¼rttemberg        0     0      12   12
+Baden-Württemberg        0     0      12   12
 Unnamed: 2               0     0      12   12
 Unnamed: 3               0     0      12   12
 Bayern                   0     0      12   12
@@ -47,7 +47,7 @@ Unnamed: 42              0     0      12   12
 Schleswig-Holstein       0     0      12   12
 Unnamed: 44              0     0      12   12
 Unnamed: 45              0     0      12   12
-ThÃ¼ringen                0     0      12   12
+Thüringen                0     0      12   12
 Unnamed: 47              0     0      12   12
 Unnamed: 48              0     0      12   12
 --------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ Deutschland                0     0      33   33
   Nordrhein-Westfalen      0     0      33   33
   Hessen                   0     0      33   33
   Rheinland-Pfalz          0     0      33   33
-  Baden-WÃ¼rttemberg        0     0      33   33
+  Baden-Württemberg        0     0      33   33
   Bayern                   0     0      33   33
   Saarland                 0     0      33   33
   Berlin                   0     0      33   33
@@ -75,7 +75,7 @@ Deutschland                0     0      33   33
   Mecklenburg-Vorpommern   0     0      33   33
   Sachsen                  0     0      33   33
   Sachsen-Anhalt           0     0      33   33
-  ThÃ¼ringen                0     0      33   33
+  Thüringen                0     0      33   33
 --------------------------------------------------------------------------------
 
 
@@ -92,13 +92,13 @@ Nordrhein-Westfalen      0     0      11   11
 Hessen                   0     0      11   11
 Rheinland-Pfalz          0     0      11   11
 Saarland                 0     0      11   11
-Baden-WÃ¼rttemberg        0     0      11   11
+Baden-Württemberg        0     0      11   11
 Bayern                   0     0      11   11
 Mecklenburg-Vorpommern   0     0      11   11
 Brandenburg              0     0      11   11
 Berlin                   0     0      11   11
 Sachsen-Anhalt           0     0      11   11
-ThÃ¼ringen                0     0      11   11
+Thüringen                0     0      11   11
 Sachsen                  0     0      11   11
 --------------------------------------------------------------------------------
 
@@ -116,13 +116,13 @@ Nordrhein-Westfalen      0     0      10   11
 Hessen                   0     0      10   11
 Rheinland-Pfalz          0     0       9   11
 Saarland                 0     0       7   11
-Baden-WÃ¼rttemberg        0     0       7   11
+Baden-Württemberg        0     0       7   11
 Bayern                   0     0       8   11
 Mecklenburg-Vorpommern   0     0      11   11
 Brandenburg              0     0      11   11
 Berlin                   0     0      11   11
 Sachsen-Anhalt           0     0      10   11
-ThÃ¼ringen                0     0      11   11
+Thüringen                0     0      11   11
 Sachsen                  0     0      11   11
 --------------------------------------------------------------------------------
 
