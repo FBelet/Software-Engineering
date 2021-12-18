@@ -15,6 +15,7 @@ import sys
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import stats
 
 
 # create function to get overview over datasets
@@ -254,6 +255,9 @@ def my_chart(data1, data2, varname, label1, label2, location):
     plt.xlabel(data1['Year'])
     plt.ylabel(varname)
     plt.show()
+    
+    
+    
 
 def my_atet(data, outcome, treat, time):
     """
@@ -285,6 +289,62 @@ def my_atet(data, outcome, treat, time):
     atet = round((y1_1.mean() - y1_0.mean()) - (y0_1.mean() - y0_0.mean()),0)
     atet = str(atet)
     print('The ATET is ' + atet)
+
+
+
+def my_ols(exog, outcome, intercept=True, display=True):
+    """
+    OLS estimation.
+
+    Parameters
+    ----------
+    exog : TYPE: pd.DataFrame
+        DESCRIPTION: covariates
+    outcome : TYPE: pd.Series
+        DESCRIPTION: outcome
+    intercept : TYPE: boolean
+        DESCRIPTION: should intercept be included? The default is True.
+    display : TYPE: boolean
+        DESCRIPTION: should results be displayed? The default is True.
+
+    Returns
+    -------
+    result: ols estimates with standard errors
+    """
+    # check if intercept should be included
+    # the following condition checks implicitly if intercept == True
+    if intercept:
+        # if True, prepend a vector of ones to the covariate matrix
+        exog = pd.concat([pd.Series(np.ones(len(exog)), index=exog.index,
+                                    name='intercept'), exog], axis=1)
+    # compute (x'x)-1 by using the linear algebra from numpy
+    x_inv = np.linalg.inv(np.dot(exog.T, exog))
+    # estimate betas according to the OLS formula b=(x'x)-1(x'y)
+    betas = np.dot(x_inv, np.dot(exog.T, outcome))
+    # compute the residuals by subtracting fitted values from the outcomes
+    res = outcome - np.dot(exog, betas)
+    # estimate standard errors for the beta coefficients
+    # se = square root of diag((u'u)(x'x)^(-1)/(N-p))
+    s_e = np.sqrt(np.diagonal(np.dot(np.dot(res.T, res), x_inv) /
+                              (exog.shape[0] - exog.shape[1])))
+    # compute the t-values
+    tval = betas / s_e
+    # compute pvalues based on the students t-distribution (requires scipy)
+    # sf stands for the survival function (also defined as 1 - cdf)
+    pval = stats.t.sf(np.abs(tval),
+                      (exog.shape[0] - exog.shape[1])) * 2
+    # put results into dataframe and name the corresponding values
+    result = pd.DataFrame([betas, s_e, tval, pval],
+                          index=['coef', 'se', 't-value', 'p-value'],
+                          columns=list(exog.columns.values)).transpose()
+    # check if the results should be printed to the console
+    # the following condition checks implicitly if display == True
+    if display:
+        # if True, print the results (\n inserts a line break)
+        print('OLS Estimation Results:', '-' * 80,
+              'Dependent Variable: ' + outcome.name, '-' * 80,
+              round(result, 2), '-' * 80, '\n\n', sep='\n')
+
     
 
 
