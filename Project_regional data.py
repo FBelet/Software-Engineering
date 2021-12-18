@@ -16,7 +16,7 @@ import sys
 import pandas as pd
 
 # set working directory
-PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
+PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 sys.path.append(PATH)
 
 
@@ -692,6 +692,8 @@ table_Aargau_asyl = table_Aargau_asyl.drop('Canton', axis=1)
 table_Aargau = pd.merge(pd.merge(Aargau_empl, Aargau_unempl, on='Year'), Aargau_unempl_rate, on='Year')
 table_Aargau = pd.merge(table_Aargau, table_Aargau_asyl, on='Year')
 
+table_Aargau.to_csv(PATH2 + 'table_aargau.csv')
+
 # Appenzell A. Rh. #
 AppenzellA_empl = data_swiss_pop[[0, 43, 44, 45]]
 AppenzellA_empl = AppenzellA_empl.drop([0,1])
@@ -715,6 +717,8 @@ table_AppenzellA_asyl = table_AppenzellA_asyl.drop('Canton', axis=1)
 
 table_AppenzellA = pd.merge(pd.merge(AppenzellA_empl, AppenzellA_unempl, on='Year'), AppenzellA_unempl_rate, on='Year')
 table_AppenzellA = pd.merge(table_AppenzellA, table_AppenzellA_asyl, on='Year')
+
+table_AppenzellA.to_csv(PATH2 + 'table_appenzellA.csv')
 
 # Appenzell I. Rh. #
 AppenzellI_empl = data_swiss_pop[[0,46,47,48]]
@@ -740,6 +744,8 @@ table_AppenzellI_asyl = table_AppenzellI_asyl.drop('Canton', axis=1)
 table_AppenzellI = pd.merge(pd.merge(AppenzellI_empl, AppenzellI_unempl, on='Year'), AppenzellI_unempl_rate, on='Year')
 table_AppenzellI = pd.merge(table_AppenzellI, table_AppenzellI_asyl, on='Year')
 
+table_AppenzellI.to_csv(PATH2 + 'table_appenzellI.csv')
+
 # Basel-Land #
 Basel_Land_empl = data_swiss_pop[[0,28,29,30]]
 Basel_Land_empl = Basel_Land_empl.drop([0,1])
@@ -763,6 +769,8 @@ table_Basel_Land_asyl = table_Basel_Land_asyl.drop('Canton', axis=1)
 
 table_Basel_Land = pd.merge(pd.merge(Basel_Land_empl, Basel_Land_unempl, on='Year'), Basel_Land_unempl_rate, on='Year')
 table_Basel_Land = pd.merge(table_Basel_Land, table_Basel_Land_asyl, on='Year')
+
+table_Basel_Land.to_csv(PATH2 + 'table_baselL.csv')
 
 # Basel-Stadt #
 Basel_Stadt_empl = data_swiss_pop[[0,25,26,37]]
@@ -788,6 +796,8 @@ table_Basel_Stadt_asyl = table_Basel_Stadt_asyl.drop('Canton', axis=1)
 table_Basel_Stadt = pd.merge(pd.merge(Basel_Stadt_empl, Basel_Stadt_unempl, on='Year'), Basel_Stadt_unempl_rate, on='Year')
 table_Basel_Stadt = pd.merge(table_Basel_Stadt, table_Basel_Stadt_asyl, on='Year')
 
+table_Basel_Stadt.to_csv(PATH2 + 'table_baselS.csv')
+
 # Bern #
 Bern_empl = data_swiss_pop[[0,10,11,12]]
 Bern_empl = Bern_empl.drop([0,1])
@@ -811,6 +821,8 @@ table_Bern_asyl = table_Bern_asyl.drop('Canton', axis=1)
 
 table_Bern = pd.merge(pd.merge(Bern_empl, Bern_unempl, on='Year'), Bern_unempl_rate, on='Year')
 table_Bern = pd.merge(table_Bern, table_Bern_asyl, on='Year')
+
+table_Bern.to_csv(PATH2 + 'table_bern.csv')
 
 # Freiburg #
 Freiburg_empl = data_swiss_pop[[0,13,14,15]]
@@ -836,6 +848,8 @@ table_Freiburg_asyl = table_Freiburg_asyl.drop('Canton', axis=1)
 table_Freiburg = pd.merge(pd.merge(Freiburg_empl, Freiburg_unempl, on='Year'), Freiburg_unempl_rate, on='Year')
 table_Freiburg = pd.merge(table_Freiburg, table_Freiburg_asyl, on='Year')
 
+table_Freiburg.to_csv(PATH2 + 'table_freiburg.csv')
+
 # Genf #
 Genf_empl = data_swiss_pop[[0,7,8,9]]
 Genf_empl = Genf_empl.drop([0,1])
@@ -859,6 +873,8 @@ table_Genf_asyl = table_Genf_asyl.drop('Canton', axis=1)
 
 table_Genf = pd.merge(pd.merge(Genf_empl, Genf_unempl, on='Year'), Genf_unempl_rate, on='Year')
 table_Genf = pd.merge(table_Genf, table_Genf_asyl, on='Year')
+
+table_Genf.to_csv(PATH2 + 'table_genf.csv')
 
 # Glarus #
 Glarus_empl = data_swiss_pop[[0,37,38,39]]
@@ -884,6 +900,8 @@ table_Glarus_asyl = table_Glarus_asyl.drop('Canton', axis=1)
 table_Glarus = pd.merge(pd.merge(Glarus_empl, Glarus_unempl, on='Year'), Glarus_unempl_rate, on='Year')
 table_Glarus = pd.merge(table_Glarus, table_Glarus_asyl, on='Year')
 
+table_Glarus.to_csv(PATH2 + 'table_glarus.csv')
+
 # Graubünden #
 Graubünden_empl = data_swiss_pop[[0,52,53,54]]
 Graubünden_empl = Graubünden_empl.drop([0,1])
@@ -907,6 +925,8 @@ table_Graubünden_asyl = table_Graubünden_asyl.drop('Canton', axis=1)
 
 table_Graubünden = pd.merge(pd.merge(Graubünden_empl, Graubünden_unempl, on='Year'), Graubünden_unempl_rate, on='Year')
 table_Graubünden = pd.merge(table_Graubünden, table_Graubünden_asyl, on='Year')
+
+table_Graubünden.to_csv(PATH2 + 'table_graubünden.csv')
 
 # Jura #
 Jura_empl = data_swiss_pop[[0,22,23,24]]
@@ -932,6 +952,8 @@ table_Jura_asyl = table_Jura_asyl.drop('Canton', axis=1)
 table_Jura = pd.merge(pd.merge(Jura_empl, Jura_unempl, on='Year'), Jura_unempl_rate, on='Year')
 table_Jura = pd.merge(table_Jura, table_Jura_asyl, on='Year')
 
+table_Jura.to_csv(PATH2 + 'table_jura.csv')
+
 # Luzern #
 Luzern_empl = data_swiss_pop[[0,58,59,60]]
 Luzern_empl = Luzern_empl.drop([0,1])
@@ -955,6 +977,8 @@ table_Luzern_asyl = table_Luzern_asyl.drop('Canton', axis=1)
 
 table_Luzern = pd.merge(pd.merge(Luzern_empl, Luzern_unempl, on='Year'), Luzern_unempl_rate, on='Year')
 table_Luzern = pd.merge(table_Luzern, table_Luzern_asyl, on='Year')
+
+table_Luzern.to_csv(PATH2 + 'table_luzern.csv')
 
 # Neuenburg #
 Neuenburg_empl = data_swiss_pop[[0,19,20,21]]
@@ -980,6 +1004,8 @@ table_Neuenburg_asyl = table_Neuenburg_asyl.drop('Canton', axis=1)
 table_Neuenburg = pd.merge(pd.merge(Neuenburg_empl, Neuenburg_unempl, on='Year'), Neuenburg_unempl_rate, on='Year')
 table_Neuenburg = pd.merge(table_Neuenburg, table_Neuenburg_asyl, on='Year')
 
+table_Neuenburg.to_csv(PATH2 + 'table_neuenburg.csv')
+
 # Nidwalden #
 Nidwalden_empl = data_swiss_pop[[0,70,71,72]]
 Nidwalden_empl = Nidwalden_empl.drop([0,1])
@@ -1003,6 +1029,8 @@ table_Nidwalden_asyl = table_Nidwalden_asyl.drop('Canton', axis=1)
 
 table_Nidwalden = pd.merge(pd.merge(Nidwalden_empl, Nidwalden_unempl, on='Year'), Nidwalden_unempl_rate, on='Year')
 table_Nidwalden = pd.merge(table_Nidwalden, table_Nidwalden_asyl, on='Year')
+
+table_Nidwalden.to_csv(PATH2 + 'table_nidwalden.csv')
 
 # Obwalden #
 Obwalden_empl = data_swiss_pop[[0,67,68,69]]
@@ -1028,6 +1056,8 @@ table_Obwalden_asyl = table_Obwalden_asyl.drop('Canton', axis=1)
 table_Obwalden = pd.merge(pd.merge(Obwalden_empl, Obwalden_unempl, on='Year'), Obwalden_unempl_rate, on='Year')
 table_Obwalden = pd.merge(table_Obwalden, table_Obwalden_asyl, on='Year')
 
+table_Obwalden.to_csv(PATH2 + 'table_obwalden.csv')
+
 # Schaffhausen #
 Schaffhausen_empl = data_swiss_pop[[0,40,41,42]]
 Schaffhausen_empl = Schaffhausen_empl.drop([0,1])
@@ -1051,6 +1081,8 @@ table_Schaffhausen_asyl = table_Schaffhausen_asyl.drop('Canton', axis=1)
 
 table_Schaffhausen = pd.merge(pd.merge(Schaffhausen_empl, Schaffhausen_unempl, on='Year'), Schaffhausen_unempl_rate, on='Year')
 table_Schaffhausen = pd.merge(table_Schaffhausen, table_Schaffhausen_asyl, on='Year')
+
+table_Schaffhausen.to_csv(PATH2 + 'table_schaffhausen.csv')
 
 # Schwyz #
 Schwyz_empl = data_swiss_pop[[0,64,65,66]]
@@ -1076,6 +1108,8 @@ table_Schwyz_asyl = table_Schwyz_asyl.drop('Canton', axis=1)
 table_Schwyz = pd.merge(pd.merge(Schwyz_empl, Schwyz_unempl, on='Year'), Schwyz_unempl_rate, on='Year')
 table_Schwyz = pd.merge(table_Schwyz, table_Schwyz_asyl, on='Year')
 
+table_Schwyz.to_csv(PATH2 + 'table_schwyz.csv')
+
 # Solothurn #
 Solothurn_empl = data_swiss_pop[[0,16,17,18]]
 Solothurn_empl = Solothurn_empl.drop([0,1])
@@ -1099,6 +1133,8 @@ table_Solothurn_asyl = table_Solothurn_asyl.drop('Canton', axis=1)
 
 table_Solothurn = pd.merge(pd.merge(Solothurn_empl, Solothurn_unempl, on='Year'), Solothurn_unempl_rate, on='Year')
 table_Solothurn = pd.merge(table_Solothurn, table_Solothurn_asyl, on='Year')
+
+table_Solothurn.to_csv(PATH2 + 'table_solothurn.csv')
 
 # St. Gallen #
 StGallen_empl = data_swiss_pop[[0,49,50,51]]
@@ -1124,6 +1160,8 @@ table_StGallen_asyl = table_StGallen_asyl.drop('Canton', axis=1)
 table_StGallen = pd.merge(pd.merge(StGallen_empl, StGallen_unempl, on='Year'), StGallen_unempl_rate, on='Year')
 table_StGallen = pd.merge(table_StGallen, table_StGallen_asyl, on='Year')
 
+table_StGallen.to_csv(PATH2 + 'table_SG.csv')
+
 # Tessin #
 Tessin_empl = data_swiss_pop[[0,76,77,78]]
 Tessin_empl = Tessin_empl.drop([0,1])
@@ -1147,6 +1185,8 @@ table_Tessin_asyl = table_Tessin_asyl.drop('Canton', axis=1)
 
 table_Tessin = pd.merge(pd.merge(Tessin_empl, Tessin_unempl, on='Year'), Tessin_unempl_rate, on='Year')
 table_Tessin = pd.merge(table_Tessin, table_Tessin_asyl, on='Year')
+
+table_Tessin.to_csv(PATH2 + 'table_tessin.csv')
 
 # Thurgau #
 Thurgau_empl = data_swiss_pop[[0,55,56,57]]
@@ -1172,6 +1212,8 @@ table_Thurgau_asyl = table_Thurgau_asyl.drop('Canton', axis=1)
 table_Thurgau = pd.merge(pd.merge(Thurgau_empl, Thurgau_unempl, on='Year'), Thurgau_unempl_rate, on='Year')
 table_Thurgau = pd.merge(table_Thurgau, table_Thurgau_asyl, on='Year')
 
+table_Thurgau.to_csv(PATH2 + 'table_thurgau.csv')
+
 # Uri #
 Uri_empl = data_swiss_pop[[0,61,62,63]]
 Uri_empl = Uri_empl.drop([0,1])
@@ -1195,6 +1237,8 @@ table_Uri_asyl = table_Uri_asyl.drop('Canton', axis=1)
 
 table_Uri = pd.merge(pd.merge(Uri_empl, Uri_unempl, on='Year'), Uri_unempl_rate, on='Year')
 table_Uri = pd.merge(table_Uri, table_Uri_asyl, on='Year')
+
+table_Uri.to_csv(PATH2 + 'table_uri.csv')
 
 # Waadt #
 Waadt_empl = data_swiss_pop[[0,1,2,3]]
@@ -1220,6 +1264,8 @@ table_Waadt_asyl = table_Waadt_asyl.drop('Canton', axis=1)
 table_Waadt = pd.merge(pd.merge(Waadt_empl, Waadt_unempl, on='Year'), Waadt_unempl_rate, on='Year')
 table_Waadt = pd.merge(table_Waadt, table_Waadt_asyl, on='Year')
 
+table_Waadt.to_csv(PATH2 + 'table_waadt.csv')
+
 # Wallis #
 Wallis_empl = data_swiss_pop[[0,4,5,6]]
 Wallis_empl = Wallis_empl.drop([0,1])
@@ -1243,6 +1289,8 @@ table_Wallis_asyl = table_Wallis_asyl.drop('Canton', axis=1)
 
 table_Wallis = pd.merge(pd.merge(Wallis_empl, Wallis_unempl, on='Year'), Wallis_unempl_rate, on='Year')
 table_Wallis = pd.merge(table_Wallis, table_Wallis_asyl, on='Year')
+
+table_Wallis.to_csv(PATH2 + 'table_wallis.csv')
 
 # Zug #
 Zug_empl = data_swiss_pop[[0,73,74,75]]
@@ -1268,6 +1316,8 @@ table_Zug_asyl = table_Zug_asyl.drop('Canton', axis=1)
 table_Zug = pd.merge(pd.merge(Zug_empl, Zug_unempl, on='Year'), Zug_unempl_rate, on='Year')
 table_Zug = pd.merge(table_Zug, table_Zug_asyl, on='Year')
 
+table_Zug.to_csv(PATH2 + 'table_zug.csv')
+
 # Zürich #
 Zürich_empl = data_swiss_pop[[0,34,35,36]]
 Zürich_empl = Zürich_empl.drop([0,1])
@@ -1291,5 +1341,7 @@ table_Zürich_asyl = table_Zürich_asyl.drop('Canton', axis=1)
 
 table_Zürich = pd.merge(pd.merge(Zürich_empl, Zürich_unempl, on='Year'), Zürich_unempl_rate, on='Year')
 table_Zürich = pd.merge(table_Zürich, table_Zürich_asyl, on='Year')
+
+table_Zürich.to_csv(PATH2 + 'table_zürich.csv')
 
 ###### End of regional data preparation ###### 
