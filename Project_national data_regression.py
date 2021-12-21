@@ -101,6 +101,5 @@ x_names= ('Total Population', 'Total refugees', 'without educ', 'Year')
 
 pc.my_ols(exog=table_germany.loc[:, x_names], outcome= table_germany[Y_NAME3])
 
-# maybe also estimate the atet by mean differences by taking the mean of total employment of the bundesländer
 
 
