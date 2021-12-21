@@ -13,10 +13,11 @@ Berenice Flumenbaum & Fabienne Belet
 # import modules
 import sys
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 # set working directory
-PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 sys.path.append(PATH)
 
 
@@ -32,9 +33,10 @@ sys.stdout = pc.Output(path=PATH, name=OUTPUT_NAME)
 
 
 # import data 
-table_germany = pd.read_csv(PATH + 'table_germany.csv')
+PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+table_germany = pd.read_csv(PATH2 + 'table_germany.csv')
 table_germany = table_germany.drop('Unnamed: 0', axis=1)
-table_switzerland = pd.read_csv(PATH + 'table_switzerland.csv')
+table_switzerland = pd.read_csv(PATH2 + 'table_switzerland.csv')
 table_switzerland = table_switzerland.drop('Unnamed: 0', axis=1)
 
 # rename columns
@@ -74,8 +76,6 @@ Y_NAME1= 'Total Empl'
 Y_NAME2= 'Unemployment Rate'
 D_NAME= 'Country'
 T_NAME= 'Year'
-X_NAMES1= 'Total Population' # to account for a growing population
-X_NAMES2= ('Total Population', 'Total Refugees')
 
 # next, we drop all unneccessary columns and rows
 table_all2 = table_all.drop(table_all.index[[0,2,4,5,6,7,8,10,12,13,14,15]])
@@ -94,9 +94,12 @@ pc.my_atet(data=table_all2, outcome=Y_NAME1, treat=D_NAME, time=T_NAME)
 pc.my_atet(data=table_all2, outcome=Y_NAME2, treat=D_NAME, time=T_NAME)
 
 
-# estimate atet by pooled ols?
+# since we also have data on the employment levels for low-wage jobs in Germany, it would be interesting
+# to look at their development:
+Y_NAME3= 'Total Empl (geringfügig)'
+x_names= ('Total Population', 'Total refugees', 'without educ', 'Year')
 
-# ols to see how the geringfügige beschäftigungen have been influenced
+pc.my_ols(exog=table_germany.loc[:, x_names], outcome= table_germany[Y_NAME3])
 
 # maybe also estimate the atet by mean differences by taking the mean of total employment of the bundesländer
 
