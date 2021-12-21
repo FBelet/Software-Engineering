@@ -669,7 +669,7 @@ data_asyl_20 = pc.organize_CH_asyl(data_asyl_20, drop_rows2, drop_values, column
 # Aargau #
 Aargau_empl = data_swiss_pop[[0,31,32,33]]
 Aargau_empl = Aargau_empl.drop([0,1])
-Empl = ['Year', 'Employment', 'Emplyoment Swiss', 'Employment Foreigners']
+Empl = ['Year', 'Population', 'Population Swiss', 'Population Foreigners']
 Aargau_empl.columns = Empl
 
 Aargau_unempl = data_swiss_unempl[[0,11]]
