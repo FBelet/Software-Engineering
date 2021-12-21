@@ -111,13 +111,15 @@ outcome_diffDE.to_excel(PATH + 'Refugees_Diff_Bundesländer.xlsx')
 
 # ATET estimation with Mecklenburg-Vorpommern as the control and Schleswig-Holstein as the treatment
     # checking for the common trend for employment
-plt.plot(table_mecklenburg_vorpommern['Year'], table_mecklenburg_vorpommern['Total Empl'])
-plt.plot(table_schleswig_holstein['Year'], table_schleswig_holstein['Total Empl'])
+plt.plot(table_mecklenburg_vorpommern['Year'], table_mecklenburg_vorpommern['Total Empl'], label='MV')
+plt.plot(table_schleswig_holstein['Year'], table_schleswig_holstein['Total Empl'], label='SH')
+plt.legend()
 plt.title('Employment in MV and SH')
 plt.show()
     # checking for the common trend for unemployment
-plt.plot(table_mecklenburg_vorpommern['Year'], table_mecklenburg_vorpommern['Unemployment Rate'])
-plt.plot(table_schleswig_holstein['Year'], table_schleswig_holstein['Unemployment Rate'])
+plt.plot(table_mecklenburg_vorpommern['Year'], table_mecklenburg_vorpommern['Unemployment Rate'], label='MV')
+plt.plot(table_schleswig_holstein['Year'], table_schleswig_holstein['Unemployment Rate'], label='SH')
+plt.legend()
 plt.title('Unemployment Rate in MV and SH')
 plt.show()
    
@@ -175,11 +177,10 @@ groupCH = [table_aargau, table_appenzellA, table_appenzellI, table_baselL,
 for i in groupCH:
     i = i.drop('Unnamed: 0', axis=1, inplace=True)
 
-#### is employment = population?? ####
 
 # adding a column for the number of refugees relative to the population
 for i in groupCH:
-    i['Refugees/Pop'] = (i['Refugees Total']/i['Employment'])*100
+    i['Refugees/Pop'] = (i['Refugees Total']/i['Population'])*100
 
 # analysing the development of employment and unemployment in the cantons
 cantons = ['Aargau', 'Appenzell A', 'Appenzell I ', 'Basel L', 'Basel S', 'Bern', 
@@ -195,7 +196,7 @@ for i, canton in zip(groupCH, cantons):
     plt.title(canton)
     plt.show()
     
-# analysing the development of the number of refugees in the Bundesländer
+# analysing the development of the number of refugees in the cantona
 for i, canton in zip(groupCH, cantons):
     plt.plot(i['Year'], i['Refugees/Pop'])
     plt.ylabel('Refugees rel. to Population')
@@ -217,22 +218,42 @@ outcome_diffCH.rename(columns = {'Refugees/Pop':'Change in Ref/Pop'}, inplace = 
 #save as excel
 outcome_diffCH.to_excel(PATH + 'Refugees_Diff_Cantons.xlsx')
 
-# Genf & Waadt oder Solothurn & Aargau
-# ATET estimation with XXX as the control and XXX as the treatment
+
+# ATET estimation with Geneva as the control and Vaud as the treatment
     # checking for the common trend for unemployment
-plt.plot(table_XXX['Year'], table_XXX['Unemployment Rate'])
-plt.plot(table_XXX['Year'], table_XXX['Unemployment Rate'])
-plt.title('Unemployment Rate in XX and XX')
+plt.plot(table_genf['Year'], table_genf['Unemployment Rate'], label='Geneva')
+plt.plot(table_waadt['Year'], table_waadt['Unemployment Rate'], label='Vaud')
+plt.title('Unemployment Rate in Geneva and Vaud')
+plt.legend()
 plt.show()
    
-table_XXX['Treat'], table_XXX['Treat'] = 0,1
-table_MV_SH = pd.concat([table_mecklenburg_vorpommern, table_schleswig_holstein]).reset_index(drop=True)
+table_genf['Treat'], table_waadt['Treat'] = 0,1
+table_genf_waadt = pd.concat([table_genf, table_waadt]).reset_index(drop=True)
 
-Y_NAME= 'Unemployment'
+Y_NAME= 'Unemployment Rate'
 D_NAME= 'Treat'
 T_NAME= 'Year'
     # getting the ATET
-pc.my_atet(data= table_MV_SH, outcome= Y_NAME, treat= D_NAME, time= T_NAME)
+pc.my_atet(data= table_genf_waadt, outcome= Y_NAME, treat= D_NAME, time= T_NAME)
 
 
+# ATET estimation with Aargau as the control and Solothurn as the treatment
+    # checking for the common trend for unemployment
+plt.plot(table_aargau['Year'], table_aargau['Unemployment Rate'], label='Aargau')
+plt.plot(table_solothurn['Year'], table_solothurn['Unemployment Rate'], label='Solothurn')
+plt.title('Unemployment Rate in Aargau and Solothurn')
+plt.legend()
+plt.show()
+   
+table_aargau['Treat'], table_solothurn['Treat'] = 0,1
+table_aargau_solothurn = pd.concat([table_aargau, table_solothurn]).reset_index(drop=True)
+
+Y_NAME= 'Unemployment Rate'
+D_NAME= 'Treat'
+T_NAME= 'Year'
+    # getting the ATET
+pc.my_atet(data= table_aargau_solothurn, outcome= Y_NAME, treat= D_NAME, time= T_NAME)
+
+# get the ATET with unemployment instead of unemployment rate
+# create function for the plots
     
