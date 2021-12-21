@@ -100,28 +100,27 @@ for i in groupDE:
     outcome_diff = outcome_16 - outcome_14
     li16.append(outcome_diff)
 
-outcome_diff16 = pd.concat(li16, ignore_index=True)
-outcome_diff16 = outcome_diff16.drop(outcome_diff16.index[[15]], axis=0).reset_index(drop=True)
-outcome_diff16['Bundesland'] = bundesländer
-outcome_diff16 = outcome_diff16.sort_values(by=['Refugees/Pop']).reset_index(drop=True)
+outcome_diffDE = pd.concat(li16, ignore_index=True)
+outcome_diffDE = outcome_diffDE.drop(outcome_diffDE.index[[15]], axis=0).reset_index(drop=True)
+outcome_diffDE['Bundesland'] = bundesländer
+outcome_diffDE = outcome_diffDE.sort_values(by=['Refugees/Pop']).reset_index(drop=True)
+outcome_diffDE.rename(columns = {'Refugees/Pop':'Change in Ref/Pop'}, inplace = True)
 # save as excel
-outcome_diff16.to_excel(PATH + 'Refugees_Diff16_Bundesländer.xlsx')
+outcome_diffDE.to_excel(PATH + 'Refugees_Diff_Bundesländer.xlsx')
 
-# do the same for the years 2014 and 2015
-li15 = []
-for i in groupDE:
-    outcome_15 = pd.DataFrame(i.loc[(i['Year'] == 2015),'Refugees/Pop']).reset_index(drop=True)
-    outcome_14 = pd.DataFrame(i.loc[(i['Year'] == 2014),'Refugees/Pop']).reset_index(drop=True)  
-    outcome_diff = outcome_15 - outcome_14
-    li15.append(outcome_diff)
-
-outcome_diff15 = pd.concat(li15, ignore_index=True)
-outcome_diff15['Bundesland'] = bundesländer
-outcome_diff15 = outcome_diff15.sort_values(by=['Refugees/Pop']).reset_index(drop=True)
-# save as excel
-outcome_diff15.to_excel(PATH + 'Refugees_Diff15_Bundesländer.xlsx')
 
 # ATET estimation with Mecklenburg-Vorpommern as the control and Schleswig-Holstein as the treatment
+    # checking for the common trend for employment
+plt.plot(table_mecklenburg_vorpommern['Year'], table_mecklenburg_vorpommern['Total Empl'])
+plt.plot(table_schleswig_holstein['Year'], table_schleswig_holstein['Total Empl'])
+plt.title('Employment in MV and SH')
+plt.show()
+    # checking for the common trend for unemployment
+plt.plot(table_mecklenburg_vorpommern['Year'], table_mecklenburg_vorpommern['Unemployment Rate'])
+plt.plot(table_schleswig_holstein['Year'], table_schleswig_holstein['Unemployment Rate'])
+plt.title('Unemployment Rate in MV and SH')
+plt.show()
+   
 table_mecklenburg_vorpommern['Treat'], table_schleswig_holstein['Treat'] = 0,1
 table_MV_SH = pd.concat([table_mecklenburg_vorpommern, table_schleswig_holstein]).reset_index(drop=True)
 
@@ -129,7 +128,7 @@ Y_NAME1= 'Total Empl' # only geringfügige Verhältnisse
 Y_NAME2= 'Unemployment Rate'
 D_NAME= 'Treat'
 T_NAME= 'Year'
-
+    # getting the ATET
 pc.my_atet(data= table_MV_SH, outcome= Y_NAME1, treat= D_NAME, time= T_NAME)
 pc.my_atet(data= table_MV_SH, outcome= Y_NAME2, treat= D_NAME, time= T_NAME)
 
@@ -148,11 +147,15 @@ table_freiburg= pd.read_csv(PATH2 + 'table_freiburg.csv')
 table_genf= pd.read_csv(PATH2 + 'table_genf.csv')
 table_glarus= pd.read_csv(PATH2 + 'table_glarus.csv')
 table_graubünden= pd.read_csv(PATH2 + 'table_graubünden.csv')
+table_jura= pd.read_csv(PATH2 + 'table_jura.csv')
+table_luzern= pd.read_csv(PATH2 + 'table_luzern.csv')
 table_neuenburg= pd.read_csv(PATH2 + 'table_neuenburg.csv')
 table_nidwalden= pd.read_csv(PATH2 + 'table_nidwalden.csv')
 table_obwalden= pd.read_csv(PATH2 + 'table_obwalden.csv')
+table_schaffhausen= pd.read_csv(PATH2 + 'table_schaffhausen.csv')
 table_schwyz= pd.read_csv(PATH2 + 'table_schwyz.csv')
 table_solothurn= pd.read_csv(PATH2 + 'table_solothurn.csv')
+table_SG= pd.read_csv(PATH2 + 'table_SG.csv')
 table_tessin= pd.read_csv(PATH2 + 'table_tessin.csv')
 table_thurgau= pd.read_csv(PATH2 + 'table_thurgau.csv')
 table_uri= pd.read_csv(PATH2 + 'table_uri.csv')
@@ -164,14 +167,15 @@ table_zürich= pd.read_csv(PATH2 + 'table_zürich.csv')
 
 groupCH = [table_aargau, table_appenzellA, table_appenzellI, table_baselL,
             table_baselS, table_bern, table_freiburg, table_genf, table_glarus, 
-            table_graubünden, table_neuenburg, table_nidwalden, table_obwalden, 
-            table_schwyz, table_solothurn, table_tessin, table_thurgau, table_uri, 
-            table_waadt, table_wallis, table_zug, table_zürich]
+            table_graubünden, table_jura, table_luzern, table_neuenburg, 
+            table_nidwalden, table_obwalden, table_schaffhausen, table_schwyz,
+            table_solothurn, table_SG, table_tessin, table_thurgau, table_uri,table_waadt, 
+            table_wallis, table_zug, table_zürich]
 
 for i in groupCH:
     i = i.drop('Unnamed: 0', axis=1, inplace=True)
 
-# is employment = population??
+#### is employment = population?? ####
 
 # adding a column for the number of refugees relative to the population
 for i in groupCH:
@@ -179,15 +183,15 @@ for i in groupCH:
 
 # analysing the development of employment and unemployment in the cantons
 cantons = ['Aargau', 'Appenzell A', 'Appenzell I ', 'Basel L', 'Basel S', 'Bern', 
-           'Freiburg', 'Genf', 'Glarus', 'Graubünden', 'Neuenburg', 'Nidwalden', 
-           'Obwalden', 'Schwyz', 'Solothurn', 'Tessin', 'Thurgau', 'Uri', 'Waadt', 
-           'Wallis', 'Zug', 'Zürich']
+           'Freiburg', 'Genf', 'Glarus', 'Graubünden', 'Jura', 'Luzern', 'Neuenburg', 
+           'Nidwalden','Obwalden', 'Schaffhausen', 'Schwyz', 'Solothurn', 'St. Gallen', 
+           'Tessin', 'Thurgau', 'Uri', 'Waadt', 'Wallis', 'Zug', 'Zürich']
 
 
 # analysing the development of unemployment in the cantons
 for i, canton in zip(groupCH, cantons):
-    plt.plot(i['Year'], i['Unemployment'])
-    plt.ylabel('Unemployment level')
+    plt.plot(i['Year'], i['Unemployment Rate'])
+    plt.ylabel('Unemployment Rate')
     plt.title(canton)
     plt.show()
     
@@ -206,9 +210,29 @@ for i in groupCH:
     outcome_diff = outcome_16 - outcome_14
     li16.append(outcome_diff)
 
-outcome_diff16 = pd.concat(li16, ignore_index=True)
-outcome_diff16['Canton'] = cantons
-outcome_diff16 = outcome_diff16.sort_values(by=['Refugees/Pop']).reset_index(drop=True)
+outcome_diffCH = pd.concat(li16, ignore_index=True)
+outcome_diffCH['Canton'] = cantons
+outcome_diffCH = outcome_diffCH.sort_values(by=['Refugees/Pop']).reset_index(drop=True)
+outcome_diffCH.rename(columns = {'Refugees/Pop':'Change in Ref/Pop'}, inplace = True)
+#save as excel
+outcome_diffCH.to_excel(PATH + 'Refugees_Diff_Cantons.xlsx')
 
-# rename column 'refugees/pop' to 'change in ref/pop' !!!
+# Genf & Waadt oder Solothurn & Aargau
+# ATET estimation with XXX as the control and XXX as the treatment
+    # checking for the common trend for unemployment
+plt.plot(table_XXX['Year'], table_XXX['Unemployment Rate'])
+plt.plot(table_XXX['Year'], table_XXX['Unemployment Rate'])
+plt.title('Unemployment Rate in XX and XX')
+plt.show()
+   
+table_XXX['Treat'], table_XXX['Treat'] = 0,1
+table_MV_SH = pd.concat([table_mecklenburg_vorpommern, table_schleswig_holstein]).reset_index(drop=True)
+
+Y_NAME= 'Unemployment'
+D_NAME= 'Treat'
+T_NAME= 'Year'
+    # getting the ATET
+pc.my_atet(data= table_MV_SH, outcome= Y_NAME, treat= D_NAME, time= T_NAME)
+
+
     
