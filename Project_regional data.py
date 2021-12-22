@@ -137,7 +137,7 @@ data_germany_foreigners = pc.organize_regional(data_germany_foreigners, drop_val
 pc.my_summary_stats(data_germany_pop) # no missing values
 drop_rows = [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,29,31,32]
 drop_values1 = ['Aufteilung', 'Deutschland']
-data_germany_pop = pc.organize_CH1(data_germany_pop, drop_rows, drop_values1)
+data_germany_pop = pc.organize_pop(data_germany_pop, drop_rows, drop_values1)
 data_germany_pop.columns = ['Year', 'Schleswig-Holstein', 'Hamburg', 'Niedersachsen', 'Bremen', 
                             'Nordrhein-Westfalen', 'Hessen', 'Rheinland-Pfalz','Baden-Württemberg', 'Bayern',
                             'Saarland', 'Berlin', 'Brandenburg', 'Mecklenburg-Vorpommern', 'Sachsen',
@@ -1343,5 +1343,9 @@ table_Zürich = pd.merge(pd.merge(Zürich_empl, Zürich_unempl, on='Year'), Zür
 table_Zürich = pd.merge(table_Zürich, table_Zürich_asyl, on='Year')
 
 table_Zürich.to_csv(PATH2 + 'table_zürich.csv')
+
+# closing the output file
+sys.stdout.output.close()
+sys.stdout = orig_stdout
 
 ###### End of regional data preparation ###### 

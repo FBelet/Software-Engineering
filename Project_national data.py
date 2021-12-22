@@ -14,8 +14,6 @@ Berenice Flumenbaum & Fabienne Belet
 # import modules
 import sys
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 # set working directory
 PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
@@ -113,53 +111,53 @@ table_all = pd.merge(table_germany_pop, table_unempl)
 # structure and organize employment information for 2013
 drop_values_1 = [2,3,6,7,8,9]
 column_names_1 = ['Year', 'Total Empl (geringfügig)', 'Total Empl German (geringfügig)', 'Total Empl Foreigners (geringfügig)']
-values13 = pc.organize(data_empl_13, 0, drop_values_1, column_names_1)
+values13 = pc.organize_D(data_empl_13, 0, drop_values_1, column_names_1)
 drop_values_2 = [1]
 column_names_2= ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 'with educ', 'with academic educ', 'educ unknown']
-values13_1 = pc.organize(data_empl_13, 1, drop_values_2, column_names_2)
+values13_1 = pc.organize_D(data_empl_13, 1, drop_values_2, column_names_2)
 table13 = pd.merge(values13, values13_1)
 pc.my_summary_stats(table13) # no missing values
 
 # structure and organize employment information for 2014 (only employment information for "geringfügig Beschäftigte")
 drop_values_3 = [2,3,6,7,8,9,10]
-values14 = pc.organize(data_empl_14, 0, drop_values_3, column_names_1)
-values14_1 = pc.organize(data_empl_14, 1, drop_values_2, column_names_2)
+values14 = pc.organize_D(data_empl_14, 0, drop_values_3, column_names_1)
+values14_1 = pc.organize_D(data_empl_14, 1, drop_values_2, column_names_2)
 table14 = pd.merge(values14, values14_1)
 pc.my_summary_stats(table14) # no missing values
 
 # structure and organize employment information for 2015
-values15 = pc.organize(data_empl_15, 0, drop_values_3, column_names_1)
-values15_1 = pc.organize(data_empl_15, 1, drop_values_2, column_names_2)
+values15 = pc.organize_D(data_empl_15, 0, drop_values_3, column_names_1)
+values15_1 = pc.organize_D(data_empl_15, 1, drop_values_2, column_names_2)
 table15 = pd.merge(values15, values15_1)
 pc.my_summary_stats(table15) # no missing values
 
 # structure and organize employment information for 2016
-values16 = pc.organize(data_empl_16, 0, drop_values_3, column_names_1)
-values16_1 = pc.organize(data_empl_16, 1, drop_values_2, column_names_2)
+values16 = pc.organize_D(data_empl_16, 0, drop_values_3, column_names_1)
+values16_1 = pc.organize_D(data_empl_16, 1, drop_values_2, column_names_2)
 table16 = pd.merge(values16, values16_1)
 pc.my_summary_stats(table16) # no missing values
 
 # structure and organize employment information for 2017
-values17 = pc.organize(data_empl_17, 0, drop_values_3, column_names_1)
-values17_1 = pc.organize(data_empl_17, 1, drop_values_2, column_names_2)
+values17 = pc.organize_D(data_empl_17, 0, drop_values_3, column_names_1)
+values17_1 = pc.organize_D(data_empl_17, 1, drop_values_2, column_names_2)
 table17 = pd.merge(values17, values17_1)
 pc.my_summary_stats(table17) # no missing values
 
 # structure and organize employment information for 2018
-values18 = pc.organize(data_empl_18, 0, drop_values_3, column_names_1)
-values18_1 = pc.organize(data_empl_18, 1, drop_values_2, column_names_2)
+values18 = pc.organize_D(data_empl_18, 0, drop_values_3, column_names_1)
+values18_1 = pc.organize_D(data_empl_18, 1, drop_values_2, column_names_2)
 table18 = pd.merge(values18, values18_1)
 pc.my_summary_stats(table18) # no missing values
 
 # structure and organize employment information for 2019
-values19 = pc.organize(data_empl_19, 0, drop_values_3, column_names_1)
-values19_1 = pc.organize(data_empl_19, 1, drop_values_2, column_names_2)
+values19 = pc.organize_D(data_empl_19, 0, drop_values_3, column_names_1)
+values19_1 = pc.organize_D(data_empl_19, 1, drop_values_2, column_names_2)
 table19 = pd.merge(values19, values19_1)
 pc.my_summary_stats(table19) # no missing values
 
 # structure and organize employment information for 2020
-values20 = pc.organize(data_empl_20, 0, drop_values_3, column_names_1)
-values20_1 = pc.organize(data_empl_20, 1, drop_values_2, column_names_2)
+values20 = pc.organize_D(data_empl_20, 0, drop_values_3, column_names_1)
+values20_1 = pc.organize_D(data_empl_20, 1, drop_values_2, column_names_2)
 table20 = pd.merge(values20, values20_1)
 pc.my_summary_stats(table20) # no missing values
 
@@ -272,7 +270,7 @@ column_names_CH = ['Year', 'Total Empl', 'Total Sec.1', 'Total Sec.2',
                    'Total Swiss Sec.2', 'Total Swiss Sec.3', 'Total Empl Foreigners',
                    'Total Foreign Sec. 1', 'Total Foreign Sec.2', 'Total Foreign Sec.3']
 
-data_swiss_nat_sec = pc.organize_CH(data_swiss_nat_sec, drop_rows, drop_values_CH, column_names_CH)
+data_swiss_nat_sec = pc.organize_CH1(data_swiss_nat_sec, drop_rows, drop_values_CH, column_names_CH)
 pc.my_summary_stats(data_swiss_nat_sec) # no missing values and nan values left
 
 table_swiss_nat = pd.merge(data_swiss_pop, data_swiss_nat_sec)
@@ -282,7 +280,7 @@ data_swiss_nat = data_swiss_nat.drop(data_swiss_nat.iloc[:, 1:8], axis=1)
 drop_values_CH1 = data_swiss_nat.iloc[:, 7: ]
 column_names_CH1 = ['Year', 'Empl settled', 'Empl resident', 'Empl saison', 
                     'Empl border', 'Empl shortterm', 'Empl other']
-data_swiss_nat = pc.organize_CH(data_swiss_nat, drop_rows, drop_values_CH1, column_names_CH1)
+data_swiss_nat = pc.organize_CH1(data_swiss_nat, drop_rows, drop_values_CH1, column_names_CH1)
 pc.my_summary_stats(data_swiss_nat)
 
 table_swiss_nat = pd.merge(table_swiss_nat, data_swiss_nat)
@@ -303,47 +301,47 @@ column_names_CH2 = ['Year', 'Refugees Total', 'Residents Permit B Total',
                     'Residents Permit B employed', 'Residents Permit B unempl', 
                     'Settled Total']
 
-data_asyl_10 = pc.organize_CH_2(data_asyl_10, drop_values_CH2, column_names_CH2)
+data_asyl_10 = pc.organize_CH2(data_asyl_10, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_10) # no missing values
 
 # structure and organize information for 2011
-data_asyl_11 = pc.organize_CH_2(data_asyl_11, drop_values_CH2, column_names_CH2)
+data_asyl_11 = pc.organize_CH2(data_asyl_11, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_11) # no missing values
 
 # structure and organize information for 2012
-data_asyl_12 = pc.organize_CH_2(data_asyl_12, drop_values_CH2, column_names_CH2)
+data_asyl_12 = pc.organize_CH2(data_asyl_12, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_12) # no missing values
 
 # structure and organize information for 2013
-data_asyl_13 = pc.organize_CH_2(data_asyl_13, drop_values_CH2, column_names_CH2)
+data_asyl_13 = pc.organize_CH2(data_asyl_13, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_13) # no missing values
  
 # struture and organize information for 2014
-data_asyl_14 = pc.organize_CH_2(data_asyl_14, drop_values_CH2, column_names_CH2)
+data_asyl_14 = pc.organize_CH2(data_asyl_14, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_14) # no missing values
 
 # structure and organize information for 2015
-data_asyl_15 = pc.organize_CH_2(data_asyl_15, drop_values_CH2, column_names_CH2)
+data_asyl_15 = pc.organize_CH2(data_asyl_15, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_15) # no missing values
 
 # structure and organize information for 2016
-data_asyl_16 = pc.organize_CH_2(data_asyl_16, drop_values_CH2, column_names_CH2)
+data_asyl_16 = pc.organize_CH2(data_asyl_16, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_16) # no missing values
 
 # structure and organize information for 2017
-data_asyl_17 = pc.organize_CH_2(data_asyl_17, drop_values_CH2, column_names_CH2)
+data_asyl_17 = pc.organize_CH2(data_asyl_17, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_17) # no missing values
  
 # structure and organize information for 2018
-data_asyl_18 = pc.organize_CH_2(data_asyl_18, drop_values_CH2, column_names_CH2)
+data_asyl_18 = pc.organize_CH2(data_asyl_18, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_18) # no missing values
 
 # structure and organize infromation for 2019
-data_asyl_19 = pc.organize_CH_2(data_asyl_19, drop_values_CH2, column_names_CH2)
+data_asyl_19 = pc.organize_CH2(data_asyl_19, drop_values_CH2, column_names_CH2)
 pc.my_summary_stats(data_asyl_19) # no missing values
 
 # structure and organize information for 2020
-data_asyl_20 = pc.organize_CH_2(data_asyl_20, drop_values_CH2, column_names_CH2) 
+data_asyl_20 = pc.organize_CH2(data_asyl_20, drop_values_CH2, column_names_CH2) 
 pc.my_summary_stats(data_asyl_20) # no missing values
 
 # combine all the datafiles into one single file for Switzerland
@@ -357,5 +355,9 @@ table_switzerland = table_switzerland.drop('Empl saison', axis=1)
 
 # save dataframe as a table to the working directory
 table_switzerland.to_csv(PATH2 + 'table_switzerland.csv')
+
+# closing the output file
+sys.stdout.output.close()
+sys.stdout = orig_stdout
 
 ######## End of national data preparation ########
