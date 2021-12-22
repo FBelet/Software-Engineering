@@ -703,7 +703,7 @@ AppenzellA_unempl = data_swiss_unempl[[0,15]]
 AppenzellA_unempl = AppenzellA_unempl.drop(0)
 AppenzellA_unempl.columns = Unempl
 
-AppenzellA_unempl_rate = data_swiss_unempl[[0,15]]
+AppenzellA_unempl_rate = data_swiss_unempl_rate[[0,15]]
 AppenzellA_unempl_rate = AppenzellA_unempl_rate.drop(0)
 AppenzellA_unempl_rate.columns = Unempl_rate
 
@@ -729,7 +729,7 @@ AppenzellI_unempl = data_swiss_unempl[[0,16]]
 AppenzellI_unempl = AppenzellI_unempl.drop(0)
 AppenzellI_unempl.columns = Unempl
 
-AppenzellI_unempl_rate = data_swiss_unempl[[0,16]]
+AppenzellI_unempl_rate = data_swiss_unempl_rate[[0,16]]
 AppenzellI_unempl_rate = AppenzellI_unempl_rate.drop(0)
 AppenzellI_unempl_rate.columns = Unempl_rate
 
@@ -755,7 +755,7 @@ Basel_Land_unempl = data_swiss_unempl[[0,10]]
 Basel_Land_unempl = Basel_Land_unempl.drop(0)
 Basel_Land_unempl.columns = Unempl
 
-Basel_Land_unempl_rate = data_swiss_unempl[[0,10]]
+Basel_Land_unempl_rate = data_swiss_unempl_rate[[0,10]]
 Basel_Land_unempl_rate = Basel_Land_unempl_rate.drop(0)
 Basel_Land_unempl_rate.columns = Unempl_rate
 
@@ -781,7 +781,7 @@ Basel_Stadt_unempl = data_swiss_unempl[[0,9]]
 Basel_Stadt_unempl = Basel_Stadt_unempl.drop(0)
 Basel_Stadt_unempl.columns = Unempl
 
-Basel_Stadt_unempl_rate = data_swiss_unempl[[0,9]]
+Basel_Stadt_unempl_rate = data_swiss_unempl_rate[[0,9]]
 Basel_Stadt_unempl_rate = Basel_Stadt_unempl_rate.drop(0)
 Basel_Stadt_unempl_rate.columns = Unempl_rate
 
@@ -807,7 +807,7 @@ Bern_unempl = data_swiss_unempl[[0,4]]
 Bern_unempl = Bern_unempl.drop(0)
 Bern_unempl.columns = Unempl
 
-Bern_unempl_rate = data_swiss_unempl[[0,4]]
+Bern_unempl_rate = data_swiss_unempl_rate[[0,4]]
 Bern_unempl_rate = Bern_unempl_rate.drop(0)
 Bern_unempl_rate.columns = Unempl_rate
 
@@ -833,7 +833,7 @@ Freiburg_unempl = data_swiss_unempl[[0,5]]
 Freiburg_unempl = Freiburg_unempl.drop(0)
 Freiburg_unempl.columns = Unempl
 
-Freiburg_unempl_rate = data_swiss_unempl[[0,5]]
+Freiburg_unempl_rate = data_swiss_unempl_rate[[0,5]]
 Freiburg_unempl_rate = Freiburg_unempl_rate.drop(0)
 Freiburg_unempl_rate.columns = Unempl_rate
 
@@ -859,7 +859,7 @@ Genf_unempl = data_swiss_unempl[[0,3]]
 Genf_unempl = Genf_unempl.drop(0)
 Genf_unempl.columns = Unempl
 
-Genf_unempl_rate = data_swiss_unempl[[0,3]]
+Genf_unempl_rate = data_swiss_unempl_rate[[0,3]]
 Genf_unempl_rate = Genf_unempl_rate.drop(0)
 Genf_unempl_rate.columns = Unempl_rate
 
@@ -885,7 +885,7 @@ Glarus_unempl = data_swiss_unempl[[0,13]]
 Glarus_unempl = Glarus_unempl.drop(0)
 Glarus_unempl.columns = Unempl
 
-Glarus_unempl_rate = data_swiss_unempl[[0,13]]
+Glarus_unempl_rate = data_swiss_unempl_rate[[0,13]]
 Glarus_unempl_rate = Glarus_unempl_rate.drop(0)
 Glarus_unempl_rate.columns = Unempl_rate
 
@@ -911,7 +911,7 @@ Graubünden_unempl = data_swiss_unempl[[0,18]]
 Graubünden_unempl = Graubünden_unempl.drop(0)
 Graubünden_unempl.columns = Unempl
 
-Graubünden_unempl_rate = data_swiss_unempl[[0,18]]
+Graubünden_unempl_rate = data_swiss_unempl_rate[[0,18]]
 Graubünden_unempl_rate = Graubünden_unempl_rate.drop(0)
 Graubünden_unempl_rate.columns = Unempl_rate
 
@@ -937,7 +937,7 @@ Jura_unempl = data_swiss_unempl[[0,8]]
 Jura_unempl = Jura_unempl.drop(0)
 Jura_unempl.columns = Unempl
 
-Jura_unempl_rate = data_swiss_unempl[[0,8]]
+Jura_unempl_rate = data_swiss_unempl_rate[[0,8]]
 Jura_unempl_rate = Jura_unempl_rate.drop(0)
 Jura_unempl_rate.columns = Unempl_rate
 
@@ -963,7 +963,7 @@ Luzern_unempl = data_swiss_unempl[[0,20]]
 Luzern_unempl = Luzern_unempl.drop(0)
 Luzern_unempl.columns = Unempl
 
-Luzern_unempl_rate = data_swiss_unempl[[0,20]]
+Luzern_unempl_rate = data_swiss_unempl_rate[[0,20]]
 Luzern_unempl_rate = Luzern_unempl_rate.drop(0)
 Luzern_unempl_rate.columns = Unempl_rate
 
@@ -989,7 +989,7 @@ Neuenburg_unempl = data_swiss_unempl[[0,7]]
 Neuenburg_unempl = Neuenburg_unempl.drop(0)
 Neuenburg_unempl.columns = Unempl
 
-Neuenburg_unempl_rate = data_swiss_unempl[[0,7]]
+Neuenburg_unempl_rate = data_swiss_unempl_rate[[0,7]]
 Neuenburg_unempl_rate = Neuenburg_unempl_rate.drop(0)
 Neuenburg_unempl_rate.columns = Unempl_rate
 
@@ -1015,7 +1015,7 @@ Nidwalden_unempl = data_swiss_unempl[[0,24]]
 Nidwalden_unempl = Nidwalden_unempl.drop(0)
 Nidwalden_unempl.columns = Unempl
 
-Nidwalden_unempl_rate = data_swiss_unempl[[0,24]]
+Nidwalden_unempl_rate = data_swiss_unempl_rate[[0,24]]
 Nidwalden_unempl_rate = Nidwalden_unempl_rate.drop(0)
 Nidwalden_unempl_rate.columns = Unempl_rate
 
@@ -1041,7 +1041,7 @@ Obwalden_unempl = data_swiss_unempl[[0,23]]
 Obwalden_unempl = Obwalden_unempl.drop(0)
 Obwalden_unempl.columns = Unempl
 
-Obwalden_unempl_rate = data_swiss_unempl[[0,23]]
+Obwalden_unempl_rate = data_swiss_unempl_rate[[0,23]]
 Obwalden_unempl_rate = Obwalden_unempl_rate.drop(0)
 Obwalden_unempl_rate.columns = Unempl_rate
 
@@ -1067,7 +1067,7 @@ Schaffhausen_unempl = data_swiss_unempl[[0,14]]
 Schaffhausen_unempl = Schaffhausen_unempl.drop(0)
 Schaffhausen_unempl.columns = Unempl
 
-Schaffhausen_unempl_rate = data_swiss_unempl[[0,14]]
+Schaffhausen_unempl_rate = data_swiss_unempl_rate[[0,14]]
 Schaffhausen_unempl_rate = Schaffhausen_unempl_rate.drop(0)
 Schaffhausen_unempl_rate.columns = Unempl_rate
 
@@ -1093,7 +1093,7 @@ Schwyz_unempl = data_swiss_unempl[[0,22]]
 Schwyz_unempl = Schwyz_unempl.drop(0)
 Schwyz_unempl.columns = Unempl
 
-Schwyz_unempl_rate = data_swiss_unempl[[0,22]]
+Schwyz_unempl_rate = data_swiss_unempl_rate[[0,22]]
 Schwyz_unempl_rate = Schwyz_unempl_rate.drop(0)
 Schwyz_unempl_rate.columns = Unempl_rate
 
@@ -1119,7 +1119,7 @@ Solothurn_unempl = data_swiss_unempl[[0,6]]
 Solothurn_unempl = Solothurn_unempl.drop(0)
 Solothurn_unempl.columns = Unempl
 
-Solothurn_unempl_rate = data_swiss_unempl[[0,6]]
+Solothurn_unempl_rate = data_swiss_unempl_rate[[0,6]]
 Solothurn_unempl_rate = Solothurn_unempl_rate.drop(0)
 Solothurn_unempl_rate.columns = Unempl_rate
 
@@ -1145,7 +1145,7 @@ StGallen_unempl = data_swiss_unempl[[0,17]]
 StGallen_unempl = StGallen_unempl.drop(0)
 StGallen_unempl.columns = Unempl
 
-StGallen_unempl_rate = data_swiss_unempl[[0,17]]
+StGallen_unempl_rate = data_swiss_unempl_rate[[0,17]]
 StGallen_unempl_rate = StGallen_unempl_rate.drop(0)
 StGallen_unempl_rate.columns = Unempl_rate
 
@@ -1171,7 +1171,7 @@ Tessin_unempl = data_swiss_unempl[[0,26]]
 Tessin_unempl = Tessin_unempl.drop(0)
 Tessin_unempl.columns = Unempl
 
-Tessin_unempl_rate = data_swiss_unempl[[0,26]]
+Tessin_unempl_rate = data_swiss_unempl_rate[[0,26]]
 Tessin_unempl_rate = Tessin_unempl_rate.drop(0)
 Tessin_unempl_rate.columns = Unempl_rate
 
@@ -1197,7 +1197,7 @@ Thurgau_unempl = data_swiss_unempl[[0,19]]
 Thurgau_unempl = Thurgau_unempl.drop(0)
 Thurgau_unempl.columns = Unempl
 
-Thurgau_unempl_rate = data_swiss_unempl[[0,19]]
+Thurgau_unempl_rate = data_swiss_unempl_rate[[0,19]]
 Thurgau_unempl_rate = Thurgau_unempl_rate.drop(0)
 Thurgau_unempl_rate.columns = Unempl_rate
 
@@ -1223,7 +1223,7 @@ Uri_unempl = data_swiss_unempl[[0,21]]
 Uri_unempl = Uri_unempl.drop(0)
 Uri_unempl.columns = Unempl
 
-Uri_unempl_rate = data_swiss_unempl[[0,21]]
+Uri_unempl_rate = data_swiss_unempl_rate[[0,21]]
 Uri_unempl_rate = Uri_unempl_rate.drop(0)
 Uri_unempl_rate.columns = Unempl_rate
 
@@ -1249,7 +1249,7 @@ Waadt_unempl = data_swiss_unempl[[0,1]]
 Waadt_unempl = Waadt_unempl.drop(0)
 Waadt_unempl.columns = Unempl
 
-Waadt_unempl_rate = data_swiss_unempl[[0,1]]
+Waadt_unempl_rate = data_swiss_unempl_rate[[0,1]]
 Waadt_unempl_rate = Waadt_unempl_rate.drop(0)
 Waadt_unempl_rate.columns = Unempl_rate
 
@@ -1275,7 +1275,7 @@ Wallis_unempl = data_swiss_unempl[[0,2]]
 Wallis_unempl = Wallis_unempl.drop(0)
 Wallis_unempl.columns = Unempl
 
-Wallis_unempl_rate = data_swiss_unempl[[0,2]]
+Wallis_unempl_rate = data_swiss_unempl_rate[[0,2]]
 Wallis_unempl_rate = Wallis_unempl_rate.drop(0)
 Wallis_unempl_rate.columns = Unempl_rate
 
@@ -1301,7 +1301,7 @@ Zug_unempl = data_swiss_unempl[[0,25]]
 Zug_unempl = Zug_unempl.drop(0)
 Zug_unempl.columns = Unempl
 
-Zug_unempl_rate = data_swiss_unempl[[0,25]]
+Zug_unempl_rate = data_swiss_unempl_rate[[0,25]]
 Zug_unempl_rate = Zug_unempl_rate.drop(0)
 Zug_unempl_rate.columns = Unempl_rate
 
@@ -1327,7 +1327,7 @@ Zürich_unempl = data_swiss_unempl[[0,12]]
 Zürich_unempl = Zürich_unempl.drop(0)
 Zürich_unempl.columns = Unempl
 
-Zürich_unempl_rate = data_swiss_unempl[[0,12]]
+Zürich_unempl_rate = data_swiss_unempl_rate[[0,12]]
 Zürich_unempl_rate = Zürich_unempl_rate.drop(0)
 Zürich_unempl_rate.columns = Unempl_rate
 
