@@ -1,10 +1,7 @@
-The ATET is 309.0
-The ATET is 0.0
-The ATET is -171.0
-The ATET is 0.0
-The ATET is 3707.0
-The ATET is 1071.0
-The ATET is 1.0
-The ATET is 1262062.0
-The ATET is 616629.0
-The ATET is 616629.0
+The ATET is for Total Empl is 3707.0
+The ATET is for Empl Foreigners is 1071.0
+The ATET is for Unemployment Rate is 1.0
+The ATET is for Unemployment is 309.0
+The ATET is for Unemployment Rate is 0.0
+The ATET is for Unemployment is -171.0
+The ATET is for Unemployment Rate is 0.0

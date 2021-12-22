@@ -17,7 +17,8 @@ import matplotlib.pyplot as plt
 
 
 # set working directory
-PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
+#PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 sys.path.append(PATH)
 
 
@@ -31,9 +32,10 @@ OUTPUT_NAME = 'Project_Output_Regression2'
 orig_stdout = sys.stdout
 sys.stdout = pc.Output(path=PATH, name=OUTPUT_NAME)
 
-# import and prepare the datasets of the Bundesländer 
-PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+#PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
 
+## Regional Data for Germany ##
 table_thüringen= pd.read_csv(PATH2 + 'table_thüringen.csv')
 table_schleswig_holstein= pd.read_csv(PATH2 + 'table_schleswig_holstein.csv')
 table_sachsen_anhalt= pd.read_csv(PATH2 + 'table_sachsen_anhalt.csv')
@@ -56,6 +58,7 @@ groupDE= [table_thüringen, table_schleswig_holstein, table_sachsen_anhalt, tabl
             table_mecklenburg_vorpommern, table_hessen, table_HH, table_bremen, 
             table_brandenburg, table_berlin, table_bayern, table_BaWü]
 
+# drop the unnamed column in each Bundesland
 for i in groupDE:
     i = i.drop('Unnamed: 0', axis=1, inplace=True)
     
@@ -143,7 +146,7 @@ pc.my_atet(data= table_MV_SH, outcome= Y_NAME3, treat= D_NAME, time= T_NAME)
 
 ###############################################################################
 
-
+## Regional Data for Switzerland ##
 # import and prepare data on the Cantons
 table_aargau= pd.read_csv(PATH2 + 'table_aargau.csv')
 table_appenzellA= pd.read_csv(PATH2 + 'table_appenzellA.csv')
@@ -180,6 +183,7 @@ groupCH = [table_aargau, table_appenzellA, table_appenzellI, table_baselL,
             table_solothurn, table_SG, table_tessin, table_thurgau, table_uri,table_waadt, 
             table_wallis, table_zug, table_zürich]
 
+# drop the unnamed column in each Kanton
 for i in groupCH:
     i = i.drop('Unnamed: 0', axis=1, inplace=True)
 
@@ -269,4 +273,4 @@ pc.my_atet(data= table_aargau_solothurn, outcome= Y_NAME2, treat= D_NAME, time= 
 sys.stdout.output.close()
 sys.stdout = orig_stdout
 
-    
+######## End of regional data regression ########

@@ -54,11 +54,12 @@ def my_summary_stats(data):
     # print the descriptives, (\n inserts a line break)
     print('Descriptive Statistics:', '-' * 80,
           round(my_descriptives, 2), '-' * 80, '\n\n', sep='\n')
+   
     
-# define function to organize datasets
-def organize(data, value, drop_values, column_names):
+# define function to organize datasets for national data for Germany
+def organize_D(data, value, drop_values, column_names):
     """
-    Organize function: delete rows, drop nan values and drop row 0.
+    organize_D function: delete rows, drop nan values and drop row 0.
     
     Parameters
     -----------------
@@ -67,10 +68,12 @@ def organize(data, value, drop_values, column_names):
     value: contains value 0 or 1 for the two relevant dataframes (keys of dictionaries)
     drop_values: values to be dropped
     column_names: names for columns to be selected
-    -----------------
+    
+    Returns
+    -------
+    variable: organized dataframe
     
     """
-    
     variable = data[value] # decide which key of dictionary to use
     variable = variable.head(2) # only keep first two rows
     variable = variable.dropna(axis = 1) # drop all columns with nan values
@@ -79,9 +82,27 @@ def organize(data, value, drop_values, column_names):
     variable.columns = column_names # define column names
     return variable
 
-# loop over keys in dictionary to organize the data in the dataframes
+
+# define function to loop over keys in dictionary to organize the data in the dataframes for the different Bundesländer
 def organize_Bundesländer(name, data, drop_values, column_names):
+    """
+    organize_Bundesländer function: delete rows, drop nan values and drop row 0.
     
+    Parameters
+    -----------------
+    data: TYPE: pd.dict
+        DESCRIPTION: contains dataframes with information
+    name: name of Bundesland of interest
+    drop_values: values to be dropped
+    column_names: names for columns to be selected
+    
+    Returns
+    -------
+    organized dataframe
+    -----------------
+    -----------------
+    
+    """
     for key in data:
         variable = data[key] # decide which key of dictionary to use
         variable = variable.head(2) # only keep first two rows
@@ -91,20 +112,68 @@ def organize_Bundesländer(name, data, drop_values, column_names):
         variable.columns = column_names # define column names
         name[key] = pd.DataFrame(variable)
 
+
+# define function to create a table with the data for the different Bundesländer
 def create_table(data):
+    """
+    create_table function: create a table by combinding individual tables 
+    
+    Parameters
+    -----------------
+    data: TYPE: pd.DataFrame
+        DESCRIPTION: contains the data of interest
+
+    Returns
+    -------
+    variable: organized dataframe
+    
+    """
     variable = pd.concat([data[5], data[7], data[9], data[11], data[13], data[15], data[17], data[19]])
     return variable
-        
+
+
+# define function to create a table with the data for the different Bundesländer    
 def create_table2(data2):
+    """
+    create_table function: create a table by combinding individual tables 
+    
+    Parameters
+    -----------------
+    data2: TYPE: pd.DataFrame
+        DESCRIPTION: contains the data of interest
+    
+    Returns
+    -------
+    variable: organized table
+
+    """    
     variable = pd.concat([data2[6], data2[8], data2[10], data2[12], data2[14], data2[16], data2[18], data2[20]])
     return variable
 
+
+# define function to extract values of interest from a dataframe
 def extract_values(land, data, names):
+    """
+    create_table function: create a table by combinding individual tables 
+    
+    Parameters
+    -----------------
+    data: TYPE: pd.DataFrame
+        DESCRIPTION: contains the data of interest
+    land: Bundesland of interest
+    names: names of the columns
+    
+    Returns
+    -------
+    variable: organized dataframe
+
+    """  
     variable = data[['Year', land]]
     variable.columns = names
     return variable
 
-# define function to organize datasets
+
+# define function to organize datasets containing information for unemployment and unemployment rate
 def organize_unempl(data, value, column_names):
     """
     Organize function: delete rows, drop nan values and drop row 0.
@@ -114,118 +183,140 @@ def organize_unempl(data, value, column_names):
     data: TYPE: pd.dict
         DESCRIPTION: contains dataframes with information
     value: contains value 2 or 3 for the two relevant dataframes (keys of dictionaries)
-    drop_values: values to be dropped
     column_names: names for columns to be selected
-    -----------------
+    
+    Returns
+    -------
+    variable: organized dataframe
     
     """
-    
     variable = data[value] # decide which key of dictionary to use
     variable = variable.drop(0) # drop row 0
     variable = variable.dropna(axis = 1) # drop all columns with nan values
     variable.columns = column_names # define column names
     return variable
  
-# define function to organize datasets Swiss data
-def organize_CH(data, drop_rows, drop_values, column_names):
+    
+# define function to organize datasets for national data for Switzerland
+def organize_CH1(data, drop_rows, drop_values, column_names):
     """
     Organize function: delete rows, drop nan values and drop row 0.
     
     Parameters
     -----------------
-    data: TYPE: pd.dict
-        DESCRIPTION: contains dataframes with information
-    drop_values: values to be dropped
+    data: TYPE: pd.DataFrame
+        DESCRIPTION: contains data of interest
+    drop_rows: row values to be dropped
+    drop_values: column values to be dropped
     column_names: names for columns to be selected
-    -----------------
+    
+    Returns
+    -------
+    data: organized dataframe
     
     """
-
     data = data.drop(drop_rows) # drop unnecessary rows
     data = data.drop(drop_values, axis=1) # drop unnecessary columns
     data.columns = column_names # define column names
     return data
 
+
+# define function to organize datasets containing data on refugees in regional data for Switzerland
 def organize_CH_asyl(data, drop_rows, drop_values, column_names):
     """
-    Organize function: delete rows, drop nan values and drop row 0.
+    Organize function: delete rows, drop nan values and drop unnecessary columns.
     
     Parameters
     -----------------
-    data: TYPE: pd.dict
-        DESCRIPTION: contains dataframes with information
+    data: TYPE: pd.DataFrame
+        DESCRIPTION: contains data of interest
+    drop_rows: row values to be dropped 
     drop_values: values to be dropped
     column_names: names for columns to be selected
-    -----------------
+    
+    Returns
+    -------
+    data: organized dataframe
     
     """
-
     data = data.drop(drop_rows) # drop unnecessary rows
     data = data.drop(drop_values, axis=1) # drop unnecessary columns
     data = data.dropna(axis = 1) # drop all columns with nan values
     data.columns = column_names # define column names
     return data
 
-def organize_CH1(data, drop_rows, drop_values):
+
+# define function to organize population data in regional data for Germany
+def organize_pop(data, drop_rows, drop_values):
     """
-    Organize function: delete rows, drop nan values and drop row 0.
+    Organize function: delete rows, drop nan values and drop unnecessary columns.
     
     Parameters
     -----------------
-    data: TYPE: pd.dict
-        DESCRIPTION: contains dataframes with information
+    data: TYPE: pd.DataFrame
+        DESCRIPTION: contains data of interest
+    drop_rows: row values to be dropped 
     drop_values: values to be dropped
-    column_names: names for columns to be selected
-    -----------------
+    
+    Returns
+    -------
+    data: organized dataframe
     
     """
-
     data = data.drop(drop_rows) # drop unnecessary rows
     data = data.drop(drop_values, axis=1) # drop unnecessary columns
     return data
 
-def organize_CH_2(data, drop_values, column_names):
+
+# define function to organize national data for Switzerland containing data on refugees
+def organize_CH2(data, drop_values, column_names):
     """
-    Organize function: delete rows, drop nan values and drop row 0.
+    Organize function: delete rows, drop nan values and drop unnecessary columns.
     
     Parameters
     -----------------
-    data: TYPE: pd.dict
-        DESCRIPTION: contains dataframes with information
+    data: TYPE: pd.DataFrame
+        DESCRIPTION: contains data of interest
     drop_values: values to be dropped
     column_names: names for columns to be selected
-    -----------------
+    
+    Returns
+    -------
+    data: organized dataframe
     
     """
-
     data = data.head(4) # drop unnecessary rows
     data = data.drop(drop_values, axis=1) # drop unnecessary columns
     data = data.drop([0,1,2]) # drop the first 3 rows
     data.columns = column_names # define column names
     return data
 
+
+# define function to organize regional data for Germany containing information on foreigners
 def organize_regional(data, drop_values, column_names):
     """
     Organize function: delete rows, drop nan values and drop row 0.
     
     Parameters
     -----------------
-    data: TYPE: pd.dict
+    data: TYPE: pd.DataFrame
         DESCRIPTION: contains dataframes with information
-    value: contains value 0 or 1 for the two relevant dataframes (keys of dictionaries)
     drop_values: values to be dropped
     column_names: names for columns to be selected
+    
+    Returns
+    -------
+    data: organized dataframe
     -----------------
     
     """
-
     data = data.drop(data.columns[drop_values], axis=1) # drop unnecessary columns
     data = data.drop(0) # drop the first row
     data.columns = column_names # define column names
     return data
 
 
-
+# define function to create a chart
 def my_chart(data1, data2, varname, label1, label2, location, title):
     """
     Plot line chart.
@@ -252,13 +343,12 @@ def my_chart(data1, data2, varname, label1, label2, location, title):
     # add title
     plt.title(title)
     # add labels
-    plt.xlabel(data1['Year'])
+    plt.xlabel('Years')
     plt.ylabel(varname)
     plt.show()
     
-    
-    
 
+# create a function to calculate/ estimate the ATET
 def my_atet(data, outcome, treat, time):
     """
     Calculate the ATET.
@@ -291,7 +381,7 @@ def my_atet(data, outcome, treat, time):
     print('The ATET is for ' + outcome + ' is ' + atet)
 
 
-
+# create a function to estimate the OLS
 def my_ols(exog, outcome, intercept=True, display=True):
     """
     OLS estimation.
@@ -345,8 +435,6 @@ def my_ols(exog, outcome, intercept=True, display=True):
               'Dependent Variable: ' + outcome.name, '-' * 80,
               round(result, 2), '-' * 80, '\n\n', sep='\n')
 
-    
-
 
 # define an Output class for simultaneous console - file output
 class Output():
@@ -365,3 +453,4 @@ class Output():
     def flush(self):
         """Python 3 compatibility."""
 
+######## End of functions ########
