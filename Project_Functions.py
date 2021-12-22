@@ -226,7 +226,7 @@ def organize_regional(data, drop_values, column_names):
 
 
 
-def my_chart(data1, data2, varname, label1, label2, location):
+def my_chart(data1, data2, varname, label1, label2, location, title):
     """
     Plot line chart.
 
@@ -250,7 +250,7 @@ def my_chart(data1, data2, varname, label1, label2, location):
     plt.legend(loc=location)
     plt.show
     # add title
-    plt.title(varname + ' in Germany and Switzerland over time')
+    plt.title(title)
     # add labels
     plt.xlabel(data1['Year'])
     plt.ylabel(varname)
@@ -288,7 +288,7 @@ def my_atet(data, outcome, treat, time):
 
     atet = round((y1_1.mean() - y1_0.mean()) - (y0_1.mean() - y0_0.mean()),0)
     atet = str(atet)
-    print('The ATET is ' + atet)
+    print('The ATET is for ' + outcome + ' is ' + atet)
 
 
 
