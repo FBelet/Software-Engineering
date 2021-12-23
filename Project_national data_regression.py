@@ -17,6 +17,7 @@ import pandas as pd
 
 # set working directory
 PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+
 sys.path.append(PATH)
 
 
@@ -33,6 +34,7 @@ sys.stdout = pc.Output(path=PATH, name=OUTPUT_NAME)
 
 # import data 
 PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+
 table_germany = pd.read_csv(PATH2 + 'table_germany.csv')
 table_germany = table_germany.drop('Unnamed: 0', axis=1)
 table_switzerland = pd.read_csv(PATH2 + 'table_switzerland.csv')
@@ -65,6 +67,11 @@ table_switzerland2['Refugees/Pop'] = (table_switzerland2['Total refugees']/table
 
 pc.my_chart(data1=table_germany, data2=table_switzerland2, varname='Refugees/Pop', label1= 'Germany', 
             label2='Switzerland', location='upper left', title= 'Refugees rel. to the pop. in DE and CH')
+
+
+# checking the development of population in general
+pc.my_chart(data1=table_germany, data2=table_switzerland2, varname='Total Population', label1='Germany', 
+            label2='Switzerland', location='center left', title='Total Population in DE and CH')
 
 
 # creating country dummies and merging the tables into one dataset
@@ -110,3 +117,4 @@ pc.my_ols(exog=table_germany.loc[:, x_names], outcome= table_germany[Y_NAME3])
 sys.stdout.output.close()
 sys.stdout = orig_stdout
 
+######## End of national data regression ########
