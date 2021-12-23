@@ -3,7 +3,7 @@ The ATET is for Total Empl Foreigners is 616629.0
 The ATET is for Unemployment Rate is -1.0
 OLS Estimation Results:
 --------------------------------------------------------------------------------
-Dependent Variable: Total Empl (geringfügig)
+Dependent Variable: Total Empl (geringfÃ¼gig)
 --------------------------------------------------------------------------------
                           coef            se  t-value  p-value
 intercept         1.847465e+08  1.244494e+08     1.48     0.23
