@@ -16,7 +16,7 @@ import pandas as pd
 
 
 # set working directory
-PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
 
 sys.path.append(PATH)
 
@@ -33,7 +33,7 @@ sys.stdout = pc.Output(path=PATH, name=OUTPUT_NAME)
 
 
 # import data 
-PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
 
 table_germany = pd.read_csv(PATH2 + 'table_germany.csv')
 table_germany = table_germany.drop('Unnamed: 0', axis=1)
