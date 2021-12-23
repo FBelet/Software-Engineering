@@ -347,6 +347,37 @@ def my_chart(data1, data2, varname, label1, label2, location, title):
     plt.ylabel(varname)
     plt.show()
     
+# define function to create a more extensive chart
+def my_chart_extensive(data1, data2, varname1, varname2, varname3, label, title):
+    """
+    Plot line chart.
+
+    Parameters
+    ----------
+    data : TYPE: pd.DataFrame
+        DESCRIPTION: dataframe containing variables of interest
+    varname : TYPE: string
+        DESCRIPTION: variable name for which line chart should be plotted
+    year: TYPE: string
+        DESCRIPTION: years for which the line chart should be plotted
+    label: TYPE: string
+        DESCRIPTION: Label for the legend
+    Returns
+    -------
+    None. Prints line chart.
+    """
+    plt.plot(data1['Year'], data1[[varname1, varname2, varname3]])
+    plt.plot(data2['Year'], data2[[varname1, varname2, varname3]])
+    # add legend
+    plt.legend(label, bbox_to_anchor = (1.05, 0.6))
+    plt.show
+    # add title
+    plt.title(title)
+    # add labels
+    plt.xlabel('Years')
+    plt.ylabel('Employment levels')
+    plt.show()
+     
 
 # create a function to calculate/ estimate the ATET
 def my_atet(data, outcome, treat, time):

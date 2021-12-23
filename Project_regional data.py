@@ -16,7 +16,7 @@ import sys
 import pandas as pd
 
 # set working directory
-PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
 sys.path.append(PATH)
 
 
@@ -159,7 +159,8 @@ drop_values2 = [2,3,6,7,8,9]
 column_names_1 = ['Year', 'Total Empl', 'Empl German', 'Empl Foreigners']
 Values2 = {key: Empl_Thüringen[key] for key in [6,8,10,12,14,16,18,20]}
 drop_values3 = [1]
-column_names_3 = ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 'with educ', 'with academic educ', 'educ unknown']
+column_names_3 = ['Year', 'Helper', 'Skilled worker', 'Specialist', 'Expert', 'without educ', 
+                  'with educ', 'with academic educ', 'educ unknown']
 
 Thüringen = {}
 pc.organize_Bundesländer(Thüringen, Values1, drop_values2, column_names_1)
@@ -183,7 +184,7 @@ Table_Thüringen = pd.merge(pd.merge(Thüringen_3, Thüringen_2, on='Year'), Th�
 Table_Thüringen = pd.merge(pd.merge(Table_Thüringen, Thüringen_1), Thüringen_unempl, on='Year' )
 
 # saving the final dataset for further analysis
-PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
 Table_Thüringen.to_csv(PATH2 + 'table_thüringen.csv')
 
 
@@ -681,6 +682,7 @@ Aargau_unempl_rate = Aargau_unempl_rate.drop(0)
 Unempl_rate = ['Year', 'Unemployment Rate']
 Aargau_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Aargau_asyl = pd.concat([data_asyl_10.iloc[[0]], data_asyl_11.iloc[[0]], 
                                data_asyl_12.iloc[[0]], data_asyl_13.iloc[[0]],
                                data_asyl_14.iloc[[0]], data_asyl_15.iloc[[0]],
@@ -707,6 +709,7 @@ AppenzellA_unempl_rate = data_swiss_unempl_rate[[0,15]]
 AppenzellA_unempl_rate = AppenzellA_unempl_rate.drop(0)
 AppenzellA_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_AppenzellA_asyl = pd.concat([data_asyl_10.iloc[[1]], data_asyl_11.iloc[[1]], 
                                data_asyl_12.iloc[[1]], data_asyl_13.iloc[[1]],
                                data_asyl_14.iloc[[1]], data_asyl_15.iloc[[1]],
@@ -733,6 +736,7 @@ AppenzellI_unempl_rate = data_swiss_unempl_rate[[0,16]]
 AppenzellI_unempl_rate = AppenzellI_unempl_rate.drop(0)
 AppenzellI_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_AppenzellI_asyl = pd.concat([data_asyl_10.iloc[[2]], data_asyl_11.iloc[[2]], 
                                data_asyl_12.iloc[[2]], data_asyl_13.iloc[[2]],
                                data_asyl_14.iloc[[2]], data_asyl_15.iloc[[2]],
@@ -759,6 +763,7 @@ Basel_Land_unempl_rate = data_swiss_unempl_rate[[0,10]]
 Basel_Land_unempl_rate = Basel_Land_unempl_rate.drop(0)
 Basel_Land_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Basel_Land_asyl = pd.concat([data_asyl_10.iloc[[3]], data_asyl_11.iloc[[3]], 
                                data_asyl_12.iloc[[3]], data_asyl_13.iloc[[3]],
                                data_asyl_14.iloc[[3]], data_asyl_15.iloc[[3]],
@@ -785,6 +790,7 @@ Basel_Stadt_unempl_rate = data_swiss_unempl_rate[[0,9]]
 Basel_Stadt_unempl_rate = Basel_Stadt_unempl_rate.drop(0)
 Basel_Stadt_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Basel_Stadt_asyl = pd.concat([data_asyl_10.iloc[[4]], data_asyl_11.iloc[[4]],
                                data_asyl_12.iloc[[4]], data_asyl_13.iloc[[4]],
                                data_asyl_14.iloc[[4]], data_asyl_15.iloc[[4]],
@@ -811,6 +817,7 @@ Bern_unempl_rate = data_swiss_unempl_rate[[0,4]]
 Bern_unempl_rate = Bern_unempl_rate.drop(0)
 Bern_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Bern_asyl = pd.concat([data_asyl_10.iloc[[5]], data_asyl_11.iloc[[5]], 
                                data_asyl_12.iloc[[5]], data_asyl_13.iloc[[5]],
                                data_asyl_14.iloc[[5]], data_asyl_15.iloc[[5]],
@@ -837,6 +844,7 @@ Freiburg_unempl_rate = data_swiss_unempl_rate[[0,5]]
 Freiburg_unempl_rate = Freiburg_unempl_rate.drop(0)
 Freiburg_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Freiburg_asyl = pd.concat([data_asyl_10.iloc[[6]], data_asyl_11.iloc[[6]], 
                                data_asyl_12.iloc[[6]], data_asyl_13.iloc[[6]],
                                data_asyl_14.iloc[[6]], data_asyl_15.iloc[[6]],
@@ -863,6 +871,7 @@ Genf_unempl_rate = data_swiss_unempl_rate[[0,3]]
 Genf_unempl_rate = Genf_unempl_rate.drop(0)
 Genf_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Genf_asyl = pd.concat([data_asyl_10.iloc[[7]], data_asyl_11.iloc[[7]], 
                                data_asyl_12.iloc[[7]], data_asyl_13.iloc[[7]],
                                data_asyl_14.iloc[[7]], data_asyl_15.iloc[[7]],
@@ -889,6 +898,7 @@ Glarus_unempl_rate = data_swiss_unempl_rate[[0,13]]
 Glarus_unempl_rate = Glarus_unempl_rate.drop(0)
 Glarus_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Glarus_asyl = pd.concat([data_asyl_10.iloc[[8]], data_asyl_11.iloc[[8]], 
                                data_asyl_12.iloc[[8]], data_asyl_13.iloc[[8]],
                                data_asyl_14.iloc[[8]], data_asyl_15.iloc[[8]],
@@ -915,6 +925,7 @@ Graubünden_unempl_rate = data_swiss_unempl_rate[[0,18]]
 Graubünden_unempl_rate = Graubünden_unempl_rate.drop(0)
 Graubünden_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Graubünden_asyl = pd.concat([data_asyl_10.iloc[[9]], data_asyl_11.iloc[[9]], 
                                data_asyl_12.iloc[[9]], data_asyl_13.iloc[[9]],
                                data_asyl_14.iloc[[9]], data_asyl_15.iloc[[9]],
@@ -941,6 +952,7 @@ Jura_unempl_rate = data_swiss_unempl_rate[[0,8]]
 Jura_unempl_rate = Jura_unempl_rate.drop(0)
 Jura_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Jura_asyl = pd.concat([data_asyl_10.iloc[[10]], data_asyl_11.iloc[[10]], 
                                data_asyl_12.iloc[[10]], data_asyl_13.iloc[[10]],
                                data_asyl_14.iloc[[10]], data_asyl_15.iloc[[10]],
@@ -967,6 +979,7 @@ Luzern_unempl_rate = data_swiss_unempl_rate[[0,20]]
 Luzern_unempl_rate = Luzern_unempl_rate.drop(0)
 Luzern_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Luzern_asyl = pd.concat([data_asyl_10.iloc[[11]], data_asyl_11.iloc[[11]], 
                                data_asyl_12.iloc[[11]], data_asyl_13.iloc[[11]],
                                data_asyl_14.iloc[[11]], data_asyl_15.iloc[[11]],
@@ -993,6 +1006,7 @@ Neuenburg_unempl_rate = data_swiss_unempl_rate[[0,7]]
 Neuenburg_unempl_rate = Neuenburg_unempl_rate.drop(0)
 Neuenburg_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Neuenburg_asyl = pd.concat([data_asyl_10.iloc[[12]], data_asyl_11.iloc[[12]], 
                                data_asyl_12.iloc[[12]], data_asyl_13.iloc[[12]],
                                data_asyl_14.iloc[[12]], data_asyl_15.iloc[[12]],
@@ -1019,6 +1033,7 @@ Nidwalden_unempl_rate = data_swiss_unempl_rate[[0,24]]
 Nidwalden_unempl_rate = Nidwalden_unempl_rate.drop(0)
 Nidwalden_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Nidwalden_asyl = pd.concat([data_asyl_10.iloc[[13]], data_asyl_11.iloc[[13]], 
                                data_asyl_12.iloc[[13]], data_asyl_13.iloc[[13]],
                                data_asyl_14.iloc[[13]], data_asyl_15.iloc[[13]],
@@ -1045,6 +1060,7 @@ Obwalden_unempl_rate = data_swiss_unempl_rate[[0,23]]
 Obwalden_unempl_rate = Obwalden_unempl_rate.drop(0)
 Obwalden_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Obwalden_asyl = pd.concat([data_asyl_10.iloc[[14]], data_asyl_11.iloc[[14]], 
                                data_asyl_12.iloc[[14]], data_asyl_13.iloc[[14]],
                                data_asyl_14.iloc[[14]], data_asyl_15.iloc[[14]],
@@ -1071,6 +1087,7 @@ Schaffhausen_unempl_rate = data_swiss_unempl_rate[[0,14]]
 Schaffhausen_unempl_rate = Schaffhausen_unempl_rate.drop(0)
 Schaffhausen_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Schaffhausen_asyl = pd.concat([data_asyl_10.iloc[[15]], data_asyl_11.iloc[[15]], 
                                data_asyl_12.iloc[[15]], data_asyl_13.iloc[[15]],
                                data_asyl_14.iloc[[15]], data_asyl_15.iloc[[15]],
@@ -1097,6 +1114,7 @@ Schwyz_unempl_rate = data_swiss_unempl_rate[[0,22]]
 Schwyz_unempl_rate = Schwyz_unempl_rate.drop(0)
 Schwyz_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Schwyz_asyl = pd.concat([data_asyl_10.iloc[[16]], data_asyl_11.iloc[[16]], 
                                data_asyl_12.iloc[[16]], data_asyl_13.iloc[[16]],
                                data_asyl_14.iloc[[16]], data_asyl_15.iloc[[16]],
@@ -1123,6 +1141,7 @@ Solothurn_unempl_rate = data_swiss_unempl_rate[[0,6]]
 Solothurn_unempl_rate = Solothurn_unempl_rate.drop(0)
 Solothurn_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Solothurn_asyl = pd.concat([data_asyl_10.iloc[[17]], data_asyl_11.iloc[[17]], 
                                data_asyl_12.iloc[[17]], data_asyl_13.iloc[[17]],
                                data_asyl_14.iloc[[17]], data_asyl_15.iloc[[17]],
@@ -1149,6 +1168,7 @@ StGallen_unempl_rate = data_swiss_unempl_rate[[0,17]]
 StGallen_unempl_rate = StGallen_unempl_rate.drop(0)
 StGallen_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_StGallen_asyl = pd.concat([data_asyl_10.iloc[[18]], data_asyl_11.iloc[[18]], 
                                data_asyl_12.iloc[[18]], data_asyl_13.iloc[[18]],
                                data_asyl_14.iloc[[18]], data_asyl_15.iloc[[18]],
@@ -1175,6 +1195,7 @@ Tessin_unempl_rate = data_swiss_unempl_rate[[0,26]]
 Tessin_unempl_rate = Tessin_unempl_rate.drop(0)
 Tessin_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Tessin_asyl = pd.concat([data_asyl_10.iloc[[19]], data_asyl_11.iloc[[19]], 
                                data_asyl_12.iloc[[19]], data_asyl_13.iloc[[19]],
                                data_asyl_14.iloc[[19]], data_asyl_15.iloc[[19]],
@@ -1201,6 +1222,7 @@ Thurgau_unempl_rate = data_swiss_unempl_rate[[0,19]]
 Thurgau_unempl_rate = Thurgau_unempl_rate.drop(0)
 Thurgau_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Thurgau_asyl = pd.concat([data_asyl_10.iloc[[20]], data_asyl_11.iloc[[20]], 
                                data_asyl_12.iloc[[20]], data_asyl_13.iloc[[20]],
                                data_asyl_14.iloc[[20]], data_asyl_15.iloc[[20]],
@@ -1227,6 +1249,7 @@ Uri_unempl_rate = data_swiss_unempl_rate[[0,21]]
 Uri_unempl_rate = Uri_unempl_rate.drop(0)
 Uri_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Uri_asyl = pd.concat([data_asyl_10.iloc[[21]], data_asyl_11.iloc[[21]], 
                                data_asyl_12.iloc[[21]], data_asyl_13.iloc[[21]],
                                data_asyl_14.iloc[[21]], data_asyl_15.iloc[[21]],
@@ -1253,6 +1276,7 @@ Waadt_unempl_rate = data_swiss_unempl_rate[[0,1]]
 Waadt_unempl_rate = Waadt_unempl_rate.drop(0)
 Waadt_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Waadt_asyl = pd.concat([data_asyl_10.iloc[[22]], data_asyl_11.iloc[[22]], 
                                data_asyl_12.iloc[[22]], data_asyl_13.iloc[[22]],
                                data_asyl_14.iloc[[22]], data_asyl_15.iloc[[22]],
@@ -1279,6 +1303,7 @@ Wallis_unempl_rate = data_swiss_unempl_rate[[0,2]]
 Wallis_unempl_rate = Wallis_unempl_rate.drop(0)
 Wallis_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Wallis_asyl = pd.concat([data_asyl_10.iloc[[23]], data_asyl_11.iloc[[23]], 
                                data_asyl_12.iloc[[23]], data_asyl_13.iloc[[23]],
                                data_asyl_14.iloc[[23]], data_asyl_15.iloc[[23]],
@@ -1305,6 +1330,7 @@ Zug_unempl_rate = data_swiss_unempl_rate[[0,25]]
 Zug_unempl_rate = Zug_unempl_rate.drop(0)
 Zug_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Zug_asyl = pd.concat([data_asyl_10.iloc[[24]], data_asyl_11.iloc[[24]], 
                                data_asyl_12.iloc[[24]], data_asyl_13.iloc[[24]],
                                data_asyl_14.iloc[[24]], data_asyl_15.iloc[[24]],
@@ -1331,6 +1357,7 @@ Zürich_unempl_rate = data_swiss_unempl_rate[[0,12]]
 Zürich_unempl_rate = Zürich_unempl_rate.drop(0)
 Zürich_unempl_rate.columns = Unempl_rate
 
+# create a table
 table_Zürich_asyl = pd.concat([data_asyl_10.iloc[[25]], data_asyl_11.iloc[[25]], 
                                data_asyl_12.iloc[[25]], data_asyl_13.iloc[[25]],
                                data_asyl_14.iloc[[25]], data_asyl_15.iloc[[25]],

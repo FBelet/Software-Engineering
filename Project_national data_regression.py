@@ -17,6 +17,7 @@ import pandas as pd
 
 # set working directory
 PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+
 sys.path.append(PATH)
 
 
@@ -71,6 +72,7 @@ pc.my_chart(data1=table_germany, data2=table_switzerland2, varname='Refugees/Pop
 # checking the development of population in general
 pc.my_chart(data1=table_germany, data2=table_switzerland2, varname='Total Population', label1='Germany', 
             label2='Switzerland', location='center left', title='Total Population in DE and CH')
+
 
 # creating country dummies and merging the tables into one dataset
 table_germany['Country'] = 1 #treatement

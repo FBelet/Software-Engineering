@@ -82,22 +82,22 @@ data_empl_21 = pd.read_excel(xls21, sheet_name=[0,1,2], header=None)
 
 # check for missing values and deal with them
 pc.my_summary_stats(data_germany_foreigners)
-data_germany_foreigners = data_germany_foreigners.dropna()
-data_germany_foreigners = data_germany_foreigners.drop(['weiblich', 'männlich'], axis = 1)
-data_germany_foreigners = data_germany_foreigners.rename(columns = {'Jahr':'Year', 'Insgesamt':'Total refugees'})
+data_germany_foreigners = data_germany_foreigners.dropna() # drop nan values
+data_germany_foreigners = data_germany_foreigners.drop(['weiblich', 'männlich'], axis = 1) # drop column weiblich and männlich
+data_germany_foreigners = data_germany_foreigners.rename(columns = {'Jahr':'Year', 'Insgesamt':'Total refugees'}) # rename columns
 
 pc.my_summary_stats(data_germany_pop)
-data_germany_pop = data_germany_pop.dropna()
-data_germany_pop = data_germany_pop.drop(['weiblich', 'männlich'], axis = 1)
-data_germany_pop = data_germany_pop.rename(columns = {'Datum':'Year', 'Insgesamt':'Total Population'})
+data_germany_pop = data_germany_pop.dropna() # drop nan values
+data_germany_pop = data_germany_pop.drop(['weiblich', 'männlich'], axis = 1) # drop column weiblich and männlich
+data_germany_pop = data_germany_pop.rename(columns = {'Datum':'Year', 'Insgesamt':'Total Population'}) # rename columns
 
-germany_unempl = data_germany_unempl[0]
-germany_unempl.columns = ['Year', 'Unemployment']
-germany_unempl = germany_unempl.drop(0)
+germany_unempl = data_germany_unempl[0] # choose specific dataframe from dictionary
+germany_unempl.columns = ['Year', 'Unemployment'] # name columns
+germany_unempl = germany_unempl.drop(0) # drop row 0
 pc.my_summary_stats(germany_unempl) # no missing values
-germany_unempl_rate = data_germany_unempl[1]
-germany_unempl_rate.columns = ['Year', 'Unemployment Rate']
-germany_unempl_rate = germany_unempl_rate.drop(0)
+germany_unempl_rate = data_germany_unempl[1] # choose specific dataframe from dictionary
+germany_unempl_rate.columns = ['Year', 'Unemployment Rate'] # name columns
+germany_unempl_rate = germany_unempl_rate.drop(0) # drop row 0
 pc.my_summary_stats(germany_unempl_rate) # no missing values
 
 table_unempl = pd.merge(germany_unempl, germany_unempl_rate)
@@ -175,7 +175,7 @@ table_germany_empl = pd.concat([table13, table14, table15, table16, table17, tab
 table_germany = pd.merge(pd.merge(table_all, table_germany_empl, on='Year'), table_empl_total, on='Year')
 
 # save dataframe as a table to the working directory
-PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
 table_germany.to_csv(PATH2 + 'table_germany.csv')
 
 ################################################################################
@@ -214,7 +214,7 @@ data_swiss_unempl_quote = pd.read_excel(data_swiss_unempl_quote, sheet_name=['Ov
 data_swiss_unempl_quote = data_swiss_unempl_quote['Overview']
 
 XLS10 = pd.ExcelFile(PATH + dataname5)
-data_asyl_10 = pd.read_excel(XLS10, sheet_name=['CH-Nati'], header=None) # including first sheets
+data_asyl_10 = pd.read_excel(XLS10, sheet_name=['CH-Nati'], header=None) # including specific sheet
 data_asyl_10 = data_asyl_10['CH-Nati']
 
 XLS11 = pd.ExcelFile(PATH + dataname6)
@@ -261,21 +261,20 @@ data_asyl_20 = data_asyl_20['CH-Nati']
 pc.my_summary_stats(data_swiss_pop) # no missing values and nan values found
 data_swiss_pop.columns = ['Year', 'Population Total', 'Total Pop Swiss', 'Total Pop Foreigners']
 
-pc.my_summary_stats(data_swiss_nat_sec) # missing values and need to change rows to columns
-
+pc.my_summary_stats(data_swiss_nat_sec) # some missing values, but not in relevant columns
 drop_values_CH = data_swiss_nat_sec.iloc[:, 13:57]
 drop_rows = [0,1,2,3,4,5,6,7,8]
 column_names_CH = ['Year', 'Total Empl', 'Total Sec.1', 'Total Sec.2', 
                    'Total Sec.3', 'Total Empl Swiss', 'Total Swiss Sec.1', 
                    'Total Swiss Sec.2', 'Total Swiss Sec.3', 'Total Empl Foreigners',
                    'Total Foreign Sec. 1', 'Total Foreign Sec.2', 'Total Foreign Sec.3']
-
 data_swiss_nat_sec = pc.organize_CH1(data_swiss_nat_sec, drop_rows, drop_values_CH, column_names_CH)
 pc.my_summary_stats(data_swiss_nat_sec) # no missing values and nan values left
 
+# create a table 
 table_swiss_nat = pd.merge(data_swiss_pop, data_swiss_nat_sec)
 
-pc.my_summary_stats(data_swiss_nat)
+pc.my_summary_stats(data_swiss_nat) # some missing values, but not in relevant columns
 data_swiss_nat = data_swiss_nat.drop(data_swiss_nat.iloc[:, 1:8], axis=1)
 drop_values_CH1 = data_swiss_nat.iloc[:, 7: ]
 column_names_CH1 = ['Year', 'Empl settled', 'Empl resident', 'Empl saison', 
@@ -283,6 +282,7 @@ column_names_CH1 = ['Year', 'Empl settled', 'Empl resident', 'Empl saison',
 data_swiss_nat = pc.organize_CH1(data_swiss_nat, drop_rows, drop_values_CH1, column_names_CH1)
 pc.my_summary_stats(data_swiss_nat)
 
+# create a table
 table_swiss_nat = pd.merge(table_swiss_nat, data_swiss_nat)
 
 data_swiss_unempl.columns = ['Year', 'Unemployment']
@@ -293,6 +293,7 @@ data_swiss_unempl_quote = data_swiss_unempl_quote.drop(0)
 pc.my_summary_stats(data_swiss_unempl_quote) # no missing values
 table_swiss_unempl = pd.merge(data_swiss_unempl, data_swiss_unempl_quote)
 
+#create a table with all relevant information
 table_swiss_general = pd.merge(table_swiss_nat, table_swiss_unempl)
 
 # structure and organize information for 2010
@@ -344,7 +345,7 @@ pc.my_summary_stats(data_asyl_19) # no missing values
 data_asyl_20 = pc.organize_CH2(data_asyl_20, drop_values_CH2, column_names_CH2) 
 pc.my_summary_stats(data_asyl_20) # no missing values
 
-# combine all the datafiles into one single file for Switzerland
+# combine all the datafiles into one single file/table for Switzerland
 table_swiss_asyl = pd.concat([data_asyl_10, data_asyl_11, data_asyl_12,
                               data_asyl_13, data_asyl_14, data_asyl_15,
                               data_asyl_16, data_asyl_17, data_asyl_18, 

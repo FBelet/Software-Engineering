@@ -17,8 +17,7 @@ import matplotlib.pyplot as plt
 
 
 # set working directory
-PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
-#PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 sys.path.append(PATH)
 
 
@@ -32,8 +31,7 @@ OUTPUT_NAME = 'Project_Output_Regression2'
 orig_stdout = sys.stdout
 sys.stdout = pc.Output(path=PATH, name=OUTPUT_NAME)
 
-#PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
-PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
+PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
 
 ## Regional Data for Germany ##
 table_thüringen= pd.read_csv(PATH2 + 'table_thüringen.csv')
@@ -128,7 +126,21 @@ pc.my_chart(data1= table_mecklenburg_vorpommern, data2=table_schleswig_holstein,
 pc.my_chart(data1= table_mecklenburg_vorpommern, data2=table_schleswig_holstein, 
             varname = 'Unemployment Rate', label1 = 'MV', label2 = 'SH', location= 'center right', 
             title = 'Unemployment Rate in MV and SH')
-   
+
+    # checking the development of the number of refugees
+pc.my_chart(data1=table_schleswig_holstein, data2=table_mecklenburg_vorpommern, varname='Refugees/Pop', label1= 'Schleswig-Holstein', 
+            label2='Mecklenburg-Vorpommern', location='upper left', title= 'Refugees rel. to the pop. in MV and SH')
+
+    # checking the development of population in general
+pc.my_chart(data1=table_schleswig_holstein, data2=table_mecklenburg_vorpommern, varname='Population', label1='Schleswig-Holstein', 
+            label2='Mecklenburg-Vorpommern', location='center left', title='Total Population in MV and SH')
+    
+    # checking for some other employment developments 
+label= ['SH Helper', 'SH without educ', 'SH with educ','MV Helper', 'MV without educ', 'MV with educ']
+pc.my_chart_extensive(data1=table_schleswig_holstein, data2=table_mecklenburg_vorpommern, varname1='Helper', 
+                      varname2='without educ', varname3='with educ', label=label, title='Employment levels in MV and SH')
+
+
 table_mecklenburg_vorpommern['Treat'], table_schleswig_holstein['Treat'] = 0,1
 table_MV_SH = pd.concat([table_mecklenburg_vorpommern, table_schleswig_holstein]).reset_index(drop=True)
 
@@ -238,7 +250,19 @@ pc.my_chart(data1= table_genf, data2=table_waadt, varname = 'Unemployment',
 pc.my_chart(data1= table_genf, data2=table_waadt, varname = 'Unemployment Rate', 
             label1 = 'Geneva', label2 = 'Vaud', location= 'upper right', 
             title = 'Unemployment Rate in Geneva and Vaud')
-   
+ # checking the development of the number of refugees
+pc.my_chart(data1=table_genf, data2=table_waadt, varname='Refugees/Pop', label1= 'Geneva', 
+            label2='Vaud', location='upper right', title= 'Refugees rel. to the pop. in Geneva and Vaud')
+    # checking the development of population in general
+pc.my_chart(data1=table_genf, data2=table_waadt, varname='Population', label1='Geneva', 
+            label2='Vaud', location='center left', title='Total Population in Geneva and Vaud')
+    
+    # checking for some other employment developments 
+label= ['GE Permit B empl', 'GE Permit B unempl', 'GE total settled','VD Permit B empl', 'VD Permit B unempl', 'VD total settled']
+pc.my_chart_extensive(data1=table_genf, data2=table_waadt, varname1='Residents Permit B employed', 
+                      varname2='Residents Permit B unempl', varname3='Settled Total', label=label, title='Employment levels in Geneva and Vaud')
+      
+
 table_genf['Treat'], table_waadt['Treat'] = 0,1
 table_genf_waadt = pd.concat([table_genf, table_waadt]).reset_index(drop=True)
 
@@ -260,7 +284,19 @@ pc.my_chart(data1= table_aargau, data2=table_solothurn, varname = 'Unemployment'
 pc.my_chart(data1= table_aargau, data2=table_solothurn, varname = 'Unemployment Rate', 
             label1 = 'Aargau', label2 = 'Solothurn', location= 'upper left', 
             title = 'Unemployment Rate in Aargau and Solothurn')
-   
+  # checking the development of the number of refugees
+pc.my_chart(data1=table_aargau, data2=table_solothurn, varname='Refugees/Pop', label1= 'Aargau', 
+            label2='Solothurn', location='upper right', title= 'Refugees rel. to the pop. in Aargau and Solothurn')
+    # checking the development of population in general
+pc.my_chart(data1=table_aargau, data2=table_solothurn, varname='Population', label1='Aargau', 
+            label2='Solothurn', location='center left', title='Total Population in Aargau and Solothurn')
+    
+    # checking for some other employment developments 
+label= ['AG Permit B empl', 'AG Permit B unempl', 'AG total settled','SO Permit B empl', 'SO Permit B unempl', 'SO total settled']
+pc.my_chart_extensive(data1=table_aargau, data2=table_solothurn, varname1='Residents Permit B employed', 
+                      varname2='Residents Permit B unempl', varname3='Settled Total', label=label, title='Employment levels in Aargau and Solothurn')
+      
+  
 table_aargau['Treat'], table_solothurn['Treat'] = 0,1
 table_aargau_solothurn = pd.concat([table_aargau, table_solothurn]).reset_index(drop=True)
 
