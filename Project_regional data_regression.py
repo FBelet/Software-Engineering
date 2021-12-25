@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 
 
 # set working directory
-PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
+PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
 sys.path.append(PATH)
 
 
@@ -31,7 +31,7 @@ OUTPUT_NAME = 'Project_Output_Regression2'
 orig_stdout = sys.stdout
 sys.stdout = pc.Output(path=PATH, name=OUTPUT_NAME)
 
-PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
+PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
 
 ## Regional Data for Germany ##
 table_thüringen= pd.read_csv(PATH2 + 'table_thüringen.csv')
@@ -132,8 +132,8 @@ pc.my_chart(data1=table_schleswig_holstein, data2=table_mecklenburg_vorpommern, 
             label2='Mecklenburg-Vorpommern', location='upper left', title= 'Refugees rel. to the pop. in MV and SH')
 
     # checking the development of population in general
-pc.my_chart(data1=table_schleswig_holstein, data2=table_mecklenburg_vorpommern, varname='Population', label1='Schleswig-Holstein', 
-            label2='Mecklenburg-Vorpommern', location='center left', title='Total Population in MV and SH')
+pc.my_chart(data1=table_schleswig_holstein, data2=table_mecklenburg_vorpommern, varname='Population', label1='SH', 
+            label2='MV', location='center left', title='Total Population in MV and SH')
     
     # checking for some other employment developments 
 label= ['SH Helper', 'SH without educ', 'SH with educ','MV Helper', 'MV without educ', 'MV with educ']
@@ -150,6 +150,8 @@ Y_NAME2= 'Empl Foreigners'
 Y_NAME3= 'Unemployment Rate'
 D_NAME= 'Treat'
 T_NAME= 'Year'
+
+
     # getting the ATET
 pc.my_atet(data= table_MV_SH, outcome= Y_NAME1, treat= D_NAME, time= T_NAME)
 pc.my_atet(data= table_MV_SH, outcome= Y_NAME2, treat= D_NAME, time= T_NAME)

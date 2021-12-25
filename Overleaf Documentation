@@ -169,11 +169,10 @@ Link to work on Latex file: https://de.overleaf.com/6326667166dbkpmrwpsmnm
     = E[Y^0|X=x, T=1] - E[Y^0| X=x, T=0],  \forall x\in\chi\vspace{-0.3em}
     \end{gathered}
     \end{equation}\vspace{-0.3em}
-    \item \emph{Common support:} This assumption can be tested and states that for any value of the confounding variables a unit can potentially be observed with D=1 or D=0; $0 < P(D=1 \mid X=x) < 1$ for all x in the support of X. This means that for identical individuals based on x, being D=1 or D=0 is random. Hence the conditional treatment probability (propensity score) is bounded away from zero and one.\vspace{-0.3em}
+    \item \emph{Common support:} This assumption states that for any value of the confounding variables a unit can potentially be observed with D=1 or D=0; $0 < P(D=1 \mid X=x) < 1$ for all x in the support of X. This means that for identical individuals based on x, being D=1 or D=0 is random. Hence the conditional treatment probability (propensity score) is bounded away from zero and one.\vspace{-0.3em}
     \item \emph{Exogeneity of confounders:} The covariates are not affected by the treatment in a way that is related to the outcome variables. This means that the confounders are not influenced by the treatment itself. A sufficient condition for exogeneity would be: $X^d = X^1^-^d$. If we do not have exogeneity, we have the problem of conditioning already on part of the treatment effect, which will lead to a bias in the treatment effect (converges towards 0).\vspace{-0.3em}
     \item \emph{SUTVA:} This assumption excludes spillover effects. It means that the observed outcomes in one treatment state correspond to the potential outcome of this state for the specific individuals/ observations of this state: $Y = DY^1 + (1-D)Y^0$. Hence everybody needs to be specifically assigned to either treatment group and there cannot be any relevant interactions between the treatments. Receiving treatment for individual A does not influence the potential outcome for individual B.
 \end{itemize}\\
-
 \noindent The parameter of interest for this analysis is the average treatment effect (ATE), which is the overall assessment of the treatment. The ATE is a measure for average population effects and defined as: $ATE = E(Y^1 - Y^0) = E(Y^1) - E(Y^0)$. Where $Y^1$ is the potential outcome for the treated and $Y^0$ is the potential outcome for the untreated or for the controls. The ATE is a measure of the difference in the mean of the potential outcome of the treated and the mean of the potential outcome of the untreated. It is important to allow for effect heterogeneity. It is possible to use the ATE and represent the average treatment effect of the treated (ATET) as well:\
 \begin{equation}
     \begin{gathered}
@@ -188,20 +187,186 @@ Link to work on Latex file: https://de.overleaf.com/6326667166dbkpmrwpsmnm
 \section{Process of Project}
 \subsection{Data Preparation}
 \subsubsection*{National Data}
+\noindent For the analysis we gather different data for Germany as well as Switzerland. We faced the problem of different availability of information in the different countries. For Germany we find relevant information especially on "geringfügige Beschäftigungsverhältnisse", meaning low-income employment positions. This data is of special interest, since one could assume that an increased amount of refugees that start working within Germany could have a potential impact on these employment positions. There is no comparable information in Switzerland, since the data in Switzerland sets a focus on the different sectors. In the end, we use the information to get an overview of the trends and characteristics of the relevant country. For the analysis on a national level, we focus on data on employment in general, employment of foreigners and unemployment.
+\subsubsection*{Regional Data}
+\noindent For the regional analysis we find the same information for the Bundesländer as we found for Germany as a whole country. Therefore we have now the opportunity to compare the "geringfügige Beschäftigungsverhältnisse" and how they change related to the increase in the amount of refugees. Therefore we focus on "geringfügiges" employment, employment of foreigners and the unemployment rate. For Switzerland the cantonal data is less comprehensive. There is no data on regional employment levels available, which complicates the analysis. For the cantons of Switzerland we therefore focus on data on unemployment and the unemployment rate. 
+\newpage
+
+\subsection{Data Selection}
+\noindent For the national analysis we first look at the development of refugees relative to the population of the corresponding country.\\
+
+\begin{figure}[!ht]
+\begin{center}   
+\includegraphics[width=0.7\textwidth]{Refugees to popl DE CH.png}\vspace{-0.5em}
+\end{center}\vspace{-0.5em}
+\caption{Refugees to Population DE and CH\vspace{-1em}}
+\label{fig:table-frameworks-overlap}
+\end{figure}
+\noindent When we look at the number of refugees relative to population size, we can see a development as expected. The numbers in Germany increase exponentially from mid-2014 while they only increase linearly in Switzerland. After 2016 this exponential trend levels off. For this analysis we therefore define Germany as the treatment group, due to the large amount of refugees compared to Switzerland. Switzerland is then defined as the control group. Switzerland accepted as well some refugees, but there is no large peak from 2015 as observed in Germany.\\
+
+\noindent For the regional analysis we first analysed the trends in the different cantons and Bundesländer by looking at the development of refugees relative to the population as well as the development of total employment in German Bundesländer. By calculating the amount of refugees relative to the population, we try to find two cantons/Bundesländer which are comparable on characteristics but display large differences in the change in refugees to population. For Germany we observe the following:\\
+\newpage
+\begin{figure}[!ht]
+\begin{center}   
+\includegraphics[width=0.5\textwidth]{Refugees to popl table Germany.png}\vspace{-0.5em}
+\end{center}\vspace{-0.5em}
+\caption{Refugees to Population German Bundesländer\vspace{-0.5em}}
+\label{fig:table-frameworks-overlap}
+\end{figure}
+\noindent Looking at the table we conclude that two Bundesländer which would be good for comparison are Mecklenburg-Vorpommern and Schleswig-Holstein as they are very comparable since they are located next to each other and have a comparable size. Also they are on opposite ends regarding the change in refugees per population. Another idea would be to compare Mecklenburg-Vorpommern and Bremen since they took in the least and most refugees relative to their population, respectively. However, one is a city and one is not densely populated so they may not be directly comparable. We define Schleswig-Holstein as the treatment group, since it has a higher amount of refugees than Mecklenburg-Vorpommern, which is the control group. Therefore we conduct our analysis on Mecklenburg-Vorpommern and Schleswig-Holstein and gather the information in the following graph:\\
+\newpage
+\begin{figure}[!ht]
+\begin{center}   
+\includegraphics[width=0.7\textwidth]{Refugees to popl MV SH.png}\vspace{-0.5em}
+\end{center}\vspace{-0.5em}
+\caption{Refugees to Population MV SH\vspace{-0.5em}}
+\label{fig:table-frameworks-overlap}
+\end{figure}\\
+
+\noindent For Switzerland we observe the following trends in change in refugees to population:
+\begin{figure}[!ht]
+\begin{center}   
+\includegraphics[width=0.3\textwidth]{Refugees to popl table Switzerland.png}\vspace{-0.5em}
+\end{center}\vspace{-0.5em}
+\caption{Refugees to Population Swiss cantons\vspace{-0.5em}}
+\label{fig:table-frameworks-overlap}
+\end{figure}\\
+\noindent Looking at the Figure 8 we conclude that cantons that would be good for comparison are Aargau and Solothurn, Vaud and Geneva or Schwyz and Glarus. All of these canton pairs are located next to each other and have comparable characteristics. And they have as well a opposite trend regarding the change in refugees per population. We decide to compare as well Aargau and Solothurn and Vaud and Geneva. We define Solothurn as the treatment group, due to the higher amount of refugees and Aargau as the control group. Regarding the other pair of cantons; Vaud is considered the treatment group due to the same reasoning and Geneva the control group. We gather the information in the following graphs:
+\begin{figure}[!htb]
+    \minipage{0.5\textwidth}
+      \includegraphics[width=\linewidth]{Refugees to popl AG SO.png}
+      \caption{Refugees to Population AG and SO\vspace{-0.5em}}\label{fig:Employment}
+    \endminipage\hfill
+    \minipage{0.5\textwidth}
+      \includegraphics[width=\linewidth]{Refugees to popl GE VD.png}
+      \caption{Refugees to Population GE and VD\vspace{-0.5em}}\label{fig:Employment Foreigners}
+    \endminipage\hfill
+\end{figure}\\
+
+\subsection{Difference-in-Difference Approach}
+\subsubsection*{National Data}
+\noindent In the following the identifying assumptions for the difference-in-difference method will be analyzed. In order for the method to result in valuable results the assumptions have to be validated. At first we look at the assumptions used for the national data.
+\begin{itemize}
+    \item \emph{Common Trend:} In order to validate the necessary common trend assumption, we looked at the development of the unemployment rate, the total employment level, the employment level of foreigners as well as the population data over time in Switzerland and Germany.\newpage
+\begin{figure}[!htb]
+    \minipage{0.5\textwidth}
+      \includegraphics[width=\linewidth]{Employment DE CH.png}
+      \caption{Employment DE and CH\vspace{-0.5em}}\label{fig:Employment}
+    \endminipage\hfill
+    \minipage{0.5\textwidth}
+      \includegraphics[width=\linewidth]{Employment foreigners DE CH.png}
+      \caption{Employment Foreigners DE and CH\vspace{-0.5em}}\label{fig:Employment Foreigners}
+    \endminipage\hfill
+\end{figure}\\
+
+\begin{figure}[!htb]
+    \minipage{0.5\textwidth}%
+      \includegraphics[width=\linewidth]{Population DE CH.png}
+      \caption{Population DE and CH\vspace{-0.5em}}\label{fig:Population}
+    \endminipage 
+    \minipage{0.5\textwidth}%
+      \includegraphics[width=\linewidth]{Unemployment rate DE CH.png}
+      \caption{Unemployment Rate DE and CH\vspace{-0.5em}}\label{fig:Refugees/Population}
+    \endminipage 
+\end{figure}
+    \noindent As one can see, the trends pre-2015 (pre-treatment) are similar but not all the same. However, we can make the assumption that Germany and Switzerland are comparable since they have similar demographics, institutions etc. Therefore, the common trend assumptions can be verified and the two countries have a common pre-treatment trend.
+    \item \emph{Common support:} For common support to hold, the probability to belong to the treatment or the control group has to be as good as random. In the case of the national data, it has to be mentioned that taking in refugees as a country is not completely random, but depends on international agreements as well as on other circumstances and obligations. Additionally, since Germany is part of the EU which entails additional agreements regarding refugees, the probability that Germany takes more refugees in than Switzerland is greater than zero. Therefore, the amount of refugees in a specific country relates to some conditions, but overall it can be assumed that if refugees decide to enter Switzerland or Germany is as good as random as they start their migration to Europe, since the two countries are comparable. To conclude, we assume that there is conditional random assignment of the treatment states in this case, meaning the assumption of common support can be validated.
+    \item \emph{Exogeneity of confounders:} We assume that the covariates are not related to the treatment in a way that as well impacts the potential outcome. This means that the used covariates we observe are not related to the fact that the amount of refugees increased in a way that simultaneously has effects on employment or unemployment levels. We could assume that individuals in for example Germany already anticipate the increase in the amount of refugees and change their behavior accordingly. If they do this in a way that impacts also the employment or unemployment levels (outcome variables), endogeneity of such control variables is a problem. In our case, it is relatively unlikely that the population of the two countries anticipated the fast increase in refugees in 2015. To conclude, we assume that since we do not detect any contradicting information, the exogeneity assumption holds.
+    \item \emph{SUTVA:} For the SUTVA assumption to hold, receiving treatment in Germany has no impact on the potential outcome for Switzerland. According to the data and general observations, there is no clearly visible way in which the admission of refugees in Germany impacts employment trends in Switzerland. One could state, that an increased amount of refugees in Germany, decrease the open employment position within the country and therefore Germans seek employment in Switzerland and ultimately have an impact on employment levels. And through this might impact as well unemployment outcomes, since this process could lead to a lower amount of available jobs for the Swiss working population. However, we assume that this turn of events is relatively unlikely and will not be further discussed. Therefore, we conclude that since we do not detect any contradicting information, the SUTVA assumption can be validated and there are no general equilibrium effects.
+\end{itemize}
+\noindent To summarize, according to our analysis all the identifying assumption can be verified using some generalizations and the analysis should lead to a plausible result.\\
 
 \subsubsection*{Regional Data}
-\noindent divide into part for regional and national data
-\noindent mention that no data for regional employment etc. in Switzerland
-\subsection{Data Selection}
-\noindent divide into part for regional and national data
-\noindent add the graphs for common trends, why choose which Bundesländer/Kantone to compare // why possible to compare Germany Switzerland
-\subsection{Difference-in-Difference Approach}
-\noindent divide into part of regional and national data
-\noindent explain the actual approach implemented in python (theory of diff-in-diff explained before) and go through assumptions (short)
-\noindent quasi-natural assignment since it is not completely random how refugees are assigned to countries/Bundesländer/Kantone or as well not random how refugees choose to which country to go
+\noindent Now we consider the assumptions used for the difference-in-difference estimation using the regional data within Germany and Switzerland.\newpage
+\begin{itemize}
+    \item \emph{Common Trend:} At first we look at the common trend assumption for the regional data within \textbf{Germany}. As discussed earlier we compare Mecklenburg-Vorpommern and Schleswig-Holstein.\\
+    
+\begin{figure}[!htb]
+    \minipage{0.5\textwidth}
+      \includegraphics[width=\linewidth]{Employment MV SH.png}
+      \caption{Employment MV and SH\vspace{-0.5em}}\label{fig:Employment}
+    \endminipage\hfill
+    \minipage{0.5\textwidth}
+      \includegraphics[width=\linewidth]{Employment foreigners MV SH.png}
+      \caption{Employment Foreigners MV and SH\vspace{-0.5em}}\label{fig:Employment Foreigners}
+    \endminipage\hfill
+\end{figure}
+\begin{figure}[!htb]
+    \minipage{0.5\textwidth}
+      \includegraphics[width=\linewidth]{Total Population MV SH.png}
+      \caption{Population MV and SH\vspace{-0.5em}}\label{fig:Employment}
+    \endminipage\hfill
+    \minipage{0.5\textwidth}
+      \includegraphics[width=\linewidth]{Unemployment rate MV SH.png}
+      \caption{Unemployment Rate MV and SH\vspace{-0.5em}}\label{fig:Employment Foreigners}
+    \endminipage\hfill
+\end{figure}
+\begin{figure}[!ht]
+\begin{center}   
+\includegraphics[width=\linewidth]{Employment levels MV SH.png}\vspace{-0.5em}
+\end{center}
+\caption{Employment levels MV and SH}
+\label{fig:table-frameworks-overlap}
+\end{figure}\newpage
+\noindent As one can see looking at the different graphs, the pre-treatment trends before 2015 are quite similar. Since the two Bundesländer are located next to each other and have comparable size with similar characteristics, we assume that the common trend assumption for the two Bundesländer can be validated.\\
 
+\noindent Now we look at the common trend assumption for the regional analysis within \textbf{Switzerland}. Here we analysed the canton of Aargau and Solothurn, as well as Vaud and Geneva. At first we look at Aargau and Solothurn.
+\begin{figure}[!htb]
+    \minipage{0.3\textwidth}
+      \includegraphics[width=\linewidth]{Population AG SO.png}
+      \caption{\tiny{Population AG and SO}\vspace{-0.5em}}\label{fig:Employment Foreigners}
+    \endminipage\hfill
+    \minipage{0.3\textwidth}
+      \includegraphics[width=\linewidth]{Unemployment rate AG SO.png}
+      \caption{\tiny{Unemployment Rate AG and SO}\vspace{-0.5em}}\label{fig:Employment}
+    \endminipage\hfill
+    \minipage{0.3\textwidth}
+      \includegraphics[width=\linewidth]{Refugees to popl AG SO.png}
+      \caption{\tiny{Refugees to Population AG and SO}\vspace{-0.5em}}\label{fig:Employment Foreigners}
+    \endminipage\hfill
+\end{figure}\\
+\begin{figure}[!ht]
+\begin{center}   
+\includegraphics[width=\linewidth]{Employment levels AG SO.png}\vspace{-0.5em}
+\end{center}
+\caption{Employment levels AG and SO}
+\label{fig:table-frameworks-overlap}
+\end{figure}\newpage
+\noindent Here we observe again that the pre-treatment trends before 2015 are quite similar in the two cantons. Since the two cantons are located right next to each other and therefore have similar democraphics as well as other characteristics. We assume that the common trend assumption can be validated for Aargau and Solothurn.\\
+
+\noindent Now we look as well at the graphs for Vaud and Geneva and see a similar picture.
+\begin{figure}[!htb]
+    \minipage{0.3\textwidth}
+      \includegraphics[width=\linewidth]{Population GE VD.png}
+      \caption{\tiny{Population GE and VD}\vspace{-0.5em}}\label{fig:Employment Foreigners}
+    \endminipage\hfill
+    \minipage{0.3\textwidth}
+      \includegraphics[width=\linewidth]{Unemployment GE VD.png}
+      \caption{\tiny{Unemployment GE and VD}\vspace{-0.5em}}\label{fig:Employment}
+    \endminipage\hfill
+    \minipage{0.3\textwidth}
+      \includegraphics[width=\linewidth]{Refugees to popl GE VD.png}
+      \caption{\tiny{Refugees to Population GE and VD}\vspace{-0.5em}}\label{fig:Employment Foreigners}
+    \endminipage\hfill
+\end{figure}\newpage
+\begin{figure}[!ht]
+\begin{center}   
+\includegraphics[width=\linewidth]{Employment levels GE VD.png}\vspace{-0.5em}
+\end{center}
+\caption{Employment levels GE and VD}
+\label{fig:table-frameworks-overlap}
+\end{figure}
+\noindent We observe a similar pattern as before and the pre-treatment trends before 2015 are comparable in the two cantons. Vaud and Geneva are as well located next to each other, share a language and have other similar characteristics. Therefore, we assume that the common trend assumption can be validated.
+    \item \emph{Common support:} For common support to hold, the probability to belong to the treatment or the control group has to be as good as random. In the case of the regional data, it has to be mentioned that taking in refugees in a specific canton or Bundesland may not be completely random, but depends on national agreements and regulations as well as on other circumstances and obligations. Therefore, the amount of refugees in a specific country relates to some conditions. To conclude, we assume that there is conditional random assignment of the treatment states in this case, meaning the assumption of common support can be validated in the case of Bundesländer as well as cantons.
+    \item \emph{Exogeneity of confounders:} Similar to the discussion regarding the national data, we assume that the covariates are not related to the treatment in a way that as well impacts the potential outcome. This means that the used covariates we observe are not related to the fact that the amount of refugees increased in a way that simultaneously has effects on employment or unemployment levels within a canton or Bundesland. To conclude, we assume that since we do not detect any contradicting information, the exogeneity assumption holds.
+    \item \emph{SUTVA:} Again similar as before, it can be stated, that for the SUTVA assumption to hold, receiving treatment in one canton/Bundesland has no impact on the potential outcome for the other canton/Bundesland. According to the data and general observations, there is no clearly visible way in which the admission of refugees in one canton Bundesland/ canton impacts employment trends in the other one. Therefore, we conclude that since we do not detect any contradicting information, the SUTVA assumption can be validated and there are no general equilibrium effects. 
+\end{itemize}\\
+
+\noindent To conclude, we assume that all the identifying assumptions can be validated for the cantons as well as Bundesländer of interest. Therefore, the analysis should lead to a relevant result.
 
 \newpage
 \section{Results}
-\noindent include table with results and describe them
+\subsubsection*{National Data}
+
+\subsubsection*{Regional Data}
 \end{document}
