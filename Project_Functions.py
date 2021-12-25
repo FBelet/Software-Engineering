@@ -410,7 +410,7 @@ def my_atet(data, outcome, treat, time):
 
     atet = round((y1_1.mean() - y1_0.mean()) - (y0_1.mean() - y0_0.mean()),0)
     atet = str(atet)
-    print('The ATET is for ' + outcome + ' is ' + atet)
+    print('The ATET for ' + outcome + ' is ' + atet)
 
 
 # create a function to estimate the OLS

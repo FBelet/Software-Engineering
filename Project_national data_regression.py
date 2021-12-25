@@ -105,6 +105,12 @@ pc.my_atet(data=table_all2, outcome=Y_NAME2, treat=D_NAME, time=T_NAME)
 # estimate the ATET by difference of mean differences without covariates (for the unemployment rate)
 pc.my_atet(data=table_all2, outcome=Y_NAME3, treat=D_NAME, time=T_NAME)
 
+# calculating how many refugees came into Germany
+nr_refugees16 = table_germany.loc[(table_germany['Year'] == 2016),'Total refugees'].reset_index(drop=True)
+nr_refugees14 = table_germany.loc[(table_germany['Year'] == 2014),'Total refugees'].reset_index(drop=True)
+diff_refugees = nr_refugees16 - nr_refugees14
+print(diff_refugees)
+
 
 # since we also have data on the employment levels for low-wage jobs in Germany, it would be interesting
 # to look at their development:

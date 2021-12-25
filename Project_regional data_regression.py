@@ -157,6 +157,12 @@ pc.my_atet(data= table_MV_SH, outcome= Y_NAME1, treat= D_NAME, time= T_NAME)
 pc.my_atet(data= table_MV_SH, outcome= Y_NAME2, treat= D_NAME, time= T_NAME)
 pc.my_atet(data= table_MV_SH, outcome= Y_NAME3, treat= D_NAME, time= T_NAME)
 
+# calculating how many refugees came into Schleswig-Holstein
+nr_refugees16 = table_schleswig_holstein.loc[(table_schleswig_holstein['Year'] == 2016),'Foreigners'].reset_index(drop=True)
+nr_refugees14 = table_schleswig_holstein.loc[(table_schleswig_holstein['Year'] == 2014),'Foreigners'].reset_index(drop=True)
+diff_refugees = nr_refugees16 - nr_refugees14
+print(diff_refugees)
+
 
 ###############################################################################
 
