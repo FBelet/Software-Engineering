@@ -16,7 +16,7 @@ import sys
 import pandas as pd
 
 # set working directory
-PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
+PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 sys.path.append(PATH)
 
 
@@ -84,7 +84,7 @@ data_empl_21 = pd.read_excel(xls21, sheet_name=[0,1,2], header=None)
 pc.my_summary_stats(data_germany_foreigners)
 data_germany_foreigners = data_germany_foreigners.dropna() # drop nan values
 data_germany_foreigners = data_germany_foreigners.drop(['weiblich', 'männlich'], axis = 1) # drop column weiblich and männlich
-data_germany_foreigners = data_germany_foreigners.rename(columns = {'Jahr':'Year', 'Insgesamt':'Total refugees'}) # rename columns
+data_germany_foreigners = data_germany_foreigners.rename(columns = {'Jahr':'Year', 'Insgesamt':'Total Refugees'}) # rename columns
 
 pc.my_summary_stats(data_germany_pop)
 data_germany_pop = data_germany_pop.dropna() # drop nan values
@@ -166,7 +166,7 @@ table_empl_total = pd.concat([data_empl_13[2], data_empl_14[2], data_empl_15[2],
                               data_empl_16[2], data_empl_17[2], data_empl_18[2],
                               data_empl_19[2], data_empl_20[2]])
 table_empl_total = table_empl_total.drop(0)
-table_empl_total.columns = ['Year', 'Total Empl', 'Total Empl German', 'Total Empl Foreign']
+table_empl_total.columns = ['Year', 'Total Empl', 'Total Empl German', 'Total Empl Foreigners']
 
 #combining all the single dataframes with information on specific year to one big dataframe containing all the years
 table_germany_empl = pd.concat([table13, table14, table15, table16, table17, table18, table19, table20], axis=0)
@@ -175,7 +175,7 @@ table_germany_empl = pd.concat([table13, table14, table15, table16, table17, tab
 table_germany = pd.merge(pd.merge(table_all, table_germany_empl, on='Year'), table_empl_total, on='Year')
 
 # save dataframe as a table to the working directory
-PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
+PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
 table_germany.to_csv(PATH2 + 'table_germany.csv')
 
 ################################################################################
@@ -259,7 +259,7 @@ data_asyl_20 = data_asyl_20['CH-Nati']
 
 # check for missing values and deal with them
 pc.my_summary_stats(data_swiss_pop) # no missing values and nan values found
-data_swiss_pop.columns = ['Year', 'Population Total', 'Total Pop Swiss', 'Total Pop Foreigners']
+data_swiss_pop.columns = ['Year', 'Total Population', 'Total Pop Swiss', 'Total Pop Foreigners']
 
 pc.my_summary_stats(data_swiss_nat_sec) # some missing values, but not in relevant columns
 drop_values_CH = data_swiss_nat_sec.iloc[:, 13:57]
@@ -298,7 +298,7 @@ table_swiss_general = pd.merge(table_swiss_nat, table_swiss_unempl)
 
 # structure and organize information for 2010
 drop_values_CH2 = [2,3,5,6,8,9,11,12,14,15]
-column_names_CH2 = ['Year', 'Refugees Total', 'Residents Permit B Total', 
+column_names_CH2 = ['Year', 'Total Refugees', 'Residents Permit B Total', 
                     'Residents Permit B employed', 'Residents Permit B unempl', 
                     'Settled Total']
 
