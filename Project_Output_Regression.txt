@@ -1,0 +1,188 @@
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+           na  null  unique  obs
+Jahr        0     0      12   12
+männlich    1     1      12   12
+weiblich    1     1      12   12
+Insgesamt   1     1      12   12
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+           na  null  unique  obs
+Datum       0     0      12   12
+männlich    1     1      12   12
+weiblich    1     1      12   12
+Insgesamt   1     1      12   12
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+              na  null  unique  obs
+Year           0     0      11   11
+Unemployment   0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                   na  null  unique  obs
+Year                0     0      11   11
+Unemployment Rate   0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1

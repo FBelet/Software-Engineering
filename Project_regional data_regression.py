@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 
 
 # set working directory
-PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
+PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 sys.path.append(PATH)
 
 
@@ -31,7 +31,7 @@ OUTPUT_NAME = 'Project_Output_Regression2'
 orig_stdout = sys.stdout
 sys.stdout = pc.Output(path=PATH, name=OUTPUT_NAME)
 
-PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
+PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
 
 ## Regional Data for Germany ##
 table_thüringen= pd.read_csv(PATH2 + 'table_thüringen.csv')
@@ -157,11 +157,9 @@ pc.my_atet(data= table_MV_SH, outcome= Y_NAME1, treat= D_NAME, time= T_NAME)
 pc.my_atet(data= table_MV_SH, outcome= Y_NAME2, treat= D_NAME, time= T_NAME)
 pc.my_atet(data= table_MV_SH, outcome= Y_NAME3, treat= D_NAME, time= T_NAME)
 
-# calculating how many refugees came into Schleswig-Holstein
-nr_refugees16 = table_schleswig_holstein.loc[(table_schleswig_holstein['Year'] == 2016),'Foreigners'].reset_index(drop=True)
-nr_refugees14 = table_schleswig_holstein.loc[(table_schleswig_holstein['Year'] == 2014),'Foreigners'].reset_index(drop=True)
-diff_refugees = nr_refugees16 - nr_refugees14
-print(diff_refugees)
+    # calculating how many refugees came into Schleswig-Holstein
+diff_refugeesSH = table_schleswig_holstein.at[4, 'Foreigners'] - table_schleswig_holstein.at[6, 'Foreigners']
+print(diff_refugeesSH)
 
 
 ###############################################################################
@@ -210,7 +208,7 @@ for i in groupCH:
 
 # adding a column for the number of refugees relative to the population
 for i in groupCH:
-    i['Refugees/Pop'] = (i['Refugees Total']/i['Population'])*100
+    i['Refugees/Pop'] = (i['Total Refugees']/i['Population'])*100
 
 
 # analysing the development of unemployment in the Cantons
@@ -276,11 +274,17 @@ table_genf_waadt = pd.concat([table_genf, table_waadt]).reset_index(drop=True)
 
 Y_NAME1= 'Unemployment'
 Y_NAME2= 'Unemployment Rate'
+Y_NAME3= 'Residents Permit B Total'
 D_NAME= 'Treat'
 T_NAME= 'Year'
     # getting the ATET
 pc.my_atet(data= table_genf_waadt, outcome= Y_NAME1, treat= D_NAME, time= T_NAME)
 pc.my_atet(data= table_genf_waadt, outcome= Y_NAME2, treat= D_NAME, time= T_NAME)
+pc.my_atet(data= table_genf_waadt, outcome= Y_NAME3, treat= D_NAME, time= T_NAME)
+
+    # calculating how many refugees came into Vaud
+diff_refugeesV = table_waadt.at[6, 'Total Refugees'] - table_waadt.at[4, 'Total Refugees']
+print(diff_refugeesV)
 
 
 # ATET estimation with Aargau as the control and Solothurn as the treatment
@@ -311,6 +315,11 @@ table_aargau_solothurn = pd.concat([table_aargau, table_solothurn]).reset_index(
     # getting the ATET
 pc.my_atet(data= table_aargau_solothurn, outcome= Y_NAME1, treat= D_NAME, time= T_NAME)
 pc.my_atet(data= table_aargau_solothurn, outcome= Y_NAME2, treat= D_NAME, time= T_NAME)
+pc.my_atet(data= table_aargau_solothurn, outcome= Y_NAME3, treat= D_NAME, time= T_NAME)
+
+    # calculating how many refugees came into Solothurn
+diff_refugeesSO = table_solothurn.at[6, 'Total Refugees'] - table_solothurn.at[4, 'Total Refugees']
+print(diff_refugeesSO)
 
 
 # closing the output file

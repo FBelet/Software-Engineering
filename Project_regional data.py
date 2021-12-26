@@ -16,7 +16,7 @@ import sys
 import pandas as pd
 
 # set working directory
-PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
+PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 sys.path.append(PATH)
 
 
@@ -184,7 +184,7 @@ Table_Thüringen = pd.merge(pd.merge(Thüringen_3, Thüringen_2, on='Year'), Th�
 Table_Thüringen = pd.merge(pd.merge(Table_Thüringen, Thüringen_1), Thüringen_unempl, on='Year' )
 
 # saving the final dataset for further analysis
-PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
+PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
 Table_Thüringen.to_csv(PATH2 + 'table_thüringen.csv')
 
 
@@ -650,7 +650,7 @@ pc.my_summary_stats(data_swiss_unempl_rate) # no missing values
 
 drop_rows = [0,1,2,3,4,5,6]
 drop_values = [3,4,6,7,9,10,12,13,15,16]
-column_names = ['Canton', 'Year', 'Refugees Total', 'Residents Permit B Total', 
+column_names = ['Canton', 'Year', 'Total Refugees', 'Residents Permit B Total', 
                     'Residents Permit B employed', 'Residents Permit B unempl', 
                     'Settled Total']
 data_asyl_10 = pc.organize_CH_asyl(data_asyl_10, drop_rows, drop_values, column_names)
