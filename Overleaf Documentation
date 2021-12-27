@@ -115,7 +115,7 @@ Link to work on Latex file: https://de.overleaf.com/6326667166dbkpmrwpsmnm
 
 \section{Introduction}
 \setcounter{page}{1}
-\noindent The year 2015 marks the start of what later is famously called the "European refugee crisis". In 2015 more than a million people crossed into Europe as migrants and refugees. The crisis led to countries struggling with the influx, and it created a division within the EU and Europe as a whole. Most of these people arrived by sea, but some also made their way over land. Most of the people came from Syria, Afghanistan, and Iraq. According to statistics, Germany received the highest number of new asylum applications in the year 2015, registering more than 486'000 applications. \footnote{BBC News (2016). Migrant crisis: Migration to Europe explained in seven charts.}\vspace{0.1cm}
+\noindent The year 2015 marks the start of what later is famously called the "European refugee crisis". In 2015 more than a million people crossed into Europe as migrants and refugees. The crisis led to countries struggling with the influx, and it created a division within the EU and Europe as a whole. Most of these people arrived by sea, but some also made their way over land. Most of the people came from Syria, Afghanistan, and Iraq. According to statistics, Germany received the highest number of new asylum applications in the year 2015, registering more than 486'000 applications.\footnote{BBC News (2016). Migrant crisis: Migration to Europe explained in seven charts.}\vspace{0.1cm}
 
 \begin{figure}[htp]
     \centering
@@ -133,7 +133,7 @@ Link to work on Latex file: https://de.overleaf.com/6326667166dbkpmrwpsmnm
 \end{figure}
 
 
-\noindent In the following analysis, a particular focus is set on Germany and Switzerland. The goal is to analyze the impact of the European refugee crisis on employment outcomes, including unemployment numbers. The research question is: \textit{To what extent did the refugee crisis in 2015 impact employment outcomes in Switzerland and Germany?} To answer this question, we use a difference-in-difference approach. We divide the analysis into two parts, where we first focus on national data and compare Germany with Switzerland as whole countries. For this analysis, we assume that Germany is a country that had to deal with a large number of refugees, whereas Switzerland had a lower amount of refugees. Secondly, we analyze regional data, comparing "Bundesländer" within Germany and cantons within Switzerland to find regional differences. In Germany, we focused on "geringfügige Beschäftigungsverhältnisse", which describe employment relationship on a maximum of 450 Euro basis per month or a work assignment of a maximum of 70 days per year.\\
+\noindent In the following analysis, a particular focus is set on Germany and Switzerland. The goal is to analyze the impact of the European refugee crisis on employment outcomes, including unemployment numbers. The research question is: \textit{To what extent did the refugee crisis in 2015 impact employment outcomes on a national and regional level comparing Switzerland and Germany?} To answer this question, we use a difference-in-difference approach. We divide the analysis into two parts, where we first focus on national data and compare Germany with Switzerland as whole countries. For this analysis, we assume that Germany is a country that had to deal with a large number of refugees, whereas Switzerland had a lower amount of refugees. Secondly, we analyze regional data, comparing "Bundesländer" within Germany and cantons within Switzerland to find regional differences. In Germany, we focused on "geringfügige Beschäftigungsverhältnisse", which describe employment relationship on a maximum of 450 Euro basis per month or a work assignment of a maximum of 70 days per year.\\
 
 \noindent Looking at the data for asylum applications for Switzerland, there is a clear peak in the year 2015.\footnote{Statista $(2021)$. Anzahl der neuen Asylgesuche in der Schweiz von 2011 bis 2021.} The refugees in Switzerland arrived especially from Eritrea, Syria, Afghanistan, and Turkey. Switzerland has fewer refugees than Germany because Switzerland is quite unattractive as a destination country due to the restrictive asylum policy.\footnote{Amnesty International $(2020)$. Zahlen und Fakten zu Asyl in der Schweiz.} In Switzerland, refugees with a B permit or F permit, meaning recognized refugees, provisionally admitted refugees as well as stateless people, are allowed to seek employment if they register it at the responsible office. Asylum seekers with an N permit and refugees of all permit types living in an asylum center cannot engage in employment. They would need special approval to work.\footnote{Staatssekretariat für Migration $(2021)$. Erwerbstätige aus dem Asylbereich.}
 \begin{figure}[htp]
@@ -367,7 +367,58 @@ Link to work on Latex file: https://de.overleaf.com/6326667166dbkpmrwpsmnm
 
 \newpage
 \section{Results}
+\noindent Lastly, let us come to the results and their implications of our estimations.
 \subsubsection*{National Data}
+\noindent First, we will have a look at the results of the ATET estimation on a national level.\\
+
+\noindent The ATET for \textbf{Total Employment is 1'262'062} \\ 
+\noindent The ATET for \textbf{Total Employment Foreigners is 616'629} \\
+\noindent The ATET for \textbf{Unemployment Rate is -1.0} \\
+
+\noindent Assuming that all identifying assumptions hold, we can see that the influx of refugees led to an increase in the total employment level by approximately 1.3 million and an increase in the employment level for foreigners by approximately 0.6 million. Interestingly, the effect is almost twice as large on the total level of employment. This means that as well the employment of natives increased by approximately the same amount as the employment of foreigners. There are multiple possible explanations for these developments. But importantly, one has to consider that the employment of foreigners includes refugees and other foreigners as well. Perhaps the increase in foreign employment is because the refugees took on jobs in industries that were either desperately in need of workers and/or supporting industries to other industries. The increase in total employment could also be because the residence status of previous foreigners changed into natives and are now considered natives. Additionally, the large number of incoming refugees might have increased open positions and jobs in general, since there was a need for people dealing with the refugees and helping them settle down. Therefore some people found jobs due to the refugee crisis, mainly in the social or administrative sector, which boosted total employment. Considering that between 2014 and 2016, there was an influx of 851'250 refugees in Germany, we can make the assumption that many of them found work since the size of the ATET for the employment of foreigners is 72.4\% as large as the increase in refugees. This statement holds if we assume that the rise in employment of foreigners considers the refugees.\\
+
+\noindent And finally, we can have a look at the effect of the influx of refugees on the employment level of low-wage jobs (“geringfügige Beschäftigungsverhältnisse”). This was estimated with an OLS regression where Total Employment (geringfügig) is the dependent variable. As independent variables, we chose Total Population, Total Refugees, without educ and Year since the low-wage employment level can also be influenced by the development of the total population as well as the number of people without education.\newpage
+
+\begin{figure}[!ht]
+\begin{center}   
+\includegraphics[width=\linewidth]{OLS results_national.png}\vspace{-0.5em}
+\end{center}
+\caption{OLS Results}
+\label{fig:table-frameworks-overlap}
+\end{figure}
+
+\noindent We can see that the number of refugees has a small (0.36) and not statistically significant effect on the level of low-wage employment. Surprisingly, the effect of the year is much larger (-80'843) and negative. Maybe this is because there have been policies on reducing low-wage employment and instead encouraging and helping people to go into jobs that are subject to social insurance contributions ("sozialversicherungspflichtig"). However, this coefficient is also not statically significant as the p-value is larger than 0.1. The only effect which is statistically significant is the effect of the number of people without education on the level of low-wage employment, yet this is also very small (1.8).
 
 \subsubsection*{Regional Data}
+\noindent Next, we will have a look at the results on a regional level. First, we decided to compare Mecklenburg-Vorpommern and Schleswig-Holstein in \textit{Germany} where Schleswig-Holstein (SH) is the treatment “variable”. The results are the following:\\
+
+\noindent The ATET for \textbf{Total Empl is 3'707}\\
+\noindent The ATET for \textbf{Empl Foreigners is 1'071}\\
+\noindent The ATET for \textbf{Unemployment Rate is 1.0}\\
+\noindent and \textbf{36'285 refugees} came into SH between 2014 and 2016.\\
+
+\noindent Here we can see that the employment effect is much smaller than it was on the national level. This implies that most of the refugees who came into SH did not find any employment. This is also in line with the ATET for the Unemployment Rate, which increased by 1.0 due to the refugee influx.\\
+
+\noindent Following, we will have a look at the regional results for \textit{Switzerland}. First, we compared the cantons Geneva and Vaud. Since there was no data available on the regional employment levels for the Swiss cantons, we could only conduct the ATET estimation on the unemployment levels. Additionally, we checked the effect on the number of B permits to see how much of the refugee influx translated into an increase of the permits B, which allow foreigners to work in Switzerland.\\
+
+\noindent The ATET for \textbf{Unemployment is 309}\\
+\noindent The ATET for \textbf{Unemployment Rate is 0.0}\\
+\noindent The ATET for \textbf{Residents Permit B Total is 834}\\
+\noindent and \textbf{1'367 refugees} came into Vaud between 2014 and 2016.\\
+
+\noindent Here, the effect on the labour market was very small or even negligible since the effect on the Unemployment Rate was zero. More specifically, the incoming of 1'367 refugees translated into an effect on the amount of B permits of 834. Since we have a positive effect on the level of unemployment, this implies that most of the refugees with a permit B stayed unemployed.\\ 
+
+\noindent And finally, let’s move to the results of our estimation using Aargau as the control and Solothurn as the treatment.\\
+
+\noindent The ATET for \textbf{Unemployment is -171}\\
+\noindent The ATET for \textbf{Unemployment Rate is 0.0}\\
+\noindent The ATET for \textbf{Residents Permit B Total is -390}\\
+\noindent and \textbf{479 refugees} came into Solothurn between 2014 and 2016.\\
+
+\noindent Again, we have a rather small effect on the labour market with an ATET for the Unemployment Rate of zero. Interestingly, we have a negative effect on the B permits which would imply that the incoming refugees had the effect of less inhabitants possessing a permit B. 
+
+\newpage
+\section{Conclusion}
+\noindent Overall, the results suggest that the refugee crisis positively affected employment levels, both generally and only considering foreigners. To answer the research question; \textit{To what extent did the refugee crisis in 2015 impact employment outcomes on a national and regional level comparing Switzerland and Germany?}, we conclude that the refugee crisis led to a positive effect on the employment levels on a regional and national level. The effect on unemployment is more ambiguous. On a national level, we find that the large influx of refugees decreased the unemployment rate by 1.0, while on a regional level, we find that it depends on the region we look at. However, the labor market effects on a regional level in Switzerland are relatively small or even almost non-existent. The ambiguity lets us question the experimental setup and especially the assumptions we made for the analysis. It may be that, especially on a regional level, the number of refugees who arrived in the region was too small to affect the labor market (for example, in Solothurn, there was only an increase of 479 people). Additionally, there may have been other labor market effects that we didn’t consider, such as policies trying to affect the un-/employment levels. However, to summarise, it can be said that the refugee crisis most likely raised employment levels in the countries affected; thus, many refugees were able to find employment and start a new life.
+
 \end{document}
