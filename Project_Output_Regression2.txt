@@ -1,0 +1,727 @@
+The ATET for Total Empl is 3707.0
+The ATET for Empl Foreigners is 1071.0
+The ATET for Unemployment Rate is 1.0
+36285
+36285
+[4;33mReloaded modules[24m: Project_Functions[0m
+The ATET for Total Empl is 3707.0
+The ATET for Empl Foreigners is 1071.0
+The ATET for Unemployment Rate is 1.0
+36285
+The ATET for Unemployment is 309.0
+The ATET for Unemployment Rate is 0.0
+The ATET for Residents Permit B Total is 834.0
+1367
+The ATET for Unemployment is -171.0
+The ATET for Unemployment Rate is 0.0
+The ATET for Residents Permit B Total is -390.0
+479
+[4;33mReloaded modules[24m: Project_Functions[0m
+The ATET for Total Empl is 1262062.0
+The ATET for Total Empl Foreigners is 616629.0
+The ATET for Unemployment Rate is -1.0
+851250.0
+OLS Estimation Results:
+--------------------------------------------------------------------------------
+Dependent Variable: Total Empl (geringfügig)
+--------------------------------------------------------------------------------
+                          coef            se  t-value  p-value
+intercept         1.847465e+08  1.244494e+08     1.48     0.23
+Total Population -2.100000e-01  3.200000e-01    -0.65     0.56
+Total Refugees    3.600000e-01  4.600000e-01     0.79     0.49
+without educ      1.820000e+00  7.600000e-01     2.38     0.10
+Year             -8.084253e+04  6.675112e+04    -1.21     0.31
+--------------------------------------------------------------------------------
+
+
+
+[4;33mReloaded modules[24m: Project_Functions[0m
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+           na  null  unique  obs
+Jahr        0     0      12   12
+männlich    1     1      12   12
+weiblich    1     1      12   12
+Insgesamt   1     1      12   12
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+           na  null  unique  obs
+Datum       0     0      12   12
+männlich    1     1      12   12
+weiblich    1     1      12   12
+Insgesamt   1     1      12   12
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+              na  null  unique  obs
+Year           0     0      11   11
+Unemployment   0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                   na  null  unique  obs
+Year                0     0      11   11
+Unemployment Rate   0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                                     na  null  unique  obs
+Year                                  0     0       1    1
+Total Empl (geringfügig)              0     0       1    1
+Total Empl German (geringfügig)       0     0       1    1
+Total Empl Foreigners (geringfügig)   0     0       1    1
+Helper                                0     0       1    1
+Skilled worker                        0     0       1    1
+Specialist                            0     0       1    1
+Expert                                0     0       1    1
+without educ                          0     0       1    1
+with educ                             0     0       1    1
+with academic educ                    0     0       1    1
+educ unknown                          0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+           na  null  unique  obs
+Jahr        0     0      11   11
+Total       0     0      11   11
+Schweizer   0     0      11   11
+Ausländer   0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                       na  null  unique  obs
+Unnamed: 0              0     0      20   20
+Erwerbstätige,Total     0     0      20   20
+Sektor 1                0     0      20   20
+Sektor 2                0     0      20   20
+Sektor 3                0     0      20   20
+Schweizer/innen         0     0      20   20
+Sektor 1.1              9     9      12   20
+Sektor 2.1              9     9      12   20
+Sektor 3.1              9     9      12   20
+Ausländer/innen         0     0      20   20
+Sektor 1.2              9     9      12   20
+Sektor 2.2              9     9      12   20
+Sektor 3.2              9     9      12   20
+Erwerbstätige, Männer   0     0      20   20
+Sektor 1.3              0     0      20   20
+Sektor 2.3              0     0      20   20
+Sektor 3.3              0     0      20   20
+Schweizer               0     0      20   20
+Sektor 1.4              9     9      12   20
+Sektor 2.4              9     9      12   20
+Sektor 3.4              9     9      12   20
+Ausländer               0     0      20   20
+Sektor 1.5              9     9      12   20
+Sektor 2.5              9     9      12   20
+Sektor 3.5              9     9      12   20
+Erwerbstätige, Frauen   0     0      20   20
+Sektor 1.6              0     0      20   20
+Sektor 2.6              0     0      20   20
+Sektor 3.6              0     0      20   20
+Schweizerinnen          0     0      20   20
+Sektor 1.7              9     9      12   20
+Sektor 2.7              9     9      12   20
+Sektor 3.7              9     9      12   20
+Ausländerinnen          0     0      20   20
+Sektor 1.8              9     9      12   20
+Sektor 2.8              9     9      12   20
+Sektor 3.8              9     9      12   20
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                       na  null  unique  obs
+Year                    0     0      11   11
+Total Empl              0     0      11   11
+Total Sec.1             0     0      11   11
+Total Sec.2             0     0      11   11
+Total Sec.3             0     0      11   11
+Total Empl Swiss        0     0      11   11
+Total Swiss Sec.1       0     0      11   11
+Total Swiss Sec.2       0     0      11   11
+Total Swiss Sec.3       0     0      11   11
+Total Empl Foreigners   0     0      11   11
+Total Foreign Sec. 1    0     0      11   11
+Total Foreign Sec.2     0     0      11   11
+Total Foreign Sec.3     0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                           na  null  unique  obs
+Unnamed: 0                  0     0      20   20
+Erwerbstätige,Total         0     0      20   20
+Schweizer/innen             0     0      20   20
+Ausländer/innen             0     0      20   20
+Nationalität               20    20       1   20
+EU/EFTA/UK 1                0     0      12   20
+Drittstaaten                0     0      12   20
+Aufenthaltsstatus          20    20       1   20
+Niedergelassene             0     0      20   20
+Aufenthalter/innen          0     0      20   20
+Saisonniers                 0     0       4   20
+Grenzgänger/innen 2         0     0      20   20
+Kurzaufenthalter/innen      0     0      20   20
+Übrige Ausländer/innen 3    0     0      20   20
+Geschlecht                 20    20       1   20
+Erwerbstätige, Männer       0     0      20   20
+Schweizer                   0     0      20   20
+Ausländer                   0     0      20   20
+Nationalität.1             20    20       1   20
+EU/EFTA/UK 1.1              0     0      12   20
+Drittstaaten.1              0     0      12   20
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                na  null  unique  obs
+Year             0     0      11   11
+Empl settled     0     0      11   11
+Empl resident    0     0      11   11
+Empl saison      0     0       1   11
+Empl border      0     0      11   11
+Empl shortterm   0     0      11   11
+Empl other       0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+              na  null  unique  obs
+Year           0     0      11   11
+Unemployment   0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                   na  null  unique  obs
+Year                0     0      11   11
+Unemployment Rate   0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                             na  null  unique  obs
+Year                          0     0       1    1
+Total Refugees                0     0       1    1
+Residents Permit B Total      0     0       1    1
+Residents Permit B employed   0     0       1    1
+Residents Permit B unempl     0     0       1    1
+Settled Total                 0     0       1    1
+--------------------------------------------------------------------------------
+
+
+
+[4;33mReloaded modules[24m: Project_Functions[0m
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                        na  null  unique  obs
+Year                     0     0      12   12
+Baden-Württemberg        0     0      12   12
+Unnamed: 2               0     0      12   12
+Unnamed: 3               0     0      12   12
+Bayern                   0     0      12   12
+Unnamed: 5               0     0      12   12
+Unnamed: 6               0     0      12   12
+Berlin                   0     0      12   12
+Unnamed: 8               0     0      12   12
+Unnamed: 9               0     0      12   12
+Brandenburg              0     0      12   12
+Unnamed: 11              0     0      12   12
+Unnamed: 12              0     0      12   12
+Bremen                   0     0      12   12
+Unnamed: 14              0     0      12   12
+Unnamed: 15              0     0      12   12
+Hamburg                  0     0      12   12
+Unnamed: 17              0     0      12   12
+Unnamed: 18              0     0      12   12
+Hessen                   0     0      12   12
+Unnamed: 20              0     0      12   12
+Unnamed: 21              0     0      12   12
+Mecklenburg-Vorpommern   0     0      12   12
+Unnamed: 23              0     0      12   12
+Unnamed: 24              0     0      12   12
+Niedersachsen            0     0      12   12
+Unnamed: 26              0     0      12   12
+Unnamed: 27              0     0      12   12
+Nordrhein-Westfalen      0     0      12   12
+Unnamed: 29              0     0      12   12
+Unnamed: 30              0     0      12   12
+Rheinland-Pfalz          0     0      12   12
+Unnamed: 32              0     0      12   12
+Unnamed: 33              0     0      12   12
+Saarland                 0     0      12   12
+Unnamed: 35              0     0      12   12
+Unnamed: 36              0     0      12   12
+Sachsen                  0     0      12   12
+Unnamed: 38              0     0      12   12
+Unnamed: 39              0     0      12   12
+Sachsen-Anhalt           0     0      12   12
+Unnamed: 41              0     0      12   12
+Unnamed: 42              0     0      12   12
+Schleswig-Holstein       0     0      12   12
+Unnamed: 44              0     0      12   12
+Unnamed: 45              0     0      12   12
+Thüringen                0     0      12   12
+Unnamed: 47              0     0      12   12
+Unnamed: 48              0     0      12   12
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                          na  null  unique  obs
+Year                       0     0      11   33
+Aufteilung                 0     0       3   33
+Deutschland                0     0      33   33
+  Schleswig-Holstein       0     0      33   33
+  Hamburg                  0     0      33   33
+  Niedersachsen            0     0      33   33
+  Bremen                   0     0      33   33
+  Nordrhein-Westfalen      0     0      33   33
+  Hessen                   0     0      33   33
+  Rheinland-Pfalz          0     0      33   33
+  Baden-Württemberg        0     0      33   33
+  Bayern                   0     0      33   33
+  Saarland                 0     0      33   33
+  Berlin                   0     0      33   33
+  Brandenburg              0     0      33   33
+  Mecklenburg-Vorpommern   0     0      33   33
+  Sachsen                  0     0      33   33
+  Sachsen-Anhalt           0     0      33   33
+  Thüringen                0     0      33   33
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                        na  null  unique  obs
+Year                     0     0      11   11
+Schleswig-Holstein       0     0      11   11
+Hamburg                  0     0      11   11
+Niedersachsen            0     0      11   11
+Bremen                   0     0      11   11
+Nordrhein-Westfalen      0     0      11   11
+Hessen                   0     0      11   11
+Rheinland-Pfalz          0     0      11   11
+Saarland                 0     0      11   11
+Baden-Württemberg        0     0      11   11
+Bayern                   0     0      11   11
+Mecklenburg-Vorpommern   0     0      11   11
+Brandenburg              0     0      11   11
+Berlin                   0     0      11   11
+Sachsen-Anhalt           0     0      11   11
+Thüringen                0     0      11   11
+Sachsen                  0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+                        na  null  unique  obs
+Year                     0     0      11   11
+Schleswig-Holstein       0     0      10   11
+Hamburg                  0     0       9   11
+Niedersachsen            0     0       9   11
+Bremen                   0     0       9   11
+Nordrhein-Westfalen      0     0      10   11
+Hessen                   0     0      10   11
+Rheinland-Pfalz          0     0       9   11
+Saarland                 0     0       7   11
+Baden-Württemberg        0     0       7   11
+Bayern                   0     0       8   11
+Mecklenburg-Vorpommern   0     0      11   11
+Brandenburg              0     0      11   11
+Berlin                   0     0      11   11
+Sachsen-Anhalt           0     0      10   11
+Thüringen                0     0      11   11
+Sachsen                  0     0      11   11
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+    na  null  unique  obs
+0    0     0      12   13
+1    0     0      13   13
+2    0     0      13   13
+3    0     0      13   13
+4    0     0      13   13
+..  ..   ...     ...  ...
+74   0     0      13   13
+75   0     0      13   13
+76   0     0      13   13
+77   0     0      13   13
+78   0     0      13   13
+
+[79 rows x 4 columns]
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+    na  null  unique  obs
+0    0     0      12   12
+1    0     0      12   12
+2    0     0      12   12
+3    0     0      12   12
+4    0     0      12   12
+5    0     0      12   12
+6    0     0      12   12
+7    0     0      12   12
+8    0     0      12   12
+9    0     0      12   12
+10   0     0      12   12
+11   0     0      12   12
+12   0     0      12   12
+13   0     0      12   12
+14   0     0      11   12
+15   0     0      11   12
+16   0     0      11   12
+17   0     0      12   12
+18   0     0      12   12
+19   0     0      12   12
+20   0     0      12   12
+21   0     0      12   12
+22   0     0      12   12
+23   0     0      12   12
+24   0     0      12   12
+25   0     0      12   12
+26   0     0      12   12
+--------------------------------------------------------------------------------
+
+
+
+Descriptive Statistics:
+--------------------------------------------------------------------------------
+    na  null  unique  obs
+0    0     0      12   12
+1    0     0      12   12
+2    0     0      12   12
+3    0     0      12   12
+4    0     0      12   12
+5    0     0      12   12
+6    0     0      12   12
+7    0     0      12   12
+8    0     0      12   12
+9    0     0      12   12
+10   0     0      11   12
+11   0     0      12   12
+12   0     0      12   12
+13   0     0      12   12
+14   0     0      12   12
+15   0     0      12   12
+16   0     0      12   12
+17   0     0      12   12
+18   0     0      12   12
+19   0     0      12   12
+20   0     0      12   12
+21   0     0      12   12
+22   0     0      12   12
+23   0     0      12   12
+24   0     0      12   12
+25   0     0      12   12
+26   0     0      12   12
+--------------------------------------------------------------------------------
+
+
+

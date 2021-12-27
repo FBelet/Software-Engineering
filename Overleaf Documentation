@@ -311,7 +311,7 @@ Link to work on Latex file: https://de.overleaf.com/6326667166dbkpmrwpsmnm
 \end{figure}\newpage
 \noindent As one can see looking at the different graphs, the pre-treatment trends before 2015 are quite similar. Since the two Bundesländer are located next to each other and have a comparable size with similar characteristics, we assume that the common trend assumption for the two Bundesländer can be validated.\\
 
-\noindent Now we look at the common trend assumption for the regional analysis within \textbf{Switzerland}. Here we analysed the canton of Aargau and Solothurn, as well as Vaud and Geneva. At first we look at Aargau and Solothurn.
+\noindent Now we look at the common trend assumption for the regional analysis within \textbf{Switzerland}. Here we analyzed the canton of Aargau and Solothurn, as well as Vaud and Geneva. At first we look at Aargau and Solothurn.
 \begin{figure}[!htb]
     \minipage{0.3\textwidth}
       \includegraphics[width=\linewidth]{Population AG SO.png}
@@ -392,8 +392,8 @@ Link to work on Latex file: https://de.overleaf.com/6326667166dbkpmrwpsmnm
 \subsubsection*{Regional Data}
 \noindent Next, we will have a look at the results on a regional level. First, we decided to compare Mecklenburg-Vorpommern and Schleswig-Holstein in \textit{Germany} where Schleswig-Holstein (SH) is the treatment “variable”. The results are the following:\\
 
-\noindent The ATET for \textbf{Total Empl is 3'707}\\
-\noindent The ATET for \textbf{Empl Foreigners is 1'071}\\
+\noindent The ATET for \textbf{Total Employment is 3'707}\\
+\noindent The ATET for \textbf{Employment Foreigners is 1'071}\\
 \noindent The ATET for \textbf{Unemployment Rate is 1.0}\\
 \noindent and \textbf{36'285 refugees} came into SH between 2014 and 2016.\\
 
@@ -419,6 +419,6 @@ Link to work on Latex file: https://de.overleaf.com/6326667166dbkpmrwpsmnm
 
 \newpage
 \section{Conclusion}
-\noindent Overall, the results suggest that the refugee crisis positively affected employment levels, both generally and only considering foreigners. To answer the research question; \textit{To what extent did the refugee crisis in 2015 impact employment outcomes on a national and regional level comparing Switzerland and Germany?}, we conclude that the refugee crisis led to a positive effect on the employment levels on a regional and national level. The effect on unemployment is more ambiguous. On a national level, we find that the large influx of refugees decreased the unemployment rate by 1.0, while on a regional level, we find that it depends on the region we look at. However, the labor market effects on a regional level in Switzerland are relatively small or even almost non-existent. The ambiguity lets us question the experimental setup and especially the assumptions we made for the analysis. It may be that, especially on a regional level, the number of refugees who arrived in the region was too small to affect the labor market (for example, in Solothurn, there was only an increase of 479 people). Additionally, there may have been other labor market effects that we didn’t consider, such as policies trying to affect the un-/employment levels. However, to summarise, it can be said that the refugee crisis most likely raised employment levels in the countries affected; thus, many refugees were able to find employment and start a new life.
+\noindent Overall, the results suggest that the refugee crisis positively affected employment levels, both generally and only considering foreigners. To answer the research question; \textit{To what extent did the refugee crisis in 2015 impact employment outcomes on a national and regional level comparing Switzerland and Germany?}, we conclude that the refugee crisis led to a positive effect on the employment levels on a regional and national level. The effect on unemployment is more ambiguous. On a national level, we find that the large influx of refugees decreased the unemployment rate by 1.0, while on a regional level, we find that it depends on the region we look at. However, the labor market effects on a regional level in Switzerland are relatively small or even almost non-existent. The ambiguity lets us question the experimental setup and especially the assumptions we made for the analysis. It may be that, especially on a regional level, the number of refugees who arrived in the region was too small to affect the labor market (for example, in Solothurn, there was only an increase of 479 people). Additionally, there may have been other labor market effects that we didn’t consider, such as policies trying to affect the un-/employment levels. However, to summarize, it can be said that the refugee crisis most likely raised employment levels in the countries affected; thus, many refugees were able to find employment and start a new life.
 
 \end{document}
