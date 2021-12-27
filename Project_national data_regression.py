@@ -16,7 +16,7 @@ import pandas as pd
 
 
 # set working directory
-PATH = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/'
+PATH = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/'
 
 sys.path.append(PATH)
 
@@ -33,7 +33,7 @@ sys.stdout = pc.Output(path=PATH, name=OUTPUT_NAME)
 
 
 # import data 
-PATH2 = 'C:/Users/fabie/Universität St.Gallen/Software-Engineering/Final Datasets/'
+PATH2 = '/Users/bereniceflumenbaum/Documents/GitHub/Software Engineering/Final Datasets/'
 
 table_germany = pd.read_csv(PATH2 + 'table_germany.csv')
 table_germany = table_germany.drop('Unnamed: 0', axis=1)
@@ -41,12 +41,10 @@ table_switzerland = pd.read_csv(PATH2 + 'table_switzerland.csv')
 table_switzerland = table_switzerland.drop('Unnamed: 0', axis=1)
 
 # rename columns
-table_germany.rename(columns = {'Total Empl Foreign':'Total Empl Foreigners', 'Total Empl German':
-                                'Total Empl National (CH/DE)'}, 
+table_germany.rename(columns = {'Total Empl German':'Total Empl National (CH/DE)'}, 
                                  inplace = True)
-table_switzerland.rename(columns = {'Population Total': 'Total Population',
-                                   'Refugees Total':'Total refugees', 'Total Empl Swiss':
-                                      'Total Empl National (CH/DE)'}, inplace = True)
+table_switzerland.rename(columns = {'Total Empl Swiss':'Total Empl National (CH/DE)'}, 
+                         inplace = True)
 # drop 2010 to 2012 so that datasets can be merged and compared
 table_switzerland2 = table_switzerland.drop(table_switzerland.index[[0,1,2]], axis=0)
 
@@ -62,8 +60,8 @@ pc.my_chart(data1=table_germany, data2=table_switzerland2, varname='Unemployment
 
 # checking the development of the number of refugees
     # create column for refugees in relation to population
-table_germany['Refugees/Pop'] = (table_germany['Total refugees']/table_germany['Total Population'])*100
-table_switzerland2['Refugees/Pop'] = (table_switzerland2['Total refugees']/table_switzerland2['Total Population'])*100
+table_germany['Refugees/Pop'] = (table_germany['Total Refugees']/table_germany['Total Population'])*100
+table_switzerland2['Refugees/Pop'] = (table_switzerland2['Total Refugees']/table_switzerland2['Total Population'])*100
 
 pc.my_chart(data1=table_germany, data2=table_switzerland2, varname='Refugees/Pop', label1= 'Germany', 
             label2='Switzerland', location='upper left', title= 'Refugees rel. to the pop. in DE and CH')
@@ -105,11 +103,15 @@ pc.my_atet(data=table_all2, outcome=Y_NAME2, treat=D_NAME, time=T_NAME)
 # estimate the ATET by difference of mean differences without covariates (for the unemployment rate)
 pc.my_atet(data=table_all2, outcome=Y_NAME3, treat=D_NAME, time=T_NAME)
 
+# calculating how many refugees came into Germany
+diff_refugees = table_germany.at[3, 'Total Refugees'] - table_germany.at[1, 'Total Refugees']
+print(diff_refugees)
+
 
 # since we also have data on the employment levels for low-wage jobs in Germany, it would be interesting
 # to look at their development:
 Y_NAME3= 'Total Empl (geringfügig)'
-x_names= ('Total Population', 'Total refugees', 'without educ', 'Year')
+x_names= ('Total Population', 'Total Refugees', 'without educ', 'Year')
 
 pc.my_ols(exog=table_germany.loc[:, x_names], outcome= table_germany[Y_NAME3])
 
