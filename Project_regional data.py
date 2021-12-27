@@ -170,7 +170,7 @@ pc.organize_Bundesländer(Thüringen_1, Values2, drop_values3, column_names_3)
 # creating a table for employment data for Thüringen
 Thüringen = pc.create_table(Thüringen)
 Thüringen_1 = pc.create_table2(Thüringen_1)
-names = ['Year', 'Foreigners']
+names = ['Year', 'Total Refugees']
 names2 = ['Year', 'Population']
 names3 = ['Year', 'Unemployment']
 names4 = ['Year', 'Unemployment Rate']

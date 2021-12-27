@@ -63,7 +63,7 @@ for i in groupDE:
 
 # adding a column for the number of refugees relative to the population
 for i in groupDE:
-    i['Refugees/Pop'] = (i['Foreigners']/i['Population'])*100
+    i['Refugees/Pop'] = (i['Total Refugees']/i['Population'])*100
     
     
 # analysing the development of employment and unemployment in the Bundesländer
@@ -158,7 +158,7 @@ pc.my_atet(data= table_MV_SH, outcome= Y_NAME2, treat= D_NAME, time= T_NAME)
 pc.my_atet(data= table_MV_SH, outcome= Y_NAME3, treat= D_NAME, time= T_NAME)
 
     # calculating how many refugees came into Schleswig-Holstein
-diff_refugeesSH = table_schleswig_holstein.at[4, 'Foreigners'] - table_schleswig_holstein.at[6, 'Foreigners']
+diff_refugeesSH = table_schleswig_holstein.at[4, 'Total Refugees'] - table_schleswig_holstein.at[6, 'Total Refugees']
 print(diff_refugeesSH)
 
 
