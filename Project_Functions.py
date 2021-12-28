@@ -16,8 +16,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
-import matplotlib.pyplot as plot
-import statsmodels.api as sm
 
 # create function to get overview over datasets
 def my_summary_stats(data):
